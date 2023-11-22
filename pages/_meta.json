@@ -1,15 +1,21 @@
 {
   "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "get_started": "Get started",
+  "navigation_menu": "Navigation menu",
+  "file_management": "File management",
+  "preprocessing_menu": "Preprocessing menu",
+  "another": "Test Page 1",
+  "advanced": "Test folder 1",
   "about": {
     "title": "About",
-    "type": "page"
+    "type": "page",
+    "href": "https://sftec.es/home",
+    "newWindow": true
   },
   "contact": {
     "title": "Contact ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://sftec.es/contactus",
     "newWindow": true
   }
 }
