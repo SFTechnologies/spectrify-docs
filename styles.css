@@ -1,0 +1,3 @@
+img[src*="#icon"] {
+    width: 50;
+}
