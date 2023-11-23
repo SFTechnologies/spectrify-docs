@@ -1,11 +1,8 @@
 {
   "index": "Introduction",
-  "get_started": "Get started",
-  "navigation_menu": "Navigation menu",
-  "file_management": "File management",
-  "preprocessing_menu": "Preprocessing menu",
-  "another": "Test Page 1",
-  "advanced": "Test folder 1",
+  "workspace_management": "Workspace management",
+  "spectra_management": "Spectra management",
+  "preprocessing": "Preprocessing",
   "about": {
     "title": "About",
     "type": "page",

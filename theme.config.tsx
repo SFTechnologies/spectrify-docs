@@ -1,5 +1,4 @@
-import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import { DocsThemeConfig } from 'nextra-theme-docs';
 
 const config: DocsThemeConfig = {
   logo: <span>SPECTRIFY</span>,
@@ -10,6 +9,10 @@ const config: DocsThemeConfig = {
   footer: {
     text: 'Nextra Docs Template',
   },
+  sidebar: {
+    autoCollapse: true,
+    defaultMenuCollapseLevel: 1
+  }
 }
 
 export default config
