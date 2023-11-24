@@ -1,0 +1,29 @@
+import Image from 'next/image'
+
+## Open workspace
+<hr></hr>
+<br></br>
+<Image src="/images/open_workspace_icon.svg" alt="Open workspace icon" width={50} height={50} />
+
+Enables users to load a previously saved workspace file with a **.spws** extension. 
+
+Upon loading, the workspace will restore the exact state that was saved, including all open documents, window layouts, and any other relevant settings.
+
+<br></br>
+<hr></hr>
+
+<br></br>
+<a href="/workspace_management/save_workspace" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
+  <Image src="/images/save_workspace_icon.svg" alt="save workspace icon" width={35} height={35} />
+  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Save workspace</span>
+</a>
+<br></br>
+<a href="/workspace_management/close_workspace" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
+  <Image src="/images/close_workspace_icon.svg" alt="close workspace icon" width={35} height={35} />
+  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Close workspace</span>
+</a>
+<br></br>
+<a href="/workspace_management/new_workspace" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
+  <Image src="/images/new_workspace_icon.svg" alt="new workspace icon" width={35} height={35} />
+  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>New workspace</span>
+</a>

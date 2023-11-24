@@ -1,0 +1,29 @@
+import Image from 'next/image'
+
+## Close workspace
+<hr></hr>
+<br></br>
+<Image src="/images/close_workspace_icon.svg" alt="Close workspace icon" width={50} height={50} />
+
+Close workspace option ends the current workspace. 
+
+Any unsaved data within the workspace will be lost. This action effectively ends the current workspace session, closing all associated documents and results. Users should ensure that any necessary data is saved before proceeding with the closure of the workspace.
+
+<br></br>
+<hr></hr>
+
+<br></br>
+<a href="/workspace_management/open_workspace" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
+  <Image src="/images/open_workspace_icon.svg" alt="open workspace icon" width={35} height={35} />
+  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Open workspace</span>
+</a>
+<br></br>
+<a href="/workspace_management/save_workspace" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
+  <Image src="/images/save_workspace_icon.svg" alt="save workspace icon" width={35} height={35} />
+  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Save workspace</span>
+</a>
+<br></br>
+<a href="/workspace_management/new_workspace" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
+  <Image src="/images/new_workspace_icon.svg" alt="new workspace icon" width={35} height={35} />
+  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>New workspace</span>
+</a>
