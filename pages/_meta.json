@@ -1,7 +1,7 @@
 {
   "index": "Introduction",
   "workspace_management": "Workspace management",
-  "spectra_management": "Spectra management",
+  "file_management": "File management",
   "preprocessing": "Preprocessing",
   "about": {
     "title": "About",

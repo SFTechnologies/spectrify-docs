@@ -1,0 +1,25 @@
+import Image from 'next/image'
+
+## Export spectra
+<hr></hr>
+<br></br>
+<Image src="/images/export_spectra_icon.svg" alt="export spectra icon" width={50} height={50} />
+
+Allows users to export spectra and their associated metadata in .spsp format. The number in parentheses denotes the count of selected spectra. 
+
+By using the import pop-up, users can conveniently name the spectra and export them through the Operating System's file menu.
+
+
+<br></br>
+<hr></hr>
+
+<br></br>
+<a href="/file_management/import_spectra" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
+  <Image src="/images/import_spectra_icon.svg" alt="import spectra icon" width={35} height={35} />
+  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Import spectra</span>
+</a>
+<br></br>
+<a href="/file_management/delete_spectra" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
+  <Image src="/images/delete_spectra_icon.svg" alt="delete spectra icon" width={35} height={35} />
+  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Delete spectra</span>
+</a>
