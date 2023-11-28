@@ -1,8 +1,9 @@
-import Image from 'next/image'
+import Image from 'next/image';
+import ImageLink from '../../components/ImageLink';
 
 ## Delete spectra
-<hr></hr>
-<br></br>
+<hr />
+<br />
 <Image src="/images/delete_spectra_icon.svg" alt="delete spectra icon" width={50} height={50} />
 
 This tool allows users to delete selected spectra and their metadata from the workspace. The number in parentheses indicates the count of selected spectra. 
@@ -10,16 +11,10 @@ This tool allows users to delete selected spectra and their metadata from the wo
 Please note that this action is irreversible, and the deleted data cannot be recovered.
 
 
-<br></br>
-<hr></hr>
+<br />
+<hr />
 
-<br></br>
-<a href="/file_management/import_spectra" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
-  <Image src="/images/import_spectra_icon.svg" alt="import spectra icon" width={35} height={35} />
-  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Import spectra</span>
-</a>
-<br></br>
-<a href="/file_management/export_spectra" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
-  <Image src="/images/export_spectra_icon.svg" alt="export_spectra_icon" width={35} height={35} />
-  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Export spectra</span>
-</a>
+<br />
+<ImageLink href="/file_management/import_spectra" image={{alt: "import spectra icon", src: "/images/import_spectra_icon.svg"}} text="Import spectra" />
+<br />
+<ImageLink href="/file_management/export_spectra" image={{alt: "export spectra icon", src: "/images/export_spectra_icon.svg"}} text="Export spectra" />
