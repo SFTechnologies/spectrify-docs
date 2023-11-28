@@ -1,0 +1,25 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+
+## Import spectra
+<hr></hr>
+<br></br>
+<Image src="/images/import_spectra_icon.svg" alt="import spectra icon" width={50} height={50} />
+
+Allows users to import spectra and its associated **metadata** into current workspace.
+
+The import pop up allows to directly drag&drop files or navigate through your own Operating System files menu.
+
+Suported files include:
+
+| File Format | Description                     |
+|-------------|---------------------------------|
+| .spsp       | Spectrify native file format    |
+| .csv        | Based on 2-column structure     |
+
+<br />
+<hr />
+<br />
+<ImageLink href="/file_management/export_spectra" image={{alt: "export spectra icon", src: "/images/export_spectra_icon.svg"}} text="Export spectra" />
+<br />
+<ImageLink href="/file_management/delete_spectra" image={{alt: "delete spectra icon", src: "/images/delete_spectra_icon.svg"}} text="Delete spectra" />

@@ -1,0 +1,19 @@
+import Image from 'next/image';
+import ImageLink from '/components/ImageLink';
+
+## Delete spectra
+<hr />
+<br />
+<Image src="/images/delete_spectra_icon.svg" alt="delete spectra icon" width={50} height={50} />
+
+This tool allows users to delete selected spectra and their metadata from the workspace. The number in parentheses indicates the count of selected spectra. 
+
+Please note that this action is irreversible, and the deleted data cannot be recovered.
+
+<br />
+<hr />
+<br />
+<ImageLink href="/file_management/import_spectra" image={{alt: "import spectra icon", src: "/images/import_spectra_icon.svg"}} text="Import spectra" />
+<br />
+<ImageLink href="/file_management/export_spectra" image={{alt: "export spectra icon", src: "/images/export_spectra_icon.svg"}} text="Export spectra" />
+

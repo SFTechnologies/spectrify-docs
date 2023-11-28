@@ -1,0 +1,22 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+
+# File management options
+
+<hr></hr>
+<br></br>
+<Image src="/images/file_management_menu.png" alt="workspace management menu" width={783} height={55} />
+
+
+Enables users to perform essential operations such as importing, exporting, and deleting spectra within the current workspace. 
+
+When a spectrum is loaded, it is uploaded as an instance into the workspace, ensuring that subsequent actions do not modify the original file. This functionality preserves the integrity of the data and provides a reliable and efficient environment for managing spectra.
+
+<br />
+<hr />
+<br />
+<ImageLink href="/file_management/import_spectra" image={{alt: "import spectra icon", src: "/images/import_spectra_icon.svg"}} text="Import spectra" />
+<br />
+<ImageLink href="/file_management/export_spectra" image={{alt: "export spectra icon", src: "/images/export_spectra_icon.svg"}} text="Export spectra" />
+<br />
+<ImageLink href="/file_management/delete_spectra" image={{alt: "delete spectra icon", src: "/images/delete_spectra_icon.svg"}} text="Delete spectra" />

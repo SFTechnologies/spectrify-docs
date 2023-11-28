@@ -1,0 +1,6 @@
+.link {
+    align-items: center;
+    display: flex;
+    font-weight: bold;
+    gap: 0.8em;
+}
