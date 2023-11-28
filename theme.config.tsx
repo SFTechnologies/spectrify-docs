@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { DocsThemeConfig } from 'nextra-theme-docs';
 
 const config: DocsThemeConfig = {
-  logo: <span><Image src="/images/spectrify_logo.svg" alt="spectrify logo" width={200} height={110} /></span>,
+  logo: <Image src="/images/spectrify_logo.svg" alt="spectrify logo" width={200} height={110} />,
   project: {
     link: 'https://github.com/SFTechnologies/spectrify-docs',
   },
