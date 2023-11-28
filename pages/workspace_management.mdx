@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
 
 # Workspace Management
 <hr></hr>
@@ -10,32 +11,20 @@ Workspaces are a fundamental feature in Spectrify, enabling users to explore var
 
 Each workspace operates independently, storing its own spectra, metadata, operation parameters, and analysis results.
 
-The spectral technique beign used is displayed in the workspace tab, next to workspace title.
+The spectral technique beign used is displayed in the workspace tab, next to workspace title. **Unsaved changes** will be warned by a "yellow warning dot" in this area.
+<br></br>
+<Image src="/images/unsaved_workspace_warning_dot.png" alt="unsaved workspace warning dot" width={300} height={55} />
 
 Workspace management options are situated in top of the page, in the title bar. Navigation through the different open workspaces is possible by clicking on corresponding tab.
 
-<br></br>
-<hr></hr>
-
-<br></br>
-<a href="/workspace_management/open_workspace" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
-  <Image src="/images/open_workspace_icon.svg" alt="open workspace icon" width={35} height={35} />
-  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Open workspace</span>
-</a>
-<br></br>
-<a href="/workspace_management/save_workspace" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
-  <Image src="/images/save_workspace_icon.svg" alt="save workspace icon" width={35} height={35} />
-  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Save workspace</span>
-</a>
-<br></br>
-<a href="/workspace_management/close_workspace" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
-  <Image src="/images/close_workspace_icon.svg" alt="close workspace icon" width={35} height={35} />
-  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Close workspace</span>
-</a>
-<br></br>
-<a href="/workspace_management/new_workspace" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
-  <Image src="/images/new_workspace_icon.svg" alt="new workspace icon" width={35} height={35} />
-  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>New workspace</span>
-</a>
-
+<br />
+<hr />
+<br />
+<ImageLink href="/workspace_management/open_workspace" image={{alt: "open workspace icon", src: "/images/open_workspace_icon.svg"}} text="Open workspace" />
+<br />
+<ImageLink href="/workspace_management/save_workspace" image={{alt: "save workspace icon", src: "/images/save_workspace_icon.svg"}} text="Save workspace" />
+<br />
+<ImageLink href="/workspace_management/close_workspace" image={{alt: "close workspace icon", src: "/images/close_workspace_icon.svg"}} text="Close workspace" />
+<br />
+<ImageLink href="/workspace_management/new_workspace" image={{alt: "new workspace icon", src: "/images/new_workspace_icon.svg"}} text="New workspace" />
 

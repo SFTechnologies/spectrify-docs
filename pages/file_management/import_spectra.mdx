@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
 
 ## Import spectra
 <hr></hr>
@@ -16,16 +17,9 @@ Suported files include:
 | .spsp       | Spectrify native file format    |
 | .csv        | Based on 2-column structure     |
 
-<br></br>
-<hr></hr>
-
-<br></br>
-<a href="/file_management/export_spectra" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
-  <Image src="/images/export_spectra_icon.svg" alt="export_spectra_icon" width={35} height={35} />
-  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Export spectra</span>
-</a>
-<br></br>
-<a href="/file_management/delete_spectra" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
-  <Image src="/images/delete_spectra_icon.svg" alt="delete spectra icon" width={35} height={35} />
-  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Delete spectra</span>
-</a>
+<br />
+<hr />
+<br />
+<ImageLink href="/file_management/export_spectra" image={{alt: "export spectra icon", src: "/images/export_spectra_icon.svg"}} text="Export spectra" />
+<br />
+<ImageLink href="/file_management/delete_spectra" image={{alt: "delete spectra icon", src: "/images/delete_spectra_icon.svg"}} text="Delete spectra" />

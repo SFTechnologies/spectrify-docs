@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
 
 ## Save workspace
 <hr></hr>
@@ -9,21 +10,12 @@ Allows users to save the current state of their workspace for future use in **.s
 
 This includes saving the layout of all open and arranged windows, documents, and any other relevant settings into a workspace file. When the workspace is reopened, it will restore the saved layout and settings exactly as they were when the workspace was saved.
 
-<br></br>
-<hr></hr>
+<br />
+<hr />
+<br />
+<ImageLink href="/workspace_management/open_workspace" image={{alt: "open workspace icon", src: "/images/open_workspace_icon.svg"}} text="Open workspace" />
+<br />
+<ImageLink href="/workspace_management/close_workspace" image={{alt: "close workspace icon", src: "/images/close_workspace_icon.svg"}} text="Close workspace" />
+<br />
+<ImageLink href="/workspace_management/new_workspace" image={{alt: "new workspace icon", src: "/images/new_workspace_icon.svg"}} text="New workspace" />
 
-<br></br>
-<a href="/workspace_management/open_workspace" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
-  <Image src="/images/open_workspace_icon.svg" alt="open workspace icon" width={35} height={35} />
-  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Open workspace</span>
-</a>
-<br></br>
-<a href="/workspace_management/close_workspace" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
-  <Image src="/images/close_workspace_icon.svg" alt="close workspace icon" width={35} height={35} />
-  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>Close workspace</span>
-</a>
-<br></br>
-<a href="/workspace_management/new_workspace" className="text-underline-animation-class" style={{ display: 'flex', alignItems: 'center'}}>
-  <Image src="/images/new_workspace_icon.svg" alt="new workspace icon" width={35} height={35} />
-  <span style={{ marginLeft: '0.8em', fontWeight: 'bold' }}>New workspace</span>
-</a>
