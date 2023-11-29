@@ -6,6 +6,24 @@ import ImageLink from '/components/ImageLink';
 <br />
 <Image src="/images/preprocessing_icons/standardization_icon.svg" alt="standardization icon" width={50} height={50} />
 
+Standardization techniques are crucial preprocessing steps in spectral analysis that help to bring all variables to a common scale, without distorting differences in the ranges of values or losing information. These standardization techniques can enhance the comparability and interpretability of the spectral data, and improve the accuracy and robustness of subsequent data analysis.
+
+### Standard Normal Variate (SNV)
+
+SNV is a method that normalizes the spectra by subtracting the mean and dividing by the standard deviation of each spectrum. This method can effectively correct changes in optical path length and light scattering, making the spectra more comparable in terms of intensities.
+
+### Mean Centering
+
+Mean centering is a standardization technique where the mean of each variable is subtracted from every data point. This effectively centers the data around zero and helps reduce multicollinearity in the data. Mean centering is particularly beneficial when variables are measured on scales with arbitrary zeros, enhancing the interpretability of regression results.
+
+### Robust Scaling
+
+Robust scaling is a method that uses medians and interquartile ranges for scaling, instead of means and standard deviations. This makes the method more robust against outliers. By subtracting the median and dividing by the interquartile range (the range between the 25th and 75th percentiles), Robust scaling brings the variable to a common scale with zero median and unit interquartile range.
+
+### Linear Detrending
+
+Linear detrending is a method used to remove any linear trends in a dataset. This technique is often used in spectral analysis when the data exhibits a linear increase or decrease, which can obscure the underlying patterns of interest. By subtracting the best fit line (obtained via linear regression) from the data, linear detrending effectively removes this trend, leaving a 'detrended' dataset that can better reveal the underlying patterns.
+
 <br />
 <hr />
 <br />
