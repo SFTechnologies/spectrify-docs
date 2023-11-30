@@ -1,9 +1,5 @@
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import { DocsThemeConfig } from 'nextra-theme-docs';
-export const frontMatter = {
-  title: "My Section title"
-};
 
 const config: DocsThemeConfig = {
   logo: <Image src="/images/spectrify_logo.svg" alt="spectrify logo" width={200} height={110} />,
@@ -26,20 +22,9 @@ const config: DocsThemeConfig = {
     autoCollapse: true,
     defaultMenuCollapseLevel: 1
   },
-  head: () => {
-    const { asPath, defaultLocale, locale } = useRouter()
-    const url =
-      'https://www.spectrify.app'
-
-    return (
-      <>
-        <meta property="og:url" content={url} />
-        <meta property="og:title" content={'Spectrify Docs'} />
-      </>
-    )
-  }
+  head:
+  <title>Spectrify Docs</title>
 }
-
 
 export default config
 
