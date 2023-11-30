@@ -1,14 +1,16 @@
 import Image from 'next/image'
 import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/preprocessing/";
 
 ## Baseline correction
 <hr />
 <br />
-<Image src="/images/preprocessing_icons/baseline_icon.svg" alt="baseline icon" width={50} height={50} />
+<Image src={`${imagePath}baseline_icon.svg`} alt="baseline icon" width={65} height={65} />
+
 
 Baseline correction is a preprocessing technique used in spectral analysis to remove the effects of background signals that do not carry useful information about the substances being analyzed. These background signals, also known as the baseline, can be due to instrumental responses, environmental noise, or other non-target substances in the sample. By correcting the baseline, we can improve the clarity and reliability of the spectral features associated with the target substances, making it easier to identify and quantify them.
 
-### AirPLS
+### AirPLS (Adaptive Iteratively Reweighted Penalized Least Squares )
 
 DOI: https://doi.org/10.1039/B922045C 
 
@@ -23,12 +25,12 @@ This method involves fitting a polynomial function to the baseline of the spectr
 <br />
 <hr />
 <br />
-<ImageLink href="/preprocessing/standardization" image={{alt: "standardization icon", src: "/images/preprocessing_icons/standardization_icon.svg"}} text="Standarization" />
+<ImageLink href="/preprocessing/standardization" image={{alt: "standardization icon", src: `${imagePath}standardization_icon.svg`}} text="Standarization" />
 <br />
-<ImageLink href="/preprocessing/normalization" image={{alt: "normalization icon", src: "/images/preprocessing_icons/normalization_icon.svg"}} text="Normalization" />
+<ImageLink href="/preprocessing/normalization" image={{alt: "normalization icon", src: `${imagePath}normalization_icon.svg`}} text="Normalization" />
 <br />
-<ImageLink href="/preprocessing/offset" image={{alt: "offset icon", src: "/images/preprocessing_icons/offset_icon.svg"}} text="Offset" />
+<ImageLink href="/preprocessing/offset" image={{alt: "offset icon", src: `${imagePath}offset_icon.svg`}} text="Offset" />
 <br />
-<ImageLink href="/preprocessing/peak_detection" image={{alt: "peak detection icon", src: "/images/preprocessing_icons/peak_detection_icon.svg"}} text="Peak detection" />
+<ImageLink href="/preprocessing/peak_detection" image={{alt: "peak detection icon", src: `${imagePath}peak_detection_icon.svg`}} text="Peak detection" />
 <br />
-<ImageLink href="/preprocessing/smoothing" image={{alt: "smoothing icon", src: "/images/preprocessing_icons/smoothing_icon.svg"}} text="Smoothing" />
+<ImageLink href="/preprocessing/smoothing" image={{alt: "smoothing icon", src: `${imagePath}smoothing_icon.svg`}} text="Smoothing" />

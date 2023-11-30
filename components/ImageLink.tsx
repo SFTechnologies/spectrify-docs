@@ -34,23 +34,4 @@ const ImageLink = ({href, image, text}: ImageLinkProps) => {
   );
 };
 
-
-interface ImageIconProps {
-  image : {
-      alt: string,
-      src:  string,
-  },
-}
-
-const ImageIcon = ({image}: ImageIconProps) => {
-  return (
-      <Image
-        alt={image.alt}
-        src={image.src}
-        width={60}
-        height={60}
-      />
-  );
-};
-
-export default ImageLink; ImageIcon;
+export default ImageLink;

@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/preprocessing/";
 
 ## Standardization
 <hr />
 <br />
-<Image src="/images/preprocessing_icons/standardization_icon.svg" alt="standardization icon" width={50} height={50} />
+<Image src={`${imagePath}standardization_icon.svg`} alt="standardization icon" width={65} height={65} />
 
 Standardization techniques are crucial preprocessing steps in spectral analysis that help to bring all variables to a common scale, without distorting differences in the ranges of values or losing information. These standardization techniques can enhance the comparability and interpretability of the spectral data, and improve the accuracy and robustness of subsequent data analysis.
 
@@ -27,12 +28,12 @@ Linear detrending is a method used to remove any linear trends in a dataset. Thi
 <br />
 <hr />
 <br />
-<ImageLink href="/preprocessing/baseline_correction" image={{alt: "baseline correction icon", src: "/images/preprocessing_icons/baseline_icon.svg"}} text="Baseline correction" />
+<ImageLink href="/preprocessing/baseline_correction" image={{alt: "baseline correction icon",src: `${imagePath}baseline_icon.svg`}} text="Baseline correction" />
 <br />
-<ImageLink href="/preprocessing/normalization" image={{alt: "normalization icon", src: "/images/preprocessing_icons/normalization_icon.svg"}} text="Normalization" />
+<ImageLink href="/preprocessing/normalization" image={{alt: "normalization icon", src: `${imagePath}normalization_icon.svg`}} text="Normalization" />
 <br />
-<ImageLink href="/preprocessing/offset" image={{alt: "offset icon", src: "/images/preprocessing_icons/offset_icon.svg"}} text="Offset" />
+<ImageLink href="/preprocessing/offset" image={{alt: "offset icon", src: `${imagePath}offset_icon.svg`}} text="Offset" />
 <br />
-<ImageLink href="/preprocessing/peak_detection" image={{alt: "peak detection icon", src: "/images/preprocessing_icons/peak_detection_icon.svg"}} text="Peak detection" />
+<ImageLink href="/preprocessing/peak_detection" image={{alt: "peak detection icon", src: `${imagePath}peak_detection_icon.svg`}} text="Peak detection" />
 <br />
-<ImageLink href="/preprocessing/smoothing" image={{alt: "smoothing icon", src: "/images/preprocessing_icons/smoothing_icon.svg"}} text="Smoothing" />
+<ImageLink href="/preprocessing/smoothing" image={{alt: "smoothing icon", src: `${imagePath}smoothing_icon.svg`}} text="Smoothing" />
