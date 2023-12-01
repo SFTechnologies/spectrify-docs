@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/file_management/";
 
 ## Import spectra
 <hr></hr>
 <br></br>
-<Image src="/images/import_spectra_icon.svg" alt="import spectra icon" width={50} height={50} />
+<Image src={`${imagePath}import_spectra_icon.svg`} alt="delete spectra icon" width={65} height={65} />
 
-Allows users to import spectra and its associated **metadata** into current workspace.
+Allows users to import spectra and its associated metadata into current workspace.
 
 The import pop up allows to directly drag&drop files or navigate through your own Operating System files menu.
 
@@ -20,6 +21,6 @@ Suported files include:
 <br />
 <hr />
 <br />
-<ImageLink href="/file_management/export_spectra" image={{alt: "export spectra icon", src: "/images/export_spectra_icon.svg"}} text="Export spectra" />
+<ImageLink href="/file_management/export_spectra" image={{alt: "export spectra icon", src: `${imagePath}export_spectra_icon.svg`}} text="Export spectra" />
 <br />
-<ImageLink href="/file_management/delete_spectra" image={{alt: "delete spectra icon", src: "/images/delete_spectra_icon.svg"}} text="Delete spectra" />
+<ImageLink href="/file_management/delete_spectra" image={{alt: "delete spectra icon", src: `${imagePath}delete_spectra_icon.svg`}} text="Delete spectra" />

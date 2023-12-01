@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/file_management/";
 
 # File management options
 
 <hr></hr>
 <br></br>
-<Image src="/images/file_management_menu.png" alt="workspace management menu" width={783} height={55} />
-
+<Image src={`${imagePath}file_management_menu.png`} alt="workspace management menu" width={750} height={55} />
 
 Enables users to perform essential operations such as importing, exporting, and deleting spectra within the current workspace. 
 
@@ -15,8 +15,8 @@ When a spectrum is loaded, it is uploaded as an instance into the workspace, ens
 <br />
 <hr />
 <br />
-<ImageLink href="/file_management/import_spectra" image={{alt: "import spectra icon", src: "/images/import_spectra_icon.svg"}} text="Import spectra" />
+<ImageLink href="/file_management/import_spectra" image={{alt: "import spectra icon", src: `${imagePath}import_spectra_icon.svg`}} text="Import spectra" />
 <br />
-<ImageLink href="/file_management/export_spectra" image={{alt: "export spectra icon", src: "/images/export_spectra_icon.svg"}} text="Export spectra" />
+<ImageLink href="/file_management/export_spectra" image={{alt: "export spectra icon", src: `${imagePath}export_spectra_icon.svg`}} text="Export spectra" />
 <br />
-<ImageLink href="/file_management/delete_spectra" image={{alt: "delete spectra icon", src: "/images/delete_spectra_icon.svg"}} text="Delete spectra" />
+<ImageLink href="/file_management/delete_spectra" image={{alt: "delete spectra icon", src: `${imagePath}delete_spectra_icon.svg`}} text="Delete spectra" />

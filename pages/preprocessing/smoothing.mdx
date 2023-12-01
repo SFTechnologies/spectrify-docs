@@ -1,0 +1,21 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/preprocessing/";
+
+## Smoothing
+<hr />
+<br />
+<Image src={`${imagePath}smoothing_icon.svg`} alt="smoothing icon" width={65} height={65} />
+
+<br />
+<hr />
+<br />
+<ImageLink href="/preprocessing/baseline_correction" image={{alt: "baseline correction icon",src: `${imagePath}baseline_icon.svg`}} text="Baseline correction" />
+<br />
+<ImageLink href="/preprocessing/standardization" image={{alt: "standardization icon", src: `${imagePath}standardization_icon.svg`}} text="Standarization" />
+<br />
+<ImageLink href="/preprocessing/normalization" image={{alt: "normalization icon", src: `${imagePath}normalization_icon.svg`}} text="Normalization" />
+<br />
+<ImageLink href="/preprocessing/offset" image={{alt: "offset icon", src: `${imagePath}offset_icon.svg`}} text="Offset" />
+<br />
+<ImageLink href="/preprocessing/peak_detection" image={{alt: "peak detection icon", src: `${imagePath}peak_detection_icon.svg`}} text="Peak detection" />

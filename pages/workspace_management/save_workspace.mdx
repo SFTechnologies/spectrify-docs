@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/workspace_management/";
 
 ## Save workspace
 <hr></hr>
 <br></br>
-<Image src="/images/save_workspace_icon.svg" alt="Save workspace icon" width={50} height={50} />
+<Image src={`${imagePath}save_workspace_icon.svg`} alt="save workspace icon" width={65} height={65} />
 
 Allows users to save the current state of their workspace for future use in **.spws** extension.
 
@@ -13,9 +14,9 @@ This includes saving the layout of all open and arranged windows, documents, and
 <br />
 <hr />
 <br />
-<ImageLink href="/workspace_management/open_workspace" image={{alt: "open workspace icon", src: "/images/open_workspace_icon.svg"}} text="Open workspace" />
+<ImageLink href="/workspace_management/open_workspace" image={{alt: "open workspace icon", src: `${imagePath}open_workspace_icon.svg`}} text="Open workspace" />
 <br />
-<ImageLink href="/workspace_management/close_workspace" image={{alt: "close workspace icon", src: "/images/close_workspace_icon.svg"}} text="Close workspace" />
+<ImageLink href="/workspace_management/close_workspace" image={{alt: "close workspace icon", src: `${imagePath}close_workspace_icon.svg`}} text="Close workspace" />
 <br />
-<ImageLink href="/workspace_management/new_workspace" image={{alt: "new workspace icon", src: "/images/new_workspace_icon.svg"}} text="New workspace" />
+<ImageLink href="/workspace_management/new_workspace" image={{alt: "new workspace icon", src: `${imagePath}new_workspace_icon.svg`}} text="New workspace" />
 

@@ -1,1 +1,26 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/preprocessing/";
+
 # Preprocessing
+
+Preprocessing techniques in spectral analysis are methods used to refine raw spectral data to make it more suitable for further analysis. The goal is to minimize the impact of uninformative variability in the data, such as background noise or instrumental responses, and enhance the informative signals, which are the spectral features associated with the materials or substances being analyzed.
+
+Preprocessing can involve various methods such as smoothing, normalization, baseline correction, and noise reduction. The choice of method depends on the specific characteristics of the spectral data and the objectives of the analysis.
+
+By improving the quality of the spectral data, preprocessing techniques increase the reliability of subsequent data analysis and interpretation. They enable more accurate and precise extraction of information from the spectra, thereby facilitating more informed decision-making
+
+<br />
+<hr />
+<br />
+<ImageLink href="/preprocessing/baseline_correction" image={{alt: "baseline correction icon",src: `${imagePath}baseline_icon.svg`}} text="Baseline correction" />
+<br />
+<ImageLink href="/preprocessing/standardization" image={{alt: "standardization icon", src: `${imagePath}standardization_icon.svg`}} text="Standarization" />
+<br />
+<ImageLink href="/preprocessing/normalization" image={{alt: "normalization icon", src: `${imagePath}normalization_icon.svg`}} text="Normalization" />
+<br />
+<ImageLink href="/preprocessing/offset" image={{alt: "offset icon", src: `${imagePath}offset_icon.svg`}} text="Offset" />
+<br />
+<ImageLink href="/preprocessing/peak_detection" image={{alt: "peak detection icon", src: `${imagePath}peak_detection_icon.svg`}} text="Peak detection" />
+<br />
+<ImageLink href="/preprocessing/smoothing" image={{alt: "smoothing icon", src: `${imagePath}smoothing_icon.svg`}} text="Smoothing" />

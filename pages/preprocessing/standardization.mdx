@@ -1,0 +1,51 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/preprocessing/";
+
+## Standardization
+<hr />
+<br />
+<Image src={`${imagePath}standardization_icon.svg`} alt="standardization icon" width={65} height={65} />
+
+Standardization techniques are crucial preprocessing steps in spectral analysis that help to bring all variables to a common scale, without distorting differences in the ranges of values or losing information. These standardization techniques can enhance the comparability and interpretability of the spectral data, and improve the accuracy and robustness of subsequent data analysis.
+
+### Mean Centering
+
+Mean centering is a standardization technique where the mean of each variable is subtracted from every data point. This effectively centers the data around zero and helps reduce multicollinearity in the data. Mean centering is particularly beneficial when variables are measured on scales with arbitrary zeros, enhancing the interpretability of regression results.
+
+> You and your friends are playing a game where you all jump as high as you can, and you measure how high each person jumps. But some of your friends are taller than others, so they naturally jump higher. To make the game fair, you decide to subtract each person's height from their jump height. This is like subtracting the mean from each spectrum.
+>
+
+### Standard Normal Variate (SNV)
+
+SNV is a method that normalizes the spectra by subtracting the mean and dividing by the standard deviation of each spectrum. This method can effectively correct changes in optical path length and light scattering, making the spectra more comparable in terms of intensities.
+
+> After substracting the height of each of your friends, you realize that some of them are more consistent in their jumps, while others vary a lot. So, you decide to divide each person's jump height by how consistent they are. This is like dividing by the standard deviation of each spectrum. This is essentially what the SNV method does. It's a way of making the spectra more comparable in terms of intensities, much like making the game fair for all your friends.
+> 
+
+### Robust Scaling
+
+Robust scaling is a method that uses medians and interquartile ranges for scaling, instead of means and standard deviations. This makes the method more robust against outliers. By subtracting the median and dividing by the interquartile range (the range between the 25th and 75th percentiles), Robust scaling brings the variable to a common scale with zero median and unit interquartile range.
+
+> In a fruit market, you're looking at a pile of apples. Most of the apples are of average size, but there are a few unusually large ones and a few unusually small ones. If you were to calculate the average size of the apples, these unusually large and small apples might skew the average. To get a better sense of the typical apple size, you decide to use the median size (the size right in the middle) instead of the average. Then, you look at the range of sizes from the slightly smaller apples (25th percentile) to the slightly larger apples (75th percentile), and use this range to scale all the apple sizes. This way, the sizes of the very largest and smallest apples don't overly influence the scale. This is what Robust Scaling does - it uses medians and interquartile ranges for scaling, making the method more robust against outliers.
+> 
+
+### Linear Detrending
+
+Linear detrending is a method used to remove any linear trends in a dataset. This technique is often used in spectral analysis when the data exhibits a linear increase or decrease, which can obscure the underlying patterns of interest. By subtracting the best fit line (obtained via linear regression) from the data, linear detrending effectively removes this trend, leaving a 'detrended' dataset that can better reveal the underlying patterns.
+
+> Imagine you're trying to listen to a quiet song, but there's a constant humming noise in the background. The humming noise is a distraction and makes it hard to hear the song. To hear the song better, you need to remove the humming noise. In spectral analysis, this humming noise is like a linear trend in the data. This trend can obscure the underlying patterns of interest, like the quiet song. Linear Detrending is like a noise-cancelling headphone for your data. It removes this linear trend, allowing the true patterns in the data to come through more clearly.
+> 
+
+<br />
+<hr />
+<br />
+<ImageLink href="/preprocessing/baseline_correction" image={{alt: "baseline correction icon",src: `${imagePath}baseline_icon.svg`}} text="Baseline correction" />
+<br />
+<ImageLink href="/preprocessing/normalization" image={{alt: "normalization icon", src: `${imagePath}normalization_icon.svg`}} text="Normalization" />
+<br />
+<ImageLink href="/preprocessing/offset" image={{alt: "offset icon", src: `${imagePath}offset_icon.svg`}} text="Offset" />
+<br />
+<ImageLink href="/preprocessing/peak_detection" image={{alt: "peak detection icon", src: `${imagePath}peak_detection_icon.svg`}} text="Peak detection" />
+<br />
+<ImageLink href="/preprocessing/smoothing" image={{alt: "smoothing icon", src: `${imagePath}smoothing_icon.svg`}} text="Smoothing" />
