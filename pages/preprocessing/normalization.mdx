@@ -7,6 +7,21 @@ export const imagePath = "/images/preprocessing/";
 <br />
 <Image src={`${imagePath}normalization_icon.svg`} alt="normalization icon" width={65} height={65} />
 
+Normalization is a crucial step to compare spectra obtained from different samples or under different conditions. It mitigates the common effect of a varying intensity between measurements.
+
+### Minimun/Maximun normalization
+
+Minimum-Maximum normalization is a technique used to adjust the scale of a signal or dataset. It transforms the data to fit within an user defined range. Typical values are between 0 and 1. This is achieved by subtracting the minimum value of the dataset from each data point, then dividing by the range of the dataset.
+
+> Comparing the size of apples in a basket using an standard scale requires to identify the smallest one (0) and the biggest one (1). Then, you can order the rest. 
+>
+
+### Peak normalization
+
+Peak normalization adjust the dataset to an user defined maximun. This technique is particularly instrumental in spectral analysis, as it enables comparisons across the same spectral range in multiple spectra.
+
+> To understand the relative content of caffeine in various samples, we can normalize the spectral data to 1450 nm, spectral band where this compound is visible.
+>
 
 <br />
 <hr />
