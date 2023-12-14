@@ -7,6 +7,25 @@ export const imagePath = "/images/preprocessing/";
 <br />
 <Image src={`${imagePath}smoothing_icon.svg`} alt="smoothing icon" width={65} height={65} />
 
+Spectral smoothing is a technique used in signal processing to reduce noise while preserving important patterns in the data. Most common spectral smoothing method is Savitzky-Golay filter.
+
+### Savitzky-Golay filter
+
+DOI: https://doi.org/10.1021/ac60214a047
+
+This method is a filter used for smoothing data, particularly useful in spectral analysis. It works by performing a local polynomial regression on a series of equally spaced data points to determine the smoothed value for each point. The main advantage of this approach is that it tends to preserve features of the original signal such as relative maxima and minima, and widths of peaks.
+
+It has three main parameters:
+
+- **Window Size**: This is the number of points used for the polynomial regression. The window size must be odd because it requires a central point for calculations. The larger the window size, the higher the smoothing.
+
+- **Polynomial Order**: This is the degree of the polynomial used for the regression. It must be less than the window size. The lower the polynomial order, the higher the smoothing.
+
+- **Derivative Order**: This specifies the order of the derivative of the smoothed signal. A derivative order of 0 will simply smooth the signal, while higher derivative orders will alter it. This can be useful for highlighting peaks while creating a horizontal signal.
+  
+> Properly smoothing a signal minimize errors while preserves important features
+>
+
 <br />
 <hr />
 <br />
