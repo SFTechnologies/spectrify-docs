@@ -7,16 +7,31 @@ export const imagePath = "/images/preprocessing/";
 <br />
 <Image src={`${imagePath}normalization_icon.svg`} alt="normalization icon" width={65} height={65} />
 
+Normalization is a crucial step to compare spectra obtained from different samples or under different conditions. It mitigates the common effect of a varying intensity between measurements.
+
+### Minimun-Maximun normalization
+
+Minimum-Maximum normalization is a technique used to adjust the scale of a signal or dataset. It transforms the data to fit within an user defined range. Typical values are between 0 and 1. This is achieved by subtracting the minimum value of the dataset from each data point, then dividing by the range of the dataset.
+
+> Consider a meteorologist comparing temperatures from different seasons. The lowest recorded temperature (e.g., in winter) is assigned a value of 0, and the highest (e.g., in summer) is assigned a value of 1. All other temperatures are scaled proportionally between these two extremes, similar to Min-Max Scaling in data analysis. This allows for a standardized comparison of temperatures across different seasons.
+>
+
+### Peak normalization
+
+Peak normalization adjust the dataset to an user defined maximun. This technique is particularly useful in spectral analysis, as it enables comparisons across the same spectral range in multiple spectra.
+
+> A chemist is analyzing the caffeine content in various beverage samples using near-infrared spectroscopy. To compare the relative caffeine content across samples, the chemist normalizes the spectral data at 1450 nm, a spectral band where caffeine exhibits a characteristic feature. By scaling the absorbance values at this wavelength, the chemist can effectively compare the relative caffeine content in each sample, allowing for a standardized assessment of their caffeine concentrations.
+>
 
 <br />
 <hr />
 <br />
-<ImageLink href="/preprocessing/baseline_correction" image={{alt: "baseline correction icon",src: `${imagePath}baseline_icon.svg`}} text="Baseline correction" />
-<br />
 <ImageLink href="/preprocessing/standardization" image={{alt: "standardization icon", src: `${imagePath}standardization_icon.svg`}} text="Standarization" />
 <br />
-<ImageLink href="/preprocessing/offset" image={{alt: "offset icon", src: `${imagePath}offset_icon.svg`}} text="Offset" />
+<ImageLink href="/preprocessing/baseline_correction" image={{alt: "baseline correction icon",src: `${imagePath}baseline_icon.svg`}} text="Baseline correction" />
+<br />
+<ImageLink href="/preprocessing/smoothing" image={{alt: "smoothing icon", src: `${imagePath}smoothing_icon.svg`}} text="Smoothing" />
 <br />
 <ImageLink href="/preprocessing/peak_detection" image={{alt: "peak detection icon", src: `${imagePath}peak_detection_icon.svg`}} text="Peak detection" />
 <br />
-<ImageLink href="/preprocessing/smoothing" image={{alt: "smoothing icon", src: `${imagePath}smoothing_icon.svg`}} text="Smoothing" />
+<ImageLink href="/preprocessing/offset" image={{alt: "offset icon", src: `${imagePath}offset_icon.svg`}} text="Offset" />
