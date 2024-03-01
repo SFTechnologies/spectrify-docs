@@ -1,8 +1,9 @@
 {
-    "standardization": "Standardization",
-    "baseline_correction": "Baseline correction",
-    "smoothing": "Smoothing",
-    "normalization": "Normalization",
-    "peak_detection": "Peak detection",
-    "offset": "Offset"
+    "standardization": "Standardize",
+    "baseline_correction": "Baseline",
+    "smoothing": "Smooth",
+    "offset": "Offset",
+    "normalization": "Normalize",
+    "peak_detection": "Peaks",
+    "derivative": "Derivative"
 }
