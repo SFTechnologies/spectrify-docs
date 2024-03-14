@@ -11,30 +11,83 @@ Standardization techniques are crucial preprocessing steps in spectral analysis 
 
 ### Mean Centering
 
-Mean centering is a standardization technique where the mean of each variable is subtracted from every data point. This effectively centers the data around zero and helps reduce multicollinearity in the data. Mean centering is particularly beneficial when variables are measured on scales with arbitrary zeros, enhancing the interpretability of regression results.
+Mean centering is a simple technique that shifts the data so that the mean (average) value of each variable is zero. It does this by subtracting the mean from every data point. This centering helps make the data easier to interpret, especially when the variables are measured on arbitrary scales with no meaningful zero point.
 
-> After adjusting for the average height, the researchers notice that some species have more consistent growth rates than others due to varying environmental conditions. To account for this, they normalize each species growth rate by its standard deviation, akin to the Standard Normal Variate (SNV) method in spectral analysis. This makes the growth rates more comparable in terms of intensities, much like ensuring fair comparisons in scientific experiments.
+Let X be a variable with n data points x1, x2, ..., xn. The mean of X is calculated as: 
+```
+mean(X) = (x1 + x2 + ... + xn) / n
+```
+To mean center X, we subtract the mean from each data point: 
+```
+x1_centered = x1 - mean(X)
+x2_centered = x2 - mean(X)
+...
+xn_centered = xn - mean(X)
+```
+The centered variable X_centered now has a mean of zero.
+
+> Researchers are studying the growth rates of different plant species. Since the plants vary in their initial heights, the growth rates are measured on different scales. By mean centering the growth rates, the researchers can compare how much each species deviates from its average growth, making the results more interpretable.
 >
 
 ### Standard Normal Variate (SNV)
 
-SNV is a method that normalizes the spectra by subtracting the mean and dividing by the standard deviation of each spectrum. This method can effectively correct changes in optical path length and light scattering, making the spectra more comparable in terms of intensities.
+SNV is a scaling technique that centers the data around zero (like mean centering) and also scales the data to have a standard deviation of one. This makes the data dimensionless and allows for fair comparisons between variables measured on different scales or units.
 
-> After substracting the height of each of your friends, you realize that some of them are more consistent in their jumps, while others vary a lot. So, you decide to divide each person's jump height by how consistent they are. This is like dividing by the standard deviation of each spectrum. This is essentially what the SNV method does. It's a way of making the spectra more comparable in terms of intensities, much like making the game fair for all your friends.
+Let X be a variable with n data points x1, x2, ..., xn. The mean and standard deviation of X are calculated as:
+```
+mean(X) = (x1 + x2 + ... + xn) / n
+std(X) = sqrt(Σ(xi - mean(X))^2 / (n-1))
+```
+To apply SNV to X, we first mean center it, then divide by the standard deviation:
+```
+x1_snv = (x1 - mean(X)) / std(X)
+x2_snv = (x2 - mean(X)) / std(X)
+...
+xn_snv = (xn - mean(X)) / std(X)
+```
+The SNV-transformed variable X_snv now has a mean of zero and a standard deviation of one.
+
+> In a chemistry lab, researchers analyze the concentrations of different elements in a set of samples using spectroscopy. Since the elements have different natural abundances, their concentrations vary widely across orders of magnitude. By applying SNV, the researchers can compare the relative concentrations of each element across samples, regardless of their absolute values or units.
 > 
 
 ### Robust Scaling
 
-Robust scaling is a method that uses medians and interquartile ranges for scaling, instead of means and standard deviations. This makes the method more robust against outliers. By subtracting the median and dividing by the interquartile range (the range between the 25th and 75th percentiles), Robust scaling brings the variable to a common scale with zero median and unit interquartile range.
+Robust scaling is similar to standard scaling (dividing by the standard deviation), but it uses more robust measures of central tendency and spread: the median and the interquartile range (IQR). This makes robust scaling less sensitive to outliers in the data. 
 
-> A team of chemists is analyzing a batch of chemical samples using spectroscopy. Some samples have unusually high or low concentrations of certain elements, which could skew the average concentration. To get a better sense of the typical concentration, they use the median concentration instead of the average. They then scale the concentrations using the interquartile range, which is less influenced by extreme values. This is akin to Robust Scaling in data analysis, which uses medians and interquartile ranges for scaling, making the method more robust against outliers.
+Let X be a variable with n data points x1, x2, ..., xn. The median and IQR of X are calculated as:
+```
+median(X) = the middle value of the sorted data points
+IQR(X) = 75th percentile - 25th percentile
+```
+```
+x1_robust = (x1 - median(X)) / IQR(X)
+x2_robust = (x2 - median(X)) / IQR(X)
+...
+xn_robust = (xn - median(X)) / IQR(X)
+```
+The robustly scaled variable X_robust now has a median of zero and an IQR of one. 
+
+>A team of environmental scientists is studying air pollution levels in a city. Some neighborhoods have unusually high pollution levels due to nearby industrial facilities or other localized sources. By using robust scaling, the scientists can analyze the pollution data without being unduly influenced by these outliers, giving a more representative picture of the overall pollution levels across the city.
 > 
 
 ### Linear Detrending
 
-Linear detrending is a method used to remove any linear trends in a dataset. This technique is often used in spectral analysis when the data exhibits a linear increase or decrease, which can obscure the underlying patterns of interest. By subtracting the best fit line (obtained via linear regression) from the data, linear detrending effectively removes this trend, leaving a 'detrended' dataset that can better reveal the underlying patterns.
+Linear detrending is a technique used to remove any linear trends (increasing or decreasing patterns) from the data. This is useful when the data contains an underlying trend that obscures the patterns of interest. 
 
-> A seismologist wants to study seismic waves to predict earthquakes. The data contains a linear trend due to natural tectonic plate movements, which can obscure the underlying patterns of seismic activity. To reveal these patterns, the seismologist removes the linear trend from the data, similar to Linear Detrending in spectral analysis. This allows the true patterns in the data to emerge, much like filtering out background to hear a quiet signal.
+Let X be a variable with n data points x1, x2, ..., xn. We can fit a linear regression line to the data:
+```
+y = a + bx
+```
+Where y is the predicted value of X, x is the index of the data point, and a and b are the intercept and slope of the line, respectively. To detrend X, we subtract the predicted values of the linear regression line from the original data:
+```
+x1_detrended = x1 - (a + b*1)
+x2_detrended = x2 - (a + b*2)
+...
+xn_detrended = xn - (a + b*n)
+```
+The detrended variable X_detrended no longer contains the linear trend.
+
+>A geologist is studying seismic activity in a region to understand the potential for earthquakes. The seismic data contains a linear trend due to the gradual movement of tectonic plates, which can mask the patterns of interest related to stress buildup and release. By applying linear detrending, the geologist can remove this underlying trend and focus on the deviations from the trend, which may reveal valuable insights into the seismic activity patterns that precede earthquakes
 > 
 
 <br />
