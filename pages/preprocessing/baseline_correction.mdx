@@ -16,6 +16,10 @@ DOI: https://doi.org/10.1016/j.chemolab.2005.08.009
 
 Iterative polynomial fitting is a method used to estimate the baseline of a spectrum by iteratively fitting a polynomial function to the data. The process starts by fitting a high-degree polynomial to the entire spectrum, which captures both the baseline and the peaks. In each subsequent iteration, the method automatically adjusts the threshold for identifying baseline points based on the residuals (differences between the data and the fitted polynomial) from the previous iteration. The peaks are then excluded, and a lower-degree polynomial is fitted to the remaining points, which represent the baseline. This iterative process continues until a satisfactory baseline estimation is achieved.
 
+- **Max Iterations**: Higher values allow better handling of complex baselines/noise but increase computation time.
+- **Tolerance**: Lower values improve baseline accuracy but may require more iterations or cause convergence issues.
+
+
 Let X be a spectrum with n data points x1, x2, ..., xn. In the first iteration, a high-degree polynomial is fitted to the entire spectrum:
 ```
 y = a0 + a1*x + a2*x^2 + ... + an*x^n
@@ -35,6 +39,13 @@ A threshold T is determined based on the residuals, and data points with residua
 DOI: https://doi.org/10.1039/B922045C 
 
 AirPLS is an advanced form of least squares fitting, which aims to minimize the sum of squared differences between the observed and fitted values. It incorporates a penalty term to discourage overfitting and iteratively adjusts the weights in this penalty term based on the residuals from the previous fit. This adaptive weighting allows the method to better handle baselines that cannot be well approximated by simple functions and spectra with high noise levels.
+
+
+- **Max Iterations**: Higher values allow better handling of complex baselines/noise but increase computation time.
+- **Tolerance**: Lower values improve baseline accuracy but may require more iterations or cause convergence issues.
+- **Lambda (λ)**: Higher values encourage smoother baselines, lower values allow more complex baselines but risk overfitting.
+
+
 
 Let X be a spectrum with n data points x1, x2, ..., xn, and y be the corresponding baseline values. The AirPLS method minimizes the following objective function:
 ```
