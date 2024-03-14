@@ -2,25 +2,55 @@ import Image from 'next/image'
 import ImageLink from '/components/ImageLink'; 
 export const imagePath = "/images/preprocessing/";
 
-## Normalization
+## Normalize
 <hr />
 <br />
 <Image src={`${imagePath}normalization_icon.svg`} alt="normalization icon" width={65} height={65} />
 
-Normalization is a crucial step to compare spectra obtained from different samples or under different conditions. It mitigates the common effect of a varying intensity between measurements.
+Normalization is a crucial preprocessing step in spectral analysis that enables the comparison of spectra obtained from different samples or under different conditions. It helps to mitigate the common effect of varying intensity between measurements, which can arise due to factors such as sample preparation, instrumental drift, or changes in experimental conditions. By normalizing the spectra, the relative intensities of the spectral features become more comparable, facilitating accurate interpretation and analysis of the data.
 
 ### Minimun-Maximun normalization
 
-Minimum-Maximum normalization is a technique used to adjust the scale of a signal or dataset. It transforms the data to fit within an user defined range. Typical values are between 0 and 1. This is achieved by subtracting the minimum value of the dataset from each data point, then dividing by the range of the dataset.
+Minimum-Maximum normalization is a technique used to rescale the intensity values of a spectrum to fit within a user-defined range, typically between 0 and 1. This is achieved by subtracting the minimum intensity value from each data point and then dividing the result by the range of the intensity values (maximum - minimum).
 
-> Consider a meteorologist comparing temperatures from different seasons. The lowest recorded temperature (e.g., in winter) is assigned a value of 0, and the highest (e.g., in summer) is assigned a value of 1. All other temperatures are scaled proportionally between these two extremes, similar to Min-Max Scaling in data analysis. This allows for a standardized comparison of temperatures across different seasons.
+
+- **Minimum**: The user-defined minimum value for the normalized intensity range (default: 0).
+- **Maximum**: The user-defined maximum value for the normalized intensity range (default: 1).
+
+Let X be a spectrum with n data points x1, x2, ..., xn. The Minimum-Maximum normalization is applied by:
+
+1. Finding the minimum and maximum intensity values in the spectrum:
+   ```
+   x_min = min(x1, x2, ..., xn)
+   x_max = max(x1, x2, ..., xn)
+   ```
+2. Calculating the normalized intensity for each data point:
+   ```
+   x_i_normalized = (x_i - x_min) / (x_max - x_min) * (maximum - minimum) + minimum, for i = 1, 2, ..., n
+   ```
+
+
+>Imagine you have a spectrum representing the absorption of a sample at different wavelengths. The intensity values range from 0.1 to 0.9. To compare this spectrum with others on a consistent scale, you apply Minimum-Maximum normalization with a minimum of 0 and a maximum of 1. The minimum intensity value (0.1) is subtracted from each data point, and then the result is divided by the range (0.9 - 0.1 = 0.8). This rescales the spectrum to have intensity values between 0 and 1, making it easier to compare with other normalized spectra.
 >
 
 ### Peak normalization
 
-Peak normalization adjust the dataset to an user defined maximun. This technique is particularly useful in spectral analysis, as it enables comparisons across the same spectral range in multiple spectra.
+Peak normalization is a technique used to scale the intensity values of a spectrum based on a user-defined peak intensity. This method is particularly useful in spectral analysis when comparing spectra with different overall intensities but similar relative peak heights. The normalization is performed by dividing each data point by the intensity value of the specified peak.
 
-> A chemist is analyzing the caffeine content in various beverage samples using near-infrared spectroscopy. To compare the relative caffeine content across samples, the chemist normalizes the spectral data at 1450 nm, a spectral band where caffeine exhibits a characteristic feature. By scaling the absorbance values at this wavelength, the chemist can effectively compare the relative caffeine content in each sample, allowing for a standardized assessment of their caffeine concentrations.
+- **Peak**: The user-defined intensity value to which the spectrum will be normalized.
+
+Let X be a spectrum with n data points x1, x2, ..., xn. The MPeak normalization is applied by:
+
+1. Finding the minimum and maximum intensity values in the spectrum:
+   ```
+   peak: x_peak
+   ```
+2. Calculating the normalized intensity for each data point:
+   ```
+   x_i_normalized = x_i / x_peak, for i = 1, 2, ..., n
+   ```
+
+>Imagine you have a set of spectra representing the emission of a fluorescent dye at different concentrations. The overall intensity of the spectra varies due to differences in concentration, but the relative heights of the emission peaks remain consistent. To compare the spectra, you apply Peak normalization by setting the peak intensity to 1. Each data point in the spectra is divided by the intensity value of the specified emission peak. This normalization allows you to directly compare the relative peak heights across the spectra, regardless of the differences in overall intensity caused by varying dye concentrations.
 >
 
 <br />
