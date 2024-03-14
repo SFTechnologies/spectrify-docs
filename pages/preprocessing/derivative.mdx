@@ -5,23 +5,30 @@ export const imagePath = "/images/preprocessing/";
 ## Smoothing
 <hr />
 <br />
-<Image src={`${imagePath}smoothing_icon.svg`} alt="smoothing icon" width={65} height={65} />
+<Image src={`${imagePath}derivative_icon.svg`} alt="derivative icon" width={65} height={65} />
 
-Spectral smoothing is a technique used in signal processing to reduce noise while preserving important patterns in the data. Most common spectral smoothing method is Savitzky-Golay filter.
+In spectral analysis, derivatives are often used as a preprocessing technique to enhance specific features of the spectra or to remove baseline effects. The derivative operation is typically performed using the Savitzky-Golay filter, which allows for smoothing and differentiation in a single step. The order of the derivative can be selected based on the desired level of enhancement or suppression of spectral features.
 
-### Savitzky-Golay filter
+### Savitzky-Golay derivative
 
 DOI: https://doi.org/10.1021/ac60214a047
 
-This method is a filter used for smoothing data, particularly useful in spectral analysis. It works by performing a local polynomial regression on a series of equally spaced data points to determine the smoothed value for each point. The main advantage of this approach is that it tends to preserve features of the original signal such as relative maxima and minima, and widths of peaks.
+The derivative operation is typically performed using the Savitzky-Golay filter, which allows for smoothing and differentiation in a single step. Higher-order derivatives can further enhance or suppress spectral features, but they are generally more sensitive to noise.
 
-It has two main parameters:
+- **First Derivative**: Highlights the rate of change in the intensity values with respect to the independent variable (e.g., wavelength or energy). It can be useful for resolving overlapping peaks, removing baseline offsets, and enhancing spectral features.
+- **Second Derivative**:Highlights the rate of change of the first derivative, or the curvature of the spectrum. It can be useful for resolving overlapping peaks, removing linear baselines, and enhancing spectral features.
+- **Third and Fourth derivatives**: These higher-order derivatives can be useful for further enhancing spectral features or removing more complex baseline effects. However, they are generally more sensitive to noise and may require additional smoothing or preprocessing steps.
 
-- **Window Size**: This is the number of points used for the polynomial regression. The window size must be odd because it requires a central point for calculations. The larger the window size, the higher the smoothing.
+Let X be a spectrum with n data points x1, x2, ..., xn, and x be the independent variable (e.g., wavelength or energy). The derivatives of X with respect to x are calculated as:
+```
+First Derivative: dX/dx = lim(Δx→0) (X(x + Δx) - X(x)) / Δx
+Second Derivative: d^2X/dx^2 = d/dx (dX/dx)
+Third Derivative: d^3X/dx^3 = d/dx (d^2X/dx^2)
+Fourth Derivative: d^4X/dx^4 = d/dx (d^3X/dx^3)
+```
+These derivatives are approximated using the Savitzky-Golay filter, which performs a local polynomial regression on a sliding window of data points.
 
-- **Polynomial Order**: This is the degree of the polynomial used for the regression. It must be less than the window size. The lower the polynomial order, the higher the smoothing.
-
-> Properly smoothing a signal minimize errors while preserves important features
+>Imagine you have a spectrum with two overlapping peaks and a linear baseline. Taking the first derivative of the spectrum can help resolve the overlapping peaks by highlighting the points of maximum slope, which correspond to the peak positions. Additionally, any constant baseline offsets will be removed, as the derivative of a constant is zero. If you further take the second derivative, it can help remove the linear baseline, as the second derivative of a linear function is zero. The second derivative will also highlight the points of maximum curvature, which correspond to the peak positions.
 >
 
 <br />
