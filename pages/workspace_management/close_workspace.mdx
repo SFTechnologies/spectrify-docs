@@ -1,20 +1,21 @@
 import Image from 'next/image'
 import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/workspace_management/";
 
 ## Close workspace
 <hr></hr>
 <br></br>
-<Image src="/images/close_workspace_icon.svg" alt="Close workspace icon" width={50} height={50} />
+<Image src={`${imagePath}close_workspace_icon.svg`} alt="close workspace icon" width={65} height={65} />
 
-Close workspace option ends the current workspace. 
+Close workspace option terminates the current workspace. 
 
-Any unsaved data within the workspace will be lost. This action effectively ends the current workspace session, closing all associated documents and results. Users should ensure that any necessary data is saved before proceeding with the closure of the workspace.
+Any unsaved data within the workspace will be lost. This action effectively terminates the current workspace session, closing all associated documents and results. Users should ensure that any necessary data is saved before proceeding with the closure of the workspace.
 
 <br />
 <hr />
 <br />
-<ImageLink href="/workspace_management/open_workspace" image={{alt: "open workspace icon", src: "/images/open_workspace_icon.svg"}} text="Open workspace" />
+<ImageLink href="/workspace_management/open_workspace" image={{alt: "open workspace icon", src: `${imagePath}open_workspace_icon.svg`}} text="Open workspace" />
 <br />
-<ImageLink href="/workspace_management/save_workspace" image={{alt: "save workspace icon", src: "/images/save_workspace_icon.svg"}} text="Save workspace" />
+<ImageLink href="/workspace_management/save_workspace" image={{alt: "save workspace icon", src: `${imagePath}save_workspace_icon.svg`}} text="Save workspace" />
 <br />
-<ImageLink href="/workspace_management/new_workspace" image={{alt: "new workspace icon", src: "/images/new_workspace_icon.svg"}} text="New workspace" />
+<ImageLink href="/workspace_management/new_workspace" image={{alt: "new workspace icon", src: `${imagePath}new_workspace_icon.svg`}} text="New workspace" />

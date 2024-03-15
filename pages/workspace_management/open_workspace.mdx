@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/workspace_management/";
 
 ## Open workspace
 <hr></hr>
 <br></br>
-<Image src="/images/open_workspace_icon.svg" alt="Open workspace icon" width={50} height={50} />
+<Image src={`${imagePath}open_workspace_icon.svg`} alt="open workspace icon" width={65} height={65} />
 
 Enables users to load a previously saved workspace file with a **.spws** extension. 
 
@@ -13,9 +14,9 @@ Upon loading, the workspace will restore the exact state that was saved, includi
 <br />
 <hr />
 <br />
-<ImageLink href="/workspace_management/save_workspace" image={{alt: "save workspace icon", src: "/images/save_workspace_icon.svg"}} text="Save workspace" />
+<ImageLink href="/workspace_management/save_workspace" image={{alt: "save workspace icon", src: `${imagePath}save_workspace_icon.svg`}} text="Save workspace" />
 <br />
-<ImageLink href="/workspace_management/close_workspace" image={{alt: "close workspace icon", src: "/images/close_workspace_icon.svg"}} text="Close workspace" />
+<ImageLink href="/workspace_management/close_workspace" image={{alt: "close workspace icon", src: `${imagePath}close_workspace_icon.svg`}} text="Close workspace" />
 <br />
-<ImageLink href="/workspace_management/new_workspace" image={{alt: "new workspace icon", src: "/images/new_workspace_icon.svg"}} text="New workspace" />
+<ImageLink href="/workspace_management/new_workspace" image={{alt: "new workspace icon", src: `${imagePath}new_workspace_icon.svg`}} text="New workspace" />
 

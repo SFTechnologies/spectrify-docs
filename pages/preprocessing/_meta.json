@@ -1,4 +1,8 @@
 {
+    "standardization": "Standardization",
     "baseline_correction": "Baseline correction",
-    "standardize": "Standardize"
+    "smoothing": "Smoothing",
+    "normalization": "Normalization",
+    "peak_detection": "Peak detection",
+    "offset": "Offset"
 }
