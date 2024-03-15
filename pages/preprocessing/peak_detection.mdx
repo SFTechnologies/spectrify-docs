@@ -7,7 +7,34 @@ export const imagePath = "/images/preprocessing/";
 <br />
 <Image src={`${imagePath}peak_detection_icon.svg`} alt="peak detection icon" width={65} height={65} />
 
-### Coming soon!
+Peak detection is a crucial preprocessing step in spectral analysis that aims to identify and locate the prominent peaks within a spectrum. These peaks often correspond to specific chemical or physical properties of the sample being analyzed, and their accurate identification is essential for various applications, such as quantitative analysis, compound identification, and spectral deconvolution. Peak detection can be performed either automatically using algorithms or manually through user interaction.
+
+### Auto Peak Detection
+
+Auto peak detection is a method that automatically identifies and locates the peaks in a spectrum based on predefined criteria. This approach is particularly useful when dealing with large datasets or when manual peak picking is impractical or time-consuming.
+
+This function identifies peaks by finding local maxima in the data that satisfy certain conditions. Let x be the input signal with n data points x1, x2, ..., xn. The function finds the indices i such that xi is a local maximum, i.e., xi >= xi-1 and xi >= xi+1. Then the function filters this set based on user-specified conditions. The prominence pi of a peak xi is calculated by extending horizontal lines to the left and right until they intersect with lower peaks or the signal borders. The highest of these intersection points defines the lowest contour line, and pi is the vertical distance between xi and this contour line. Mathematically, if xl and xr are the intersection points to the left and right of xi, respectively, then: 
+```
+pi = xi - max(xl, xr)
+```
+The function returns the indices of the peaks that satisfy all the specified conditions. For example, if height=2 and prominence=1, the function will return the indices i such that xi >= 2 and the vertical distance between xi and its lowest contour line is at least 1.
+
+Conditions are defined by the following parameters:
+
+- **Prominence (%)**: This parameter specifies the minimum prominence of a peak, which is the vertical distance between the peak and its lowest contour line. The prominence is expressed as a percentage of the signal's amplitude range.  A higher prominence value will result in fewer peaks being detected, as only the most prominent peaks will satisfy the condition. A lower prominence value will allow for the detection of smaller peaks.
+- **Height**: This parameter specifies the minimum height required for a peak to be considered significant. Any peaks below this height threshold will be ignored.
+  
+>You have a spectrum representing the absorption of a sample at different wavelengths. You want to identify the prominent peaks in this spectrum, which may correspond to the presence of specific chemical compounds. By setting the prominence parameter to a higher value (e.g., 10%), you can ensure that only the most significant peaks are detected, ignoring smaller fluctuations or noise. Additionally, you can set a minimum height threshold to further filter out any peaks that are below a certain intensity level.
+>
+
+### Manual Peak Picking
+
+Manual peak picking is a method that allows the user to visually identify and select peaks of interest in a spectrum. This approach is particularly useful when the user already has prior knowledge about a subset of peaks and wants to examine their heights or compare them across different measurements.
+
+The manual peak picking tool transforms the annotations made by the user over the spectrum into a set of points.
+
+>Imagine you are analyzing spectra of different chemical compound mixtures, and you are particularly interested in identifying the relative concentrations of a specific chemical bond. Based on prior knowledge or reference data, you know the peak location associated with this chemical bond. By employing manual peak picking, you can relatively quantify the presence of the bond across the different mixtures.
+>
 
 <br />
 <hr />
