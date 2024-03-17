@@ -1,0 +1,37 @@
+{
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.stickyScroll.enabled": false,
+    "search.exclude": {
+        "package-lock.json": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": [
+        "source.addMissingImports",
+        "source.fixAll.eslint",
+    ],
+    // Overriding multiple language files isn't available on VScode yet
+    "[json]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "typescript.extension.sortImports.enableJavascript": false,
+    "typescript.extension.sortImports.sortOnSave": false,
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "dev"
+    ],
+    "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
