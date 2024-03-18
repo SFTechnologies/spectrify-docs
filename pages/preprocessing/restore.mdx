@@ -1,0 +1,29 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/preprocessing/";
+
+## Restore Spectra
+<hr />
+<br />
+<Image src={`${imagePath}restore_icon.svg`} alt="restore spectra icon" width={65} height={65} />
+
+Restore Spectra feature that allows you to recover the original spectra, effectively erasing all transformations and modifications that have been applied. This action is irreversible, meaning that once the original spectra are restored, any changes made previously will be permanently lost.
+
+Data manipulation and transformations are common practices to enhance visualization, extract meaningful information, or prepare the data for further analysis. However, there may be instances where you need to revert to the original, untransformed spectral data. This is where the "Restore Spectra Tool" comes into play.
+
+<br />
+<hr />
+<br />
+<ImageLink href="/preprocessing/standardization" image={{alt: "standardization icon", src: `${imagePath}standardization_icon.svg`}} text="Standardize" />
+<br />
+<ImageLink href="/preprocessing/baseline_correction" image={{alt: "baseline correction icon",src: `${imagePath}baseline_icon.svg`}} text="Baseline" />
+<br />
+<ImageLink href="/preprocessing/smoothing" image={{alt: "smoothing icon", src: `${imagePath}smoothing_icon.svg`}} text="Smooth" />
+<br />
+<ImageLink href="/preprocessing/offset" image={{alt: "offset icon", src: `${imagePath}offset_icon.svg`}} text="Offset" />
+<br />
+<ImageLink href="/preprocessing/normalization" image={{alt: "normalization icon", src: `${imagePath}normalization_icon.svg`}} text="Normalize" />
+<br />
+<ImageLink href="/preprocessing/peak_detection" image={{alt: "peak detection icon", src: `${imagePath}peak_detection_icon.svg`}} text="Peaks" />
+<br />
+<ImageLink href="/preprocessing/offset" image={{alt: "offset icon", src: `${imagePath}derivative_icon.svg`}} text="Derivative" />
