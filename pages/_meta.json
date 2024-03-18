@@ -2,6 +2,7 @@
   "index": "Introduction",
   "workspace-management": "Workspace Management",
   "file-management": "File Management",
+  "metadata-table": "Metadata Table",
   "preprocessing": "Preprocessing",
   "about": {
     "title": "About",
