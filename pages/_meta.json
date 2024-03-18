@@ -1,7 +1,7 @@
 {
   "index": "Introduction",
-  "workspace_management": "Workspace management",
-  "file_management": "File management",
+  "workspace-management": "Workspace Management",
+  "file-management": "File Management",
   "preprocessing": "Preprocessing",
   "about": {
     "title": "About",
