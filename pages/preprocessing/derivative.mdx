@@ -15,18 +15,24 @@ DOI: https://doi.org/10.1021/ac60214a047
 
 The derivative operation is typically performed using the Savitzky-Golay filter, which allows for smoothing and differentiation in a single step. Higher-order derivatives can further enhance or suppress spectral features, but they are generally more sensitive to noise.
 
-- **First Derivative**: Highlights the rate of change in the intensity values with respect to the independent variable (e.g., wavelength or energy). It can be useful for resolving overlapping peaks, removing baseline offsets, and enhancing spectral features.
+<br />
+<u>Configurable Parameters:</u>
+- **First Derivative**: Highlights the rate of change in the intensity values. It can be useful for resolving overlapping peaks, removing baseline offsets, and enhancing spectral features.
 - **Second Derivative**:Highlights the rate of change of the first derivative, or the curvature of the spectrum. It can be useful for resolving overlapping peaks, removing linear baselines, and enhancing spectral features.
 - **Third and Fourth derivatives**: These higher-order derivatives can be useful for further enhancing spectral features or removing more complex baseline effects. However, they are generally more sensitive to noise and may require additional smoothing or preprocessing steps.
 
-Let X be a spectrum with n data points x1, x2, ..., xn, and x be the independent variable (e.g., wavelength or energy). The derivatives of X with respect to x are calculated as:
-```
-First Derivative: dX/dx = lim(Δx→0) (X(x + Δx) - X(x)) / Δx
-Second Derivative: d^2X/dx^2 = d/dx (dX/dx)
-Third Derivative: d^3X/dx^3 = d/dx (d^2X/dx^2)
-Fourth Derivative: d^4X/dx^4 = d/dx (d^3X/dx^3)
-```
-These derivatives are approximated using the Savitzky-Golay filter, which performs a local polynomial regression on a sliding window of data points.
+The Savitzky-Golay filter is a digital filter that performs smoothing and differentiation of a set of data points within a specified window size. The filter coefficients are derived from an unweighted linear least-squares regression and a polynomial model of a specific degree. The general formula for the Savitzky-Golay filter is: +
+
+<br />
+<p style={{textAlign: 'center'}}>$y_i^{(n)} = \sum_{j=-m}^{m} c_j y_{i+j}$</p> 
+<br />
+Where:
+
+    $y_i^{(n)}$ is the nth derivative of the smoothed data point at index $i$<br />
+    $y_{i+j}$ are the original data points within the window of size $(2m+1)$<br />
+    $c_j$ are the Savitzky-Golay filter coefficients for the desired derivative order and polynomial degree<br />
+
+The filter coefficients $c_j$ are calculated based on the desired derivative order, polynomial degree, and window size, ensuring that the smoothing and differentiation operations are performed simultaneously.
 
 >Imagine you have a spectrum with two overlapping peaks and a linear baseline. Taking the first derivative of the spectrum can help resolve the overlapping peaks by highlighting the points of maximum slope, which correspond to the peak positions. Additionally, any constant baseline offsets will be removed, as the derivative of a constant is zero. If you further take the second derivative, it can help remove the linear baseline, as the second derivative of a linear function is zero. The second derivative will also highlight the points of maximum curvature, which correspond to the peak positions.
 >

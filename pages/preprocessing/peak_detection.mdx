@@ -13,16 +13,24 @@ Peak detection is a crucial preprocessing step in spectral analysis that aims to
 
 Auto peak detection is a method that automatically identifies and locates the peaks in a spectrum based on predefined criteria. This approach is particularly useful when dealing with large datasets or when manual peak picking is impractical or time-consuming.
 
-This function identifies peaks by finding local maxima in the data that satisfy certain conditions. Let x be the input signal with n data points x1, x2, ..., xn. The function finds the indices i such that xi is a local maximum, i.e., xi >= xi-1 and xi >= xi+1. Then the function filters this set based on user-specified conditions. The prominence pi of a peak xi is calculated by extending horizontal lines to the left and right until they intersect with lower peaks or the signal borders. The highest of these intersection points defines the lowest contour line, and pi is the vertical distance between xi and this contour line. Mathematically, if xl and xr are the intersection points to the left and right of xi, respectively, then: 
-```
-pi = xi - max(xl, xr)
-```
-The function returns the indices of the peaks that satisfy all the specified conditions. For example, if height=2 and prominence=1, the function will return the indices i such that xi >= 2 and the vertical distance between xi and its lowest contour line is at least 1.
-
-Conditions are defined by the following parameters:
+<br />
+<u>Configurable Parameters:</u>
 
 - **Prominence (%)**: This parameter specifies the minimum prominence of a peak, which is the vertical distance between the peak and its lowest contour line. The prominence is expressed as a percentage of the signal's amplitude range.  A higher prominence value will result in fewer peaks being detected, as only the most prominent peaks will satisfy the condition. A lower prominence value will allow for the detection of smaller peaks.
 - **Height**: This parameter specifies the minimum height required for a peak to be considered significant. Any peaks below this height threshold will be ignored.
+
+1. Let $x = [x_1, x_2, \ldots, x_n]$ be the input 1-D array of length $n$.
+2. For each index $i$ in the range $1 < i < n$, check if $x_i$ is a local maximum by comparing it with its neighbors:
+<br />   
+<p style={{textAlign: 'center'}}>$x_i \geq x_{i-1}$ and $x_i \geq x_{i+1}$</p>
+<br />
+
+3. If this condition is satisfied, $x_i$ is considered a potential peak.
+For each potential peak $x_i$, calculate its prominence $p_i$, which is the vertical distance between $x_i$ and its lowest contour line. The lowest contour line is determined by extending horizontal lines to the left and right of $x_i$ until they intersect with lower peaks or the signal borders. Mathematically, if $x_l$ and $x_r$ are the intersection points to the left and right of $x_i$, respectively, then:
+<br />
+<p style={{textAlign: 'center'}}>$p_i = x_i - \max(x_l, x_r)$</p>
+<br />
+4. The remaining peaks after applying the prominence and height filters are considered the detected peaks.
   
 >You have a spectrum representing the absorption of a sample at different wavelengths. You want to identify the prominent peaks in this spectrum, which may correspond to the presence of specific chemical compounds. By setting the prominence parameter to a higher value (e.g., 10%), you can ensure that only the most significant peaks are detected, ignoring smaller fluctuations or noise. Additionally, you can set a minimum height threshold to further filter out any peaks that are below a certain intensity level.
 >

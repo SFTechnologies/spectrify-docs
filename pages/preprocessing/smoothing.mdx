@@ -15,20 +15,27 @@ DOI: https://doi.org/10.1021/ac60214a047
 
 Widely used technique for smoothing data, particularly in spectral analysis. It works by performing a local polynomial regression on a series of equally spaced data points to determine the smoothed value for each point. The main advantage of this approach is that it tends to preserve important features of the original signal, such as relative maxima and minima, and the widths of peaks.
 
-It has two main parameters:
+<br />
+<u>Configurable Parameters:</u>
 
 - **Window Size**: This parameter determines the number of data points used for the local polynomial regression. The window size must be an odd number because it requires a central point for calculations. A larger window size generally results in more smoothing but may also lead to the loss of important signal features.
 
 - **Polynomial Order**: This parameter specifies the degree of the polynomial used for the local regression. The polynomial order must be less than the window size. A lower polynomial order typically results in more smoothing but may also distort the signal shape.
 
-Let X be a signal with n data points x1, x2, ..., xn. The Savitzky-Golay filter computes the smoothed value y_i for each point x_i by performing a local polynomial regression within a window of size 2m+1 centered at x_i. The polynomial coefficients are determined by minimizing the sum of squared differences between the polynomial and the data points within the window.
+Let $x_i$ be the original data points, where $i = 1, 2, \ldots, n$, and $y_i$ be the corresponding smoothed values. The Savitzky-Golay filter performs a local polynomial regression of degree $k$ on a window of size $2m+1$ centered at each data point $x_i$. 
 
-The smoothed value y_i is then calculated as the value of the fitted polynomial at the central point x_i:
+The smoothed value $y_i$ is obtained by fitting a polynomial of degree $k$ to the data points within the window $[x_{i-m}, x_{i-m+1}, \ldots, x_{i+m}]$ using the method of least squares. The polynomial is then evaluated at the central point $x_i$ to obtain $y_i$. 
+Mathematically, the smoothed value $y_i$ can be expressed as a linear combination of the original data points within the window:
+<br />
+<p style={{textAlign: 'center'}}>$y_i = \sum_{j=-m}^{m} c_j x_{i+j}$</p>
+<br />
 
-```
-y_i = a_0 + a_1*(x_i - x_c) + a_2*(x_i - x_c)^2 + ... + a_p*(x_i - x_c)^p
-```
-Where x_c is the central point of the window, p is the polynomial order, and a_0, a_1, ..., a_p are the polynomial coefficients determined by the least-squares fit.
+where $c_j$ are the Savitzky-Golay filter coefficients, which depend on the window size $2m+1$ and the polynomial order $k$.
+
+The filter coefficients $c_j$ are calculated using the following formula:
+<br />
+<p style={{textAlign: 'center'}}>$c_j = \sum_{l=0}^{k} \frac{(-1)^{l+k}}{l!(k-l)!} \left(\frac{j^{k-l}}{(2m+1)^{k-l+1}} \sum_{p=-m}^{m} p^{k-l}\right)$</p>
+<br />
 
 >Imagine you have a noisy signal representing the concentration of a chemical in a solution over time. You want to smooth out the noise while preserving the overall trend and any important features, such as peaks or valleys. The Savitzky-Golay filter can help you achieve this by fitting a small polynomial curve to a sliding window of data points. For example, if you choose a window size of 9 and a polynomial order of 3, the filter will fit a cubic polynomial to every set of 9 consecutive data points and use the value of that polynomial at the center point as the smoothed value. This process is repeated for each point in the signal, resulting in a smoothed version that retains the overall shape and important features while reducing the noise.
 >

@@ -13,18 +13,13 @@ Standardization techniques are crucial preprocessing steps in spectral analysis 
 
 Mean centering is a simple technique that shifts the data so that the mean (average) value of each variable is zero. It does this by subtracting the mean from every data point. This centering helps make the data easier to interpret, especially when the variables are measured on arbitrary scales with no meaningful zero point.
 
-Let X be a variable with n data points x1, x2, ..., xn. The mean of X is calculated as: 
-```
-mean(X) = (x1 + x2 + ... + xn) / n
-```
-To mean center X, we subtract the mean from each data point: 
-```
-x1_centered = x1 - mean(X)
-x2_centered = x2 - mean(X)
-...
-xn_centered = xn - mean(X)
-```
-The centered variable X_centered now has a mean of zero.
+<br />
+<p style={{textAlign: 'center'}}>$x^{centered} = x - \mu$</p>
+
+Where:
+
+    $x$ is the original spectra<br />
+    $\mu$ is the spectra mean<br />
 
 > Researchers are studying the growth rates of different plant species. Since the plants vary in their initial heights, the growth rates are measured on different scales. By mean centering the growth rates, the researchers can compare how much each species deviates from its average growth, making the results more interpretable.
 >
@@ -32,20 +27,16 @@ The centered variable X_centered now has a mean of zero.
 ### Standard Normal Variate (SNV)
 
 SNV is a scaling technique that centers the data around zero (like mean centering) and also scales the data to have a standard deviation of one. This makes the data dimensionless and allows for fair comparisons between variables measured on different scales or units.
+<br />
+<p style={{textAlign: 'center'}}>$x^{snv} = \frac{x - \mu}{\sigma}$</p>
 
-Let X be a variable with n data points x1, x2, ..., xn. The mean and standard deviation of X are calculated as:
-```
-mean(X) = (x1 + x2 + ... + xn) / n
-std(X) = sqrt(Σ(xi - mean(X))^2 / (n-1))
-```
-To apply SNV to X, we first mean center it, then divide by the standard deviation:
-```
-x1_snv = (x1 - mean(X)) / std(X)
-x2_snv = (x2 - mean(X)) / std(X)
-...
-xn_snv = (xn - mean(X)) / std(X)
-```
-The SNV-transformed variable X_snv now has a mean of zero and a standard deviation of one.
+Where:
+
+    $x$ is the original data point<br />
+    $\mu$ is the mean of the data<br />
+    $\sigma$ is the standard deviation of the data<br />
+    $x_{SNV}$ is the SNV-transformed data point<br />
+
 
 > In a chemistry lab, researchers analyze the concentrations of different elements in a set of samples using spectroscopy. Since the elements have different natural abundances, their concentrations vary widely across orders of magnitude. By applying SNV, the researchers can compare the relative concentrations of each element across samples, regardless of their absolute values or units.
 > 
@@ -53,19 +44,16 @@ The SNV-transformed variable X_snv now has a mean of zero and a standard deviati
 ### Robust Scaling
 
 Robust scaling is similar to standard scaling (dividing by the standard deviation), but it uses more robust measures of central tendency and spread: the median and the interquartile range (IQR). This makes robust scaling less sensitive to outliers in the data. 
+<br />
+<p style={{textAlign: 'center'}}>$x^{robust} = \frac{x - \tilde{x}}{IQR}$</p>
 
-Let X be a variable with n data points x1, x2, ..., xn. The median and IQR of X are calculated as:
-```
-median(X) = the middle value of the sorted data points
-IQR(X) = 75th percentile - 25th percentile
-```
-```
-x1_robust = (x1 - median(X)) / IQR(X)
-x2_robust = (x2 - median(X)) / IQR(X)
-...
-xn_robust = (xn - median(X)) / IQR(X)
-```
-The robustly scaled variable X_robust now has a median of zero and an IQR of one. 
+Where:
+
+    $x$ is the original data point<br />
+    $\tilde{x}$ is the median of the data<br />
+    $IQR$ is the interquartile range of the data, calculated as $IQR = Q_3 - Q_1$, where $Q_1$ and $Q_3$ are the first and third quartiles, respectively.<br />
+    $x^{robust}$ is the robust-scaled data point<br />
+
 
 >A team of environmental scientists is studying air pollution levels in a city. Some neighborhoods have unusually high pollution levels due to nearby industrial facilities or other localized sources. By using robust scaling, the scientists can analyze the pollution data without being unduly influenced by these outliers, giving a more representative picture of the overall pollution levels across the city.
 > 
@@ -73,19 +61,15 @@ The robustly scaled variable X_robust now has a median of zero and an IQR of one
 ### Linear Detrending
 
 Linear detrending is a technique used to remove any linear trends (increasing or decreasing patterns) from the data. This is useful when the data contains an underlying trend that obscures the patterns of interest. 
+<br />
+<p style={{textAlign: 'center'}}>$y = x - (ax + b)$</p>
 
-Let X be a variable with n data points x1, x2, ..., xn. We can fit a linear regression line to the data:
-```
-y = a + bx
-```
-Where y is the predicted value of X, x is the index of the data point, and a and b are the intercept and slope of the line, respectively. To detrend X, we subtract the predicted values of the linear regression line from the original data:
-```
-x1_detrended = x1 - (a + b*1)
-x2_detrended = x2 - (a + b*2)
-...
-xn_detrended = xn - (a + b*n)
-```
-The detrended variable X_detrended no longer contains the linear trend.
+Where:
+
+    $x$ is the original data point<br />
+    $a$ and $b$ are the coefficients of the linear trend line, obtained by fitting a straight line to the data using least-squares regression<br />
+    $y$ is the detrended data point, with the linear trend removed<br />
+
 
 >A geologist is studying seismic activity in a region to understand the potential for earthquakes. The seismic data contains a linear trend due to the gradual movement of tectonic plates, which can mask the patterns of interest related to stress buildup and release. By applying linear detrending, the geologist can remove this underlying trend and focus on the deviations from the trend, which may reveal valuable insights into the seismic activity patterns that precede earthquakes
 > 
