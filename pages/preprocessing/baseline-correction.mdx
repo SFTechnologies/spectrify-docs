@@ -1,0 +1,77 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/preprocessing/";
+
+## Baseline correction
+<hr />
+<br />
+<Image src={`${imagePath}baseline_icon.svg`} alt="baseline icon" width={65} height={65} />
+
+
+Baseline correction is a preprocessing technique used in spectral analysis to remove the effects of background signals that do not carry useful information about the substances being analyzed. These background signals, also known as the baseline, can be due to instrumental responses, environmental noise, or other non-target substances in the sample. By correcting the baseline, we can improve the clarity and reliability of the spectral features associated with the target substances, making it easier to identify and quantify them.
+
+### Iterative Polynomial Fitting
+
+DOI: https://doi.org/10.1016/j.chemolab.2005.08.009
+
+Iterative polynomial fitting is a method used to estimate the baseline of a spectrum by iteratively fitting a polynomial function to the data. The process starts by fitting a high-degree polynomial to the entire spectrum, which captures both the baseline and the peaks. In each subsequent iteration, the method automatically adjusts the threshold for identifying baseline points based on the residuals (differences between the data and the fitted polynomial) from the previous iteration. The peaks are then excluded, and a lower-degree polynomial is fitted to the remaining points, which represent the baseline. This iterative process continues until a satisfactory baseline estimation is achieved.
+
+<br /> 
+<u>Configurable Parameters:</u> 
+- **Max Iterations**: Higher values allow better handling of complex baselines/noise but increase computation time. 
+- **Tolerance**: Lower values improve baseline accuracy but may require more iterations or cause convergence issues. 
+
+The iterative polynomial fitting algorithm can be summarized as follows:
+
+1. Fit a high-degree polynomial $P_n(x)$ to the entire spectrum $y(x)$
+2. Calculate the residuals $r(x) = y(x) - P_n(x)$
+3. Identify baseline points based on a threshold criterion applied to $r(x)$
+4. Fit a lower-degree polynomial $P_{n-1}(x)$ to the identified baseline points
+5. Repeat steps 2-4 until convergence or maximum iterations reached
+
+>Imagine you are trying to draw a smooth curve through a set of data points representing a spectrum. Initially, you fit a highly flexible, wiggly curve that captures all the peaks and valleys in the data. However, this curve is too complex and does not represent the underlying baseline well. In the next step, you simplify the curve by making it less wiggly, but some data points still deviate significantly from the curve. You identify these points as peaks and exclude them from the next iteration. You then fit a smoother curve to the remaining data points, which better represents the baseline. This process continues, with the curve becoming smoother and the peaks being excluded iteratively, until you are left with a satisfactory baseline estimation. 
+>
+
+### AirPLS (Adaptive Iteratively Reweighted Penalized Least Squares)
+
+DOI: https://doi.org/10.1039/B922045C 
+
+AirPLS is an advanced form of least squares fitting, which aims to minimize the sum of squared differences between the observed and fitted values. It incorporates a penalty term to discourage overfitting and iteratively adjusts the weights in this penalty term based on the residuals from the previous fit. This adaptive weighting allows the method to better handle baselines that cannot be well approximated by simple functions and spectra with high noise levels.
+
+
+- **Max Iterations**: Higher values allow better handling of complex baselines/noise but increase computation time.
+- **Tolerance**: Lower values improve baseline accuracy but may require more iterations or cause convergence issues.
+- **Lambda (λ)**: Higher values encourage smoother baselines, lower values allow more complex baselines but risk overfitting.
+
+
+
+Let X be a spectrum with n data points x1, x2, ..., xn, and y be the corresponding baseline values. The AirPLS method minimizes the following objective function:
+
+$Q = \sum(x_i - y_i)^2 + \lambda \sum(w_i |y_i|^\alpha)$
+
+Where the first term is the sum of squared residuals (least squares term), and the second term is the penalty term. λ is the regularization parameter that controls the strength of the penalty, wi are the adaptive weights, and α is a constant (typically 1 or 2).
+
+The weights wi are iteratively updated based on the residuals from the previous fit:
+
+$w_i = \frac{1}{(|r_i| + \varepsilon)^\beta}$
+
+Where ri is the residual for the i-th data point, ε is a small constant to avoid division by zero, and β is a tuning parameter.
+
+The iterative process continues until convergence, with the weights being adjusted to give less importance to data points with large residuals (potential peaks or noise) and more importance to data points that better represent the baseline.
+
+>Imagine you're trying to draw a smooth line through a set of scattered data points, representing a spectrum. Some points are far from the others, and you don't want your line to be too influenced by these outliers. You decide to give these outliers less weight when drawing your line. However, the data points are not randomly scattered but have local patterns, with some regions being denser than others. In this case, you adaptively adjust the weights based on the local characteristics of the data, giving less weight to outliers and more weight to points that better represent the local patterns. This iterative process continues until you find a line that best fits the data while accounting for its local characteristics and noise levels.
+> 
+
+<br />
+<hr />
+<br />
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+  <ImageLink href="/preprocessing/standardization" image={{ alt: "standardization icon", src: `${imagePath}standardization_icon.svg` }} text="Standardize" />
+  <ImageLink href="/preprocessing/baseline_correction" image={{ alt: "baseline correction icon", src: `${imagePath}baseline_icon.svg` }} text="Baseline" />
+  <ImageLink href="/preprocessing/smoothing" image={{ alt: "smoothing icon", src: `${imagePath}smoothing_icon.svg` }} text="Smooth" />
+  <ImageLink href="/preprocessing/offset" image={{ alt: "offset icon", src: `${imagePath}offset_icon.svg` }} text="Offset" />
+  <ImageLink href="/preprocessing/normalization" image={{ alt: "normalization icon", src: `${imagePath}normalization_icon.svg` }} text="Normalize" />
+  <ImageLink href="/preprocessing/peak_detection" image={{ alt: "peak detection icon", src: `${imagePath}peak_detection_icon.svg` }} text="Peaks" />
+  <ImageLink href="/preprocessing/offset" image={{ alt: "offset icon", src: `${imagePath}derivative_icon.svg` }} text="Derivative" />
+  <ImageLink href="/preprocessing/restore" image={{ alt: "restore icon", src: `${imagePath}restore_icon.svg` }} text="Restore Spectra" />
+</div>

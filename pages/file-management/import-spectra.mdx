@@ -1,0 +1,48 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/file-management/";
+
+## Import spectra
+<hr></hr>
+<br></br>
+<Image src={`${imagePath}import_spectra_icon.svg`} alt="delete spectra icon" width={65} height={65} />
+
+Allows users to import spectra and its associated metadata into current workspace.
+
+The import pop up allows to directly drag&drop files or navigate through your own Operating System files menu.
+
+Suported files include:
+
+| File Format | Description                     |
+|-------------|---------------------------------|
+| .spsp       | Spectrify native file format    |
+| plain text *(.csv, .txt,...)*| Based on 2-column structure     |
+| jcamp-dx *(.jdx, .dx)*| JCAMP Standard based files |
+
+### Advanced importer
+
+Activate the Advanced Importer button in the Import pop up menu to access Advanced Import options.
+<br></br>
+<Image src={`${imagePath}advanced_importer_activation.png`} alt="advanced importer activation" width={500} height={300} />
+Advanced Import Options allow users to inspect file contents, preventing conflicts and displaying relevant information:
+* **File Details**: The top-left vignette shows the current file name and its order when multiple files are loaded.
+* **Raw Content Preview**: The top-right vignette displays the first 25 rows of the current document.
+* **Settings Panel**: The bottom-left vignette enables selecting a different column delimiter symbol and starting the import from a specific line, allowing the skipping of irrelevant header information.
+* **Parsed Data Preview**: The bottom-right vignette displays modified data based on the settings panel, helping to ensure the correct import style with 2 columns for X-Axis values and intensities.
+<Image src={`${imagePath}advanced_importer_menu.png`} alt="advanced importer menu example" width={500} height={300} />
+* **Apply**: Will apply the settings to the current file, opening to the next one.
+* **Apply to All Files**: Will apply same setting to all uploaded files.
+
+### Import errors
+An import error occurs due to an unexpected file format. Using Advanced Mode for file inspection may resolve this issue.
+<Image src={`${imagePath}import_spectra_error.png`} alt="advanced importer menu example" width={500} height={300} />
+
+
+<br />
+<hr />
+<br />
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+  <ImageLink href="/file-management/import-spectra" image={{alt: "import spectra icon", src: `${imagePath}import_spectra_icon.svg`}} text="Import Spectra" />
+  <ImageLink href="/file-management/export-spectra" image={{alt: "export spectra icon", src: `${imagePath}export_spectra_icon.svg`}} text="Export Spectra" />
+  <ImageLink href="/file-management/delete-spectra" image={{alt: "delete spectra icon", src: `${imagePath}delete_spectra_icon.svg`}} text="Delete Spectra" />
+</div>

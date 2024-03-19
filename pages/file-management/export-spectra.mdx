@@ -1,0 +1,21 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/file-management/";
+
+## Export spectra
+<hr></hr>
+<br></br>
+<Image src={`${imagePath}export_spectra_icon.svg`} alt="delete spectra icon" width={65} height={65} />
+
+Allows users to export spectra and their associated metadata in **.spsp** format. The number in parentheses denotes the count of selected spectra. 
+
+By using the import pop-up, users can conveniently name the spectra and export them through the Operating System's file menu.
+
+<br />
+<hr />
+<br />
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+  <ImageLink href="/file-management/import-spectra" image={{alt: "import spectra icon", src: `${imagePath}import_spectra_icon.svg`}} text="Import Spectra" />
+  <ImageLink href="/file-management/export-spectra" image={{alt: "export spectra icon", src: `${imagePath}export_spectra_icon.svg`}} text="Export Spectra" />
+  <ImageLink href="/file-management/delete-spectra" image={{alt: "delete spectra icon", src: `${imagePath}delete_spectra_icon.svg`}} text="Delete Spectra" />
+</div>

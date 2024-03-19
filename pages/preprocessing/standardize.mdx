@@ -1,0 +1,89 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/preprocessing/";
+
+## Standardize
+<hr />
+<br />
+<Image src={`${imagePath}standardization_icon.svg`} alt="standardization icon" width={65} height={65} />
+
+Standardization techniques are crucial preprocessing steps in spectral analysis that help to bring all variables to a common scale, without distorting differences in the ranges of values or losing information. These standardization techniques can enhance the comparability and interpretability of the spectral data, and improve the accuracy and robustness of subsequent data analysis.
+
+### Mean Centering
+
+Mean centering is a simple technique that shifts the data so that the mean (average) value of each variable is zero. It does this by subtracting the mean from every data point. This centering helps make the data easier to interpret, especially when the variables are measured on arbitrary scales with no meaningful zero point.
+
+<br />
+<p style={{textAlign: 'center'}}>$x^{centered} = x - \mu$</p>
+
+Where:
+
+    $x$ is the original spectra<br />
+    $\mu$ is the spectra mean<br />
+
+> Researchers are studying the growth rates of different plant species. Since the plants vary in their initial heights, the growth rates are measured on different scales. By mean centering the growth rates, the researchers can compare how much each species deviates from its average growth, making the results more interpretable.
+>
+
+### Standard Normal Variate (SNV)
+
+SNV is a scaling technique that centers the data around zero (like mean centering) and also scales the data to have a standard deviation of one. This makes the data dimensionless and allows for fair comparisons between variables measured on different scales or units.
+<br />
+<p style={{textAlign: 'center'}}>$x^{snv} = \frac{x - \mu}{\sigma}$</p>
+
+Where:
+
+    $x$ is the original data point<br />
+    $\mu$ is the mean of the data<br />
+    $\sigma$ is the standard deviation of the data<br />
+    $x_{SNV}$ is the SNV-transformed data point<br />
+
+
+> In a chemistry lab, researchers analyze the concentrations of different elements in a set of samples using spectroscopy. Since the elements have different natural abundances, their concentrations vary widely across orders of magnitude. By applying SNV, the researchers can compare the relative concentrations of each element across samples, regardless of their absolute values or units.
+> 
+
+### Robust Scaling
+
+Robust scaling is similar to standard scaling (dividing by the standard deviation), but it uses more robust measures of central tendency and spread: the median and the interquartile range (IQR). This makes robust scaling less sensitive to outliers in the data. 
+<br />
+<p style={{textAlign: 'center'}}>$x^{robust} = \frac{x - \tilde{x}}{IQR}$</p>
+
+Where:
+
+    $x$ is the original data point<br />
+    $\tilde{x}$ is the median of the data<br />
+    $IQR$ is the interquartile range of the data, calculated as $IQR = Q_3 - Q_1$, where $Q_1$ and $Q_3$ are the first and third quartiles, respectively.<br />
+    $x^{robust}$ is the robust-scaled data point<br />
+
+
+>A team of environmental scientists is studying air pollution levels in a city. Some neighborhoods have unusually high pollution levels due to nearby industrial facilities or other localized sources. By using robust scaling, the scientists can analyze the pollution data without being unduly influenced by these outliers, giving a more representative picture of the overall pollution levels across the city.
+> 
+
+### Linear Detrending
+
+Linear detrending is a technique used to remove any linear trends (increasing or decreasing patterns) from the data. This is useful when the data contains an underlying trend that obscures the patterns of interest. 
+<br />
+<p style={{textAlign: 'center'}}>$y = x - (ax + b)$</p>
+
+Where:
+
+    $x$ is the original data point<br />
+    $a$ and $b$ are the coefficients of the linear trend line, obtained by fitting a straight line to the data using least-squares regression<br />
+    $y$ is the detrended data point, with the linear trend removed<br />
+
+
+>A geologist is studying seismic activity in a region to understand the potential for earthquakes. The seismic data contains a linear trend due to the gradual movement of tectonic plates, which can mask the patterns of interest related to stress buildup and release. By applying linear detrending, the geologist can remove this underlying trend and focus on the deviations from the trend, which may reveal valuable insights into the seismic activity patterns that precede earthquakes
+> 
+
+<br />
+<hr />
+<br />
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+  <ImageLink href="/preprocessing/standardization" image={{ alt: "standardization icon", src: `${imagePath}standardization_icon.svg` }} text="Standardize" />
+  <ImageLink href="/preprocessing/baseline_correction" image={{ alt: "baseline correction icon", src: `${imagePath}baseline_icon.svg` }} text="Baseline" />
+  <ImageLink href="/preprocessing/smoothing" image={{ alt: "smoothing icon", src: `${imagePath}smoothing_icon.svg` }} text="Smooth" />
+  <ImageLink href="/preprocessing/offset" image={{ alt: "offset icon", src: `${imagePath}offset_icon.svg` }} text="Offset" />
+  <ImageLink href="/preprocessing/normalization" image={{ alt: "normalization icon", src: `${imagePath}normalization_icon.svg` }} text="Normalize" />
+  <ImageLink href="/preprocessing/peak_detection" image={{ alt: "peak detection icon", src: `${imagePath}peak_detection_icon.svg` }} text="Peaks" />
+  <ImageLink href="/preprocessing/offset" image={{ alt: "offset icon", src: `${imagePath}derivative_icon.svg` }} text="Derivative" />
+  <ImageLink href="/preprocessing/restore" image={{ alt: "restore icon", src: `${imagePath}restore_icon.svg` }} text="Restore Spectra" />
+</div>

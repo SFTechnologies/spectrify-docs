@@ -1,0 +1,70 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink'; 
+export const imagePath = "/images/preprocessing/";
+
+## Normalize
+<hr />
+<br />
+<Image src={`${imagePath}normalization_icon.svg`} alt="normalization icon" width={65} height={65} />
+
+Normalization is a crucial preprocessing step in spectral analysis that enables the comparison of spectra obtained from different samples or under different conditions. It helps to mitigate the common effect of varying intensity between measurements, which can arise due to factors such as sample preparation, instrumental drift, or changes in experimental conditions. By normalizing the spectra, the relative intensities of the spectral features become more comparable, facilitating accurate interpretation and analysis of the data.
+
+### Minimun-Maximun normalization
+
+Minimum-Maximum normalization is a technique used to rescale the intensity values of a spectrum to fit within a user-defined range, typically between 0 and 1. This is achieved by subtracting the minimum intensity value from each data point and then dividing the result by the range of the intensity values (maximum - minimum).
+
+<br />
+<u>Configurable Parameters:</u>
+
+- **Minimum**: The user-defined minimum value for the normalized intensity range (default: 0).
+- **Maximum**: The user-defined maximum value for the normalized intensity range (default: 1).
+  
+<br />
+<p style={{textAlign: 'center'}}>$y_i^{norm} = \frac{y_i - \min(y)}{\max(y) - \min(y)} \times (M - m) + m$</p> 
+<br />
+Where:
+
+    $y_i$ is the original intensity value at data point $i$<br />
+    $\min(y)$ is the minimum intensity value in the original spectrum<br />
+    $\max(y)$ is the maximum intensity value in the original spectrum<br />
+    $M$ is the user-defined maximum value for the normalized intensity range<br />
+    $m$ is the user-defined minimum value for the normalized intensity range<br />
+    $y_i^{norm}$ is the normalized intensity value at data point $i$ after applying the minimum-maximum normalization<br />
+<br />
+
+>Imagine you have a spectrum representing the absorption of a sample at different wavelengths. The intensity values range from 0.1 to 0.9. To compare this spectrum with others on a consistent scale, you apply Minimum-Maximum normalization with a minimum of 0 and a maximum of 1. This rescales the spectrum to have intensity values between 0 and 1, making it easier to compare with other normalized spectra.
+>
+
+### Peak normalization
+
+Peak normalization is a technique used to scale the intensity values of a spectrum based on a user-defined peak intensity. This method is particularly useful in spectral analysis when comparing spectra with different overall intensities but similar relative peak heights. The normalization is performed by dividing each data point by the intensity value of the specified peak.
+
+<br />
+<u>Configurable Parameters:</u>
+- **Peak**: The user-defined intensity value to which the spectrum will be normalized.
+
+<br />
+<p style={{textAlign: 'center'}}>$y_i^{norm} = \frac{y_i}{y_{peak}}$</p> 
+<br />
+Where:
+
+    $y_i$ is the original intensity value at data point $i$<br />
+    $y_{peak}$ is the user-defined peak intensity value<br />
+    $y_i^{norm}$ is the normalized intensity value at data point $i$ after applying peak normalization<br />
+
+>You have a set of spectra representing the emission of a fluorescent dye at different concentrations. The overall intensity of the spectra varies due to differences in concentration, but the relative heights of the emission peaks remain consistent. To compare the spectra, you apply Peak normalization by setting the peak intensity to 1. This normalization allows you to directly compare the relative peak heights across the spectra, regardless of the differences in overall intensity caused by varying dye concentrations.
+>
+
+<br />
+<hr />
+<br />
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+  <ImageLink href="/preprocessing/standardization" image={{ alt: "standardization icon", src: `${imagePath}standardization_icon.svg` }} text="Standardize" />
+  <ImageLink href="/preprocessing/baseline_correction" image={{ alt: "baseline correction icon", src: `${imagePath}baseline_icon.svg` }} text="Baseline" />
+  <ImageLink href="/preprocessing/smoothing" image={{ alt: "smoothing icon", src: `${imagePath}smoothing_icon.svg` }} text="Smooth" />
+  <ImageLink href="/preprocessing/offset" image={{ alt: "offset icon", src: `${imagePath}offset_icon.svg` }} text="Offset" />
+  <ImageLink href="/preprocessing/normalization" image={{ alt: "normalization icon", src: `${imagePath}normalization_icon.svg` }} text="Normalize" />
+  <ImageLink href="/preprocessing/peak_detection" image={{ alt: "peak detection icon", src: `${imagePath}peak_detection_icon.svg` }} text="Peaks" />
+  <ImageLink href="/preprocessing/offset" image={{ alt: "offset icon", src: `${imagePath}derivative_icon.svg` }} text="Derivative" />
+  <ImageLink href="/preprocessing/restore" image={{ alt: "restore icon", src: `${imagePath}restore_icon.svg` }} text="Restore Spectra" />
+</div>

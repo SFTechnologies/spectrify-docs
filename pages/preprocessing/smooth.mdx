@@ -1,0 +1,55 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/preprocessing/";
+
+## Smoothing
+<hr />
+<br />
+<Image src={`${imagePath}smoothing_icon.svg`} alt="smoothing icon" width={65} height={65} />
+
+Spectral smoothing is a technique used in signal processing to reduce noise while preserving important patterns in the data. Most common spectral smoothing method is Savitzky-Golay filter.
+
+### Savitzky-Golay filter
+
+DOI: https://doi.org/10.1021/ac60214a047
+
+Widely used technique for smoothing data, particularly in spectral analysis. It works by performing a local polynomial regression on a series of equally spaced data points to determine the smoothed value for each point. The main advantage of this approach is that it tends to preserve important features of the original signal, such as relative maxima and minima, and the widths of peaks.
+
+<br />
+<u>Configurable Parameters:</u>
+
+- **Window Size**: This parameter determines the number of data points used for the local polynomial regression. The window size must be an odd number because it requires a central point for calculations. A larger window size generally results in more smoothing but may also lead to the loss of important signal features.
+
+- **Polynomial Order**: This parameter specifies the degree of the polynomial used for the local regression. The polynomial order must be less than the window size. A lower polynomial order typically results in more smoothing but may also distort the signal shape.
+
+Let $x_i$ be the original data points, where $i = 1, 2, \ldots, n$, and $y_i$ be the corresponding smoothed values. The Savitzky-Golay filter performs a local polynomial regression of degree $k$ on a window of size $2m+1$ centered at each data point $x_i$. 
+
+The smoothed value $y_i$ is obtained by fitting a polynomial of degree $k$ to the data points within the window $[x_{i-m}, x_{i-m+1}, \ldots, x_{i+m}]$ using the method of least squares. The polynomial is then evaluated at the central point $x_i$ to obtain $y_i$. 
+Mathematically, the smoothed value $y_i$ can be expressed as a linear combination of the original data points within the window:
+<br />
+<p style={{textAlign: 'center'}}>$y_i = \sum_{j=-m}^{m} c_j x_{i+j}$</p>
+<br />
+
+where $c_j$ are the Savitzky-Golay filter coefficients, which depend on the window size $2m+1$ and the polynomial order $k$.
+
+The filter coefficients $c_j$ are calculated using the following formula:
+<br />
+<p style={{textAlign: 'center'}}>$c_j = \sum_{l=0}^{k} \frac{(-1)^{l+k}}{l!(k-l)!} \left(\frac{j^{k-l}}{(2m+1)^{k-l+1}} \sum_{p=-m}^{m} p^{k-l}\right)$</p>
+<br />
+
+>Imagine you have a noisy signal representing the concentration of a chemical in a solution over time. You want to smooth out the noise while preserving the overall trend and any important features, such as peaks or valleys. The Savitzky-Golay filter can help you achieve this by fitting a small polynomial curve to a sliding window of data points. For example, if you choose a window size of 9 and a polynomial order of 3, the filter will fit a cubic polynomial to every set of 9 consecutive data points and use the value of that polynomial at the center point as the smoothed value. This process is repeated for each point in the signal, resulting in a smoothed version that retains the overall shape and important features while reducing the noise.
+>
+
+<br />
+<hr />
+<br />
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+  <ImageLink href="/preprocessing/standardization" image={{ alt: "standardization icon", src: `${imagePath}standardization_icon.svg` }} text="Standardize" />
+  <ImageLink href="/preprocessing/baseline_correction" image={{ alt: "baseline correction icon", src: `${imagePath}baseline_icon.svg` }} text="Baseline" />
+  <ImageLink href="/preprocessing/smoothing" image={{ alt: "smoothing icon", src: `${imagePath}smoothing_icon.svg` }} text="Smooth" />
+  <ImageLink href="/preprocessing/offset" image={{ alt: "offset icon", src: `${imagePath}offset_icon.svg` }} text="Offset" />
+  <ImageLink href="/preprocessing/normalization" image={{ alt: "normalization icon", src: `${imagePath}normalization_icon.svg` }} text="Normalize" />
+  <ImageLink href="/preprocessing/peak_detection" image={{ alt: "peak detection icon", src: `${imagePath}peak_detection_icon.svg` }} text="Peaks" />
+  <ImageLink href="/preprocessing/offset" image={{ alt: "offset icon", src: `${imagePath}derivative_icon.svg` }} text="Derivative" />
+  <ImageLink href="/preprocessing/restore" image={{ alt: "restore icon", src: `${imagePath}restore_icon.svg` }} text="Restore Spectra" />
+</div>

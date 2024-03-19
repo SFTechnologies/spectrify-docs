@@ -2,20 +2,14 @@ import Image from 'next/image'
 import ImageLink from '/components/ImageLink';
 export const imagePath = "/images/preprocessing/";
 
-# Preprocessing
-
-Preprocessing techniques in spectral analysis are methods used to refine raw spectral data to make it more suitable for further analysis. The goal is to minimize the impact of uninformative variability in the data, such as background noise or instrumental responses, and enhance the informative signals, which are the spectral features associated with the materials or substances being analyzed.
-
-Preprocessing can involve various methods such as smoothing, normalization, baseline correction, and noise reduction. The choice of method depends on the specific characteristics of the spectral data and the objectives of the analysis.
-
-By improving the quality of the spectral data, preprocessing techniques increase the reliability of subsequent data analysis and interpretation. They enable more accurate and precise extraction of information from the spectra, thereby facilitating more informed decision-making
-
-## Configurable parameters
-
-Each Preprocessing icon includes a 'settings gear' button for configuring transformation parameters and previewing changes in a pop-up menu. For detailed instructions on each configurable parameter, consult the corresponding preprocessing action section.
+## Restore Spectra
+<hr />
 <br />
-<Image src={`${imagePath}preprocessing_gear_parameters.png`} alt="preprocessing parameters customization" width={500} height={300} />
+<Image src={`${imagePath}restore_icon.svg`} alt="restore spectra icon" width={65} height={65} />
 
+Restore Spectra feature that allows you to recover the original spectra, effectively erasing all transformations and modifications that have been applied. This action is irreversible, meaning that once the original spectra are restored, any changes made previously will be permanently lost.
+
+Data manipulation and transformations are common practices to enhance visualization, extract meaningful information, or prepare the data for further analysis. However, there may be instances where you need to revert to the original, untransformed spectral data. This is where the "Restore Spectra Tool" comes into play.
 
 <br />
 <hr />

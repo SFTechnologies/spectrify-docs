@@ -1,0 +1,24 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+export const imagePath = "/images/workspace-management/";
+
+## New workspace
+<hr></hr>
+<br></br>
+<Image src={`${imagePath}new_workspace_icon.svg`} alt="new workspace icon" width={65} height={65} />
+
+Allows users to create a new workspace with properties and settings for a specific spectral technique.
+
+This includes defining a name, technique and description, providing a way to organize and categorize workspaces for easy retrieval. 
+
+Each workspace operates independently, allowing for multiple instances of the same spectra with different transformations. Once the new workspace is established, users can save it for future use, ensuring that the defined properties and settings are preserved.
+
+<br />
+<hr />
+<br />
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+  <ImageLink href="/workspace-management/open-workspace" image={{alt: "open workspace icon", src: `${imagePath}open_workspace_icon.svg`}} text="Open Workspace" />
+  <ImageLink href="/workspace-management/save-workspace" image={{alt: "save workspace icon", src: `${imagePath}save_workspace_icon.svg`}} text="Save Workspace" />
+  <ImageLink href="/workspace-management/close-workspace" image={{alt: "close workspace icon", src: `${imagePath}close_workspace_icon.svg`}} text="Close Workspace" />
+  <ImageLink href="/workspace-management/new-workspace" image={{alt: "new workspace icon", src: `${imagePath}new_workspace_icon.svg`}} text="New Workspace" />
+</div>
