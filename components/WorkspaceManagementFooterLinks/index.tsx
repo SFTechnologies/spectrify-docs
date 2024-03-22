@@ -14,31 +14,31 @@ const WorkspaceManagementFooterLinks = ({
       <ImageLink 
       href='/workspace-management/open-workspace' 
       image={{
-        alt: "open workspace icon", 
+        alt: 'open workspace icon', 
         src: `${imagePath}open_workspace_icon.svg`
         }} 
-        text="Open Workspace" />
+        text='Open Workspace' />
       <ImageLink
-      href="/workspace-management/save-workspace" 
+      href='/workspace-management/save-workspace' 
       image={{
-        alt: "save workspace icon", 
+        alt: 'save workspace icon', 
         src: `${imagePath}save_workspace_icon.svg`
         }} 
-        text="Save Workspace" />
+        text='Save Workspace' />
       <ImageLink
-       href="/workspace-management/close-workspace" 
+       href='/workspace-management/close-workspace' 
        image={{
-        alt: "close workspace icon",
+        alt: 'close workspace icon',
         src: `${imagePath}close_workspace_icon.svg`
         }} 
-        text="Close Workspace" />
+        text='Close Workspace' />
       <ImageLink 
-      href="/workspace-management/new-workspace"
+      href='/workspace-management/new-workspace'
       image={{
-        alt: "new workspace icon",
+        alt: 'new workspace icon',
         src: `${imagePath}new_workspace_icon.svg`
         }} 
-        text="New Workspace" />
+        text='New Workspace' />
     </div>
   );
 };
