@@ -1,6 +1,5 @@
+import FooterLinksContainer from '../FooterLinksContainer';
 import ImageLink from '../ImageLink';
-
-import styles from './PreprocessingFooterLinks.module.css';
 
 interface PreprocessingFooterLinksProps {
   imagePath: string;
@@ -10,7 +9,7 @@ const PreprocessingFooterLinks = ({
   imagePath,
 }: PreprocessingFooterLinksProps) => {
   return (
-    <div className={styles.container}>
+    <FooterLinksContainer>
       <ImageLink
         href='/preprocessing/standardize'
         image={{
@@ -63,7 +62,7 @@ const PreprocessingFooterLinks = ({
         image={{ alt: 'restore icon', src: `${imagePath}restore_icon.svg` }}
         text='Restore Spectra'
       />
-    </div>
+    </FooterLinksContainer>
   );
 };
 
