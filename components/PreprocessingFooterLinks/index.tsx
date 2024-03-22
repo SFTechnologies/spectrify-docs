@@ -12,7 +12,7 @@ const PreprocessingFooterLinks = ({
   return (
     <div className={styles.container}>
       <ImageLink
-        href='/preprocessing/standardization'
+        href='/preprocessing/standardize'
         image={{
           alt: 'standardization icon',
           src: `${imagePath}standardization_icon.svg`,
@@ -28,7 +28,7 @@ const PreprocessingFooterLinks = ({
         text='Baseline'
       />
       <ImageLink
-        href='/preprocessing/smoothing'
+        href='/preprocessing/smooth'
         image={{ alt: 'smoothing icon', src: `${imagePath}smoothing_icon.svg` }}
         text='Smooth'
       />
@@ -38,7 +38,7 @@ const PreprocessingFooterLinks = ({
         text='Offset'
       />
       <ImageLink
-        href='/preprocessing/normalization'
+        href='/preprocessing/normalize'
         image={{
           alt: 'normalization icon',
           src: `${imagePath}normalization_icon.svg`,
