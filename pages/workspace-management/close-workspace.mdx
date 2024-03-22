@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import ImageLink from '/components/ImageLink';
+import WorkspaceManagementFooterLinks from '/components/WorkspaceManagementFooterLinks';
+
 export const imagePath = "/images/workspace-management/";
 
 ## Close workspace
@@ -14,9 +16,4 @@ Any unsaved data within the workspace will be lost. This action effectively term
 <br />
 <hr />
 <br />
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
-  <ImageLink href="/workspace-management/open-workspace" image={{alt: "open workspace icon", src: `${imagePath}open_workspace_icon.svg`}} text="Open Workspace" />
-  <ImageLink href="/workspace-management/save-workspace" image={{alt: "save workspace icon", src: `${imagePath}save_workspace_icon.svg`}} text="Save Workspace" />
-  <ImageLink href="/workspace-management/close-workspace" image={{alt: "close workspace icon", src: `${imagePath}close_workspace_icon.svg`}} text="Close Workspace" />
-  <ImageLink href="/workspace-management/new-workspace" image={{alt: "new workspace icon", src: `${imagePath}new_workspace_icon.svg`}} text="New Workspace" />
-</div>
+<WorkspaceManagementFooterLinks imagePath={imagePath} />

@@ -6,30 +6,22 @@ import styles from './ImageLink.module.css';
 
 type Url = string | UrlObject;
 interface ImageLinkProps {
-    href: Url,
-    image : {
-        alt: string,
-        src:  string,
-    },
-    text: string
-
+  href: Url;
+  image: {
+    alt: string;
+    src: string;
+  };
+  text: string;
 }
 
-const ImageLink = ({href, image, text}: ImageLinkProps) => {
+const ImageLink = ({ href, image, text }: ImageLinkProps) => {
   return (
     <Link
       href={href}
       className={clsx('text-underline-animation-class', styles.link)}
     >
-      <Image
-        alt={image.alt}
-        src={image.src}
-        width={35}
-        height={35}
-      />
-      <span>
-        {text}
-      </span>
+      <Image alt={image.alt} src={image.src} width={35} height={35} />
+      <span>{text}</span>
     </Link>
   );
 };
