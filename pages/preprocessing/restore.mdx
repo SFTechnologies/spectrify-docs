@@ -1,0 +1,20 @@
+import Image from 'next/image';
+import ImageLink from '/components/ImageLink';
+import PreprocessingFooterLinks from '/components/PreprocessingFooterLinks';
+
+export const imagePath = '/images/preprocessing/';
+
+
+## Restore Spectra
+<hr />
+<br />
+<Image src={`${imagePath}restore_icon.svg`} alt="restore spectra icon" width={65} height={65} />
+
+Restore Spectra feature that allows you to recover the original spectra, effectively erasing all transformations and modifications that have been applied. This action is irreversible, meaning that once the original spectra are restored, any changes made previously will be permanently lost.
+
+Data manipulation and transformations are common practices to enhance visualization, extract meaningful information, or prepare the data for further analysis. However, there may be instances where you need to revert to the original, untransformed spectral data. This is where the "Restore Spectra Tool" comes into play.
+
+<br />
+<hr />
+<br />
+<PreprocessingFooterLinks imagePath={imagePath} />

@@ -1,6 +1,8 @@
-import Image from 'next/image';
+import Image from 'next/image'
 import ImageLink from '/components/ImageLink';
-export const imagePath = "/images/file_management/";
+import FileManagementFooterLinks from '/components/FileManagementFooterLinks';
+
+export const imagePath = "/images/file-management/";
 
 ## Delete spectra
 <hr />
@@ -14,7 +16,4 @@ Please note that this action is irreversible, and the deleted data cannot be rec
 <br />
 <hr />
 <br />
-<ImageLink href="/file_management/import_spectra" image={{alt: "import spectra icon", src: `${imagePath}import_spectra_icon.svg`}} text="Import spectra" />
-<br />
-<ImageLink href="/file_management/export_spectra" image={{alt: "export spectra icon", src: `${imagePath}export_spectra_icon.svg`}} text="Export spectra" />
-
+<FileManagementFooterLinks imagePath={imagePath} />

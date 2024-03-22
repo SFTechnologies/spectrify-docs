@@ -1,8 +1,10 @@
 {
-    "standardization": "Standardization",
-    "baseline_correction": "Baseline correction",
-    "smoothing": "Smoothing",
-    "normalization": "Normalization",
-    "peak_detection": "Peak detection",
-    "offset": "Offset"
+    "standardize": "Standardize",
+    "baseline-correction": "Baseline",
+    "smooth": "Smooth",
+    "offset": "Offset",
+    "normalize": "Normalize",
+    "peak-detection": "Peaks Detection",
+    "derivative": "Derivative",
+    "restore": "Restore Spectra"
 }

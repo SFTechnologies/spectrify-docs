@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import ImageLink from '/components/ImageLink';
-export const imagePath = "/images/workspace_management/";
+import WorkspaceManagementFooterLinks from '/components/WorkspaceManagementFooterLinks';
+
+export const imagePath = "/images/workspace-management/";
 
 ## New workspace
 <hr></hr>
@@ -16,8 +18,4 @@ Each workspace operates independently, allowing for multiple instances of the sa
 <br />
 <hr />
 <br />
-<ImageLink href="/workspace_management/open_workspace" image={{alt: "open workspace icon", src: `${imagePath}open_workspace_icon.svg`}} text="Open workspace" />
-<br />
-<ImageLink href="/workspace_management/save_workspace" image={{alt: "save workspace icon", src: `${imagePath}save_workspace_icon.svg`}} text="Save workspace" />
-<br />
-<ImageLink href="/workspace_management/close_workspace" image={{alt: "close workspace icon", src: `${imagePath}close_workspace_icon.svg`}} text="Close workspace" />
+<WorkspaceManagementFooterLinks imagePath={imagePath} />

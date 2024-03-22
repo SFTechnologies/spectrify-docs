@@ -1,23 +1,64 @@
-import Image from 'next/image'
+import Image from 'next/image';
 import ImageLink from '/components/ImageLink';
-export const imagePath = "/images/preprocessing/";
+import PreprocessingFooterLinks from '/components/PreprocessingFooterLinks';
+
+export const imagePath = '/images/preprocessing/';
+
 
 ## Offset
 <hr />
 <br />
 <Image src={`${imagePath}offset_icon.svg`} alt="offset icon" width={65} height={65} />
 
-### Coming soon!
+Offset correction is a useful preprocessing technique in spectral analysis that helps to remove constant or systematic shifts in the spectral data. These shifts can be caused by various factors, such as instrumental drift, sample preparation variations, or differences in background conditions. By correcting for these offsets, the spectral data becomes more consistent and comparable, which can improve the accuracy and reliability of subsequent analyses, such as classification, quantification, or pattern recognition.
+
+### To intensity (Minimun based offset)
+
+This offset correction involves shifting the entire spectrum up or down by a constant value to align it with a specific intensity level. This is done by substracting the minimum intensity value and adding a user-defined value to all data points, so that the minimum value reaches the desired intensity level.
+<br />
+<u>Configurable Parameters:</u>
+
+- **Intensity Level**: The user specifies the desired intensity level to which the minimum value of the spectrum should be aligned.
+
+
+<br />
+<p style={{textAlign: 'center'}}>$y_i^{corr} = y_i - \min(y) + I_L$</p>
+<br />
+Where:
+
+    $y_i$ is the original intensity value at data point $i$<br />
+    $\min(y)$ is the minimum intensity value in the original spectrum<br />
+    $I_L$ is the user-specified intensity level<br />
+    $y_i^{corr}$ is the corrected intensity value at data point $i$ after applying the offset correction<br />
+<br />
+
+>You have a spectrum representing the absorption of a sample at different wavelengths. Due to some instrumental factors, the spectrum has a constant shift of 0.1 units. To correct for this, you can apply a vertical offset correction by setting the intensity level to 0. The minimum value in the spectrum will be found and subtracted from all data points, effectively shifting the entire spectrum down by 0.1 units, so that the minimum value becomes 0.
+>
+<br />
+<hr />
+
+### From X-Value (Custom point offset)
+
+This offset correction involves shifting the entire spectrum up or down using an user defined point, so that the intensity value at a specific x-value becomes zero. This is done by finding the intensity value at the user-defined x-value and then subtracting this value from all data points in the spectrum.
+<br />
+<u>Configurable Parameters:</u>
+<br />
+- **X-Value**: The user specifies the x-value (energy value) at which the intensity should be set to zero
+
+<br /> 
+<p style={{textAlign: 'center'}}>$y_i^{corr} = y_i - y_{x_0}$</p> 
+<br /> 
+Where:
+$y_i$ is the original intensity value at data point $i$<br />
+$y_{x_0}$ is the intensity value at the user-specified x-value $x_0$<br />
+$y_i^{corr}$ is the corrected intensity value at data point $i$ after applying the horizontal offset correction<br />
+<br />
+
+>You have a spectrum representing the emission of a sample at different energies. The spectrum has a non-zero intensity value at the energy level where you expect no emission. To correct for this, you can apply a horizontal offset correction by setting the x-value (energy) to the expected zero-emission level. The intensity value at this x-value will be subtracted from all data points in the spectrum, effectively shifting the spectrum vertically so that the intensity at the specified x-value becomes zero.
+>
+
 
 <br />
 <hr />
 <br />
-<ImageLink href="/preprocessing/standardization" image={{alt: "standardization icon", src: `${imagePath}standardization_icon.svg`}} text="Standarization" />
-<br />
-<ImageLink href="/preprocessing/baseline_correction" image={{alt: "baseline correction icon",src: `${imagePath}baseline_icon.svg`}} text="Baseline correction" />
-<br />
-<ImageLink href="/preprocessing/smoothing" image={{alt: "smoothing icon", src: `${imagePath}smoothing_icon.svg`}} text="Smoothing" />
-<br />
-<ImageLink href="/preprocessing/normalization" image={{alt: "normalization icon", src: `${imagePath}normalization_icon.svg`}} text="Normalization" />
-<br />
-<ImageLink href="/preprocessing/peak_detection" image={{alt: "peak detection icon", src: `${imagePath}peak_detection_icon.svg`}} text="Peak detection" />
+<PreprocessingFooterLinks imagePath={imagePath} />
