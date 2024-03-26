@@ -1,4 +1,3 @@
-import image from 'next/image';
 import FooterLinksContainer from '../FooterLinksContainer';
 import ImageLink, { ImageLinkProps } from '../ImageLink';
 
