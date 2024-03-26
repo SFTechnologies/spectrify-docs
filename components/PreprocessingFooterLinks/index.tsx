@@ -1,69 +1,37 @@
 import FooterLinksContainer from '../FooterLinksContainer';
 import ImageLink from '../ImageLink';
 
-interface PreprocessingFooterLinksProps {
+interface SpectraTableFooterLinksProps {
   imagePath: string;
 }
 
-const PreprocessingFooterLinks = ({
+const footerLinksList = [
+  { actionText: 'standardize' },
+  { actionText: 'baseline correction' },
+  { actionText: 'smooth' },
+  { actionText: 'offset' },
+  { actionText: 'normalize' },
+  { actionText: 'peak detection' },
+  { actionText: 'derivative' },
+  { actionText: 'restore' },
+];
+
+const SpectraTableFooterLinks = ({
   imagePath,
-}: PreprocessingFooterLinksProps) => {
+}: SpectraTableFooterLinksProps) => {
   return (
     <FooterLinksContainer>
-      <ImageLink
-        href='/preprocessing/standardize'
-        image={{
-          alt: 'standardization icon',
-          src: `${imagePath}standardization_icon.svg`,
-        }}
-        text='Standardize'
-      />
-      <ImageLink
-        href='/preprocessing/baseline-correction'
-        image={{
-          alt: 'baseline correction icon',
-          src: `${imagePath}baseline_icon.svg`,
-        }}
-        text='Baseline'
-      />
-      <ImageLink
-        href='/preprocessing/smooth'
-        image={{ alt: 'smoothing icon', src: `${imagePath}smoothing_icon.svg` }}
-        text='Smooth'
-      />
-      <ImageLink
-        href='/preprocessing/offset'
-        image={{ alt: 'offset icon', src: `${imagePath}offset_icon.svg` }}
-        text='Offset'
-      />
-      <ImageLink
-        href='/preprocessing/normalize'
-        image={{
-          alt: 'normalization icon',
-          src: `${imagePath}normalization_icon.svg`,
-        }}
-        text='Normalize'
-      />
-      <ImageLink
-        href='/preprocessing/peak-detection'
-        image={{
-          alt: 'peak detection icon',
-          src: `${imagePath}peak_detection_icon.svg`,
-        }}
-        text='Peaks'
-      />
-      <ImageLink
-        href='/preprocessing/offset'
-        image={{ alt: 'offset icon', src: `${imagePath}derivative_icon.svg` }}
-        text='Derivative'
-      />
-      <ImageLink
-        href='/preprocessing/restore'
-        image={{ alt: 'restore icon', src: `${imagePath}restore_icon.svg` }}
-        text='Restore Spectra'
-      />
+      {footerLinksList.map(({ actionText, width }) => (
+        <ImageLink
+          actionText={actionText}
+          key={actionText}
+          baseHref="/preprocessing/"
+          image={{
+            width: width,
+          }}
+        />
+      ))}
     </FooterLinksContainer>
   );
 };
-
-export default PreprocessingFooterLinks;
+export default SpectraTableFooterLinks;

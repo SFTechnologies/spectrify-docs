@@ -1,38 +1,34 @@
+import image from 'next/image';
 import FooterLinksContainer from '../FooterLinksContainer';
 import ImageLink from '../ImageLink';
 
-interface FileManagementFooterLinksProps {
+interface SpectraTableFooterLinksProps {
   imagePath: string;
 }
 
-const FileManagementFooterLinks = ({
+const footerLinksList = [
+  { actionText: 'import spectra' },
+  { actionText: 'export spectra' },
+  { actionText: 'delete spectra' },
+];
+
+const SpectraTableFooterLinks = ({
   imagePath,
-}: FileManagementFooterLinksProps) => {
+}: SpectraTableFooterLinksProps) => {
   return (
     <FooterLinksContainer>
-      <ImageLink
-        href='/file-management/import-spectra'
-        image={{
-          alt: 'import spectra icon',
-          src: `${imagePath}import_spectra_icon.svg`
-        }}
-        text='Import Spectra' />
-      <ImageLink
-        href='/file-management/export-spectra'
-        image={{
-          alt: 'export spectra icon',
-          src: `${imagePath}export_spectra_icon.svg`
-        }}
-        text='Export Spectra' />
-      <ImageLink
-        href='/file-management/delete-spectra'
-        image={{
-          alt: 'delete spectra icon',
-          src: `${imagePath}delete_spectra_icon.svg`
-        }}
-        text='Delete Spectra' />
+      {footerLinksList.map(({ actionText, width }) => (
+        <ImageLink
+          actionText={actionText}
+          key={actionText}
+          baseHref="/file-management/"
+          image={{
+            width: width,
+          }}
+        />
+      ))}
     </FooterLinksContainer>
   );
 };
+export default SpectraTableFooterLinks;
 
-export default FileManagementFooterLinks;
