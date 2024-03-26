@@ -18,14 +18,11 @@ const SpectraTableFooterLinks = ({
 }: SpectraTableFooterLinksProps) => {
   return (
     <FooterLinksContainer>
-      {footerLinksList.map(({ actionText, width }) => (
+      {footerLinksList.map(({ actionText }) => (
         <ImageLink
           actionText={actionText}
           key={actionText}
           baseHref="/workspace-management/"
-          image={{
-            width: width,
-          }}
         />
       ))}
     </FooterLinksContainer>

@@ -1,10 +1,6 @@
 import FooterLinksContainer from '../FooterLinksContainer';
 import ImageLink from '../ImageLink';
 
-interface SpectraTableFooterLinksProps {
-  imagePath: string;
-}
-
 const footerLinksList = [
   { actionText: 'standardize' },
   { actionText: 'baseline correction' },
@@ -16,19 +12,14 @@ const footerLinksList = [
   { actionText: 'restore' },
 ];
 
-const SpectraTableFooterLinks = ({
-  imagePath,
-}: SpectraTableFooterLinksProps) => {
+const SpectraTableFooterLinks = () => {
   return (
     <FooterLinksContainer>
-      {footerLinksList.map(({ actionText, width }) => (
+      {footerLinksList.map(({ actionText }) => (
         <ImageLink
           actionText={actionText}
           key={actionText}
           baseHref="/preprocessing/"
-          image={{
-            width: width,
-          }}
         />
       ))}
     </FooterLinksContainer>

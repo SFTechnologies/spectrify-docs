@@ -1,5 +1,4 @@
-import Image from 'next/image'
-import ImageLink from '/components/ImageLink';
+import Image from 'next/image';
 import SpectraTableFooterLinks from '/components/SpectraTableFooterLinks';
 
 export const imagePath = "/images/spectra-table/";
@@ -15,7 +14,8 @@ When working with spectroscopic data, it's essential to have a way to name, orga
 
 The Collapsed Spectra Table is visible from each menu tab on the left side of the screen. It will show the name of every spectrum loaded in the workspace next to several options and information.
 <br/>
-<img src={`${imagePath}collapsed_table.png`} alt="collapsed spectra table" width={400} style={{ display: 'block', margin: '0 auto' }} />
+
+<Image src={`${imagePath}collapsed_table.png`} alt="collapsed spectra table" width={400} height={100} style={{ display: 'block', margin: '0 auto' }} />
 
 - **Editing Check**: The first checkbox. When a spectrum is selected, actions will be applied to it. Think of it as a "trigger safety button"; if it's not checked, the spectrum is loaded into the dataset but ignored for further operations.
 - **Visualizing Check**: The second checkbox, the eye button. When working with large datasets, showing or hiding spectra can be crucial for optimizing software resources or comparing spectra. This is independent of the editing check.
@@ -27,7 +27,7 @@ The Collapsed Spectra Table is visible from each menu tab on the left side of th
 
 Metadata refers to additional information that describes and characterizes each spectrum. This can include details such as the date the spectrum was recorded, the type of sample or material being analyzed, the experimental conditions, or any other relevant information that can aid in the interpretation and analysis of the spectral data. It's essentially a spreadsheet with rows representing individual spectra and columns representing different metadata attributes.
 <br/>
-<img src={`${imagePath}extended_table.png`} alt="extended spectra table" width={800} style={{ display: 'block', margin: '0 auto' }} />
+<Image src={`${imagePath}extended_table.png`} alt="extended spectra table" width={800} height={100} style={{ display: 'block', margin: '0 auto' }} />
 
 
 Adittionally to collapsed spectra table actions, you will gain access to **metadata management**.

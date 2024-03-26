@@ -1,35 +1,27 @@
-import image from 'next/image';
 import FooterLinksContainer from '../FooterLinksContainer';
-import ImageLink from '../ImageLink';
+import ImageLink, { ImageLinkProps } from '../ImageLink';
 
-interface SpectraTableFooterLinksProps {
-  imagePath: string;
-}
+const defaultProps = {
+  hideText: true,
+  image: { width: 170 }
+};
 
-const footerLinksList = [
-  { actionText: 'column selection', width: 170 },
-  { actionText: 'clear filters', width: 170 },
-  { actionText: 'create metadata', width: 170 },
-  { actionText: 'import metadata', width: 170 },
-  { actionText: 'delete order filter', width: 170 }
+const footerLinksList: Pick<ImageLinkProps, 'actionText' | 'hideText' | 'image'>[] = [
+  { actionText: 'column selection', ...defaultProps },
+  { actionText: 'clear filters', ...defaultProps },
+  { actionText: 'create metadata', ...defaultProps },
+  { actionText: 'import metadata', ...defaultProps },
+  { actionText: 'delete order filter', ...defaultProps, hideText: false }
 ];
 
-const emptyTextItems = ['column selection', 'clear filters', 'create metadata', 'import metadata', 'delete order filter'];
-
-const SpectraTableFooterLinks = ({
-  imagePath,
-}: SpectraTableFooterLinksProps) => {
+const SpectraTableFooterLinks = () => {
   return (
     <FooterLinksContainer>
-      {footerLinksList.map(({ actionText, width }) => (
+      {footerLinksList.map((props) => (
         <ImageLink
-          actionText={actionText}
-          key={actionText}
+          {...props}
+          key={props.actionText}
           baseHref="/spectra-table/"
-          image={{
-            width: width,
-          }}
-          emptyTextItems={emptyTextItems}
         />
       ))}
     </FooterLinksContainer>
