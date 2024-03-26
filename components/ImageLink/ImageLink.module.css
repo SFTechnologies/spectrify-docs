@@ -4,3 +4,7 @@
     font-weight: bold;
     gap: 0.8em;
 }
+
+.linkText {
+  text-transform: capitalize;
+}

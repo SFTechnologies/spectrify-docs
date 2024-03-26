@@ -1,27 +1,38 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { UrlObject } from 'url';
 import styles from './ImageLink.module.css';
 
-type Url = string | UrlObject;
-interface ImageLinkProps {
-  href: Url;
-  image: {
-    alt: string;
-    src: string;
+export interface ImageLinkProps {
+  actionText: string;
+  baseHref: string;
+  hideText?: boolean;
+  image?: {
+    height?: number | `${number}`;
+    width?: number | `${number}`;
   };
-  text: string;
 }
 
-const ImageLink = ({ href, image, text }: ImageLinkProps) => {
+function formatString(actionText: string, baseHref: string) {
+  const href = `${baseHref}${actionText.replaceAll(' ', '-')}`;
+  const src = `/images${baseHref}${actionText.replaceAll(' ', '_')}.png`;
+
+  return { alt: actionText, href, src, text: actionText };
+}
+
+const DEFAULT_SIZE = 35;
+
+const ImageLink = ({ actionText, baseHref, hideText = false, image = { height: DEFAULT_SIZE, width: DEFAULT_SIZE } }: ImageLinkProps) => {
+  const { alt, href, src, text } = formatString(actionText, baseHref);
+  const { height = DEFAULT_SIZE, width = DEFAULT_SIZE } = image;
+
   return (
     <Link
       href={href}
       className={clsx('text-underline-animation-class', styles.link)}
     >
-      <Image alt={image.alt} src={image.src} width={35} height={35} />
-      <span>{text}</span>
+      <Image alt={alt} src={src} width={width} height={height} />
+      {!hideText && text && <span className={styles.linkText}>{text}</span>}
     </Link>
   );
 };

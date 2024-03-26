@@ -1,0 +1,26 @@
+import Image from 'next/image'
+
+import SpectraTableFooterLinks from '/components/SpectraTableFooterLinks';
+
+export const imagePath = "/images/spectra-table/";
+
+## Create Metadata
+<hr />
+<br />
+
+This button opens a pop-up menu where the user can create a new column and manually fill it. You can name the column and select the data type:
+
+- **Text**: Also known as categorical variables. This assigns a "type" or category to a spectrum, enabling classification tasks.
+- **Number**: Also known as continuous variables. This assigns a "level" or numeric value to a spectrum, enabling regression tasks.
+<br />
+<Image src={`${imagePath}create_metadata_popup.png`} alt="create metadata pop-up menu" width={500} height={65} style={{ display: 'block', margin: '0 auto' }} />
+
+
+Once the Metadata Column is created, you can easily fill the cells using your keyboard. The type of data will be shown next to header of column.
+<br />
+<Image src={`${imagePath}column_type.png`} alt="column type header icon" width={400} height={65} style={{ display: 'block', margin: '0 auto' }} />
+
+<br />
+<hr />
+<br />
+<SpectraTableFooterLinks imagePath={imagePath} />
