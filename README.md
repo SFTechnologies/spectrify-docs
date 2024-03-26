@@ -1,65 +1,31 @@
-# SPECTRIFY Documentation
+# Contributing to Spectrify Documentation
 
-Welcome to the official documentation for SPECTRIFY, a comprehensive spectral data analysis suite. This documentation provides information on how to use SPECTRIFY and its various features.
+Thank you for your interest in contributing to the Spectrify documentation! We welcome contributions from the community to help improve and enhance the project.
 
-## Table of Contents
+## Submitting Changes
 
-- [SPECTRIFY Documentation](#spectrify-documentation)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Getting Started](#getting-started)
-  - [Workspace Management](#workspace-management)
-  - [File Management](#file-management)
-  - [Preprocessing](#preprocessing)
-  - [Contributing](#contributing)
-  - [License](#license)
+1. Fork the repository on GitHub.
+2. Clone your forked repository to your local machine.
+3. Create a new branch for your changes.
+4. Make your changes to the relevant `.mdx` files.
+5. Commit your changes with descriptive commit messages.
+6. Push your changes to your forked repository.
+7. Submit a pull request to the main repository.
 
-## Introduction
+## Pull Request Guidelines
 
-SPECTRIFY is a powerful tool for analyzing spectral data from various techniques, including Raman, Spectrophotometry, and FTIR. It offers a wide range of preprocessing options, spectral identification, and AI operations to simplify and enhance the spectral analysis process.
+- Provide a clear and descriptive title for your pull request.
+- Include a detailed description of the changes you have made.
+- If your pull request addresses an open issue, reference the issue number in the description.
+- Ensure that your changes follow the project's coding style and conventions.
+- Write clear and concise commit messages.
 
-## Getting Started
+## Reporting Issues
 
-To get started with the SPECTRIFY docs, follow these steps:
-
-1. Clone the repository: `git clone https://github.com/SFTechnologies/spectrify-docs.git`
-2. Install the dependencies: `npm install`
-3. Start the development server: `npm run dev`
-4. Open your browser and visit: `http://localhost:3000`
-
-## Workspace Management
-
-SPECTRIFY provides a flexible workspace management system. Each workspace operates independently, allowing you to explore various types and instances of spectroscopic data simultaneously. You can create, save, and switch between different workspaces easily.
-
-For more information, see the [Workspace Management](pages/workspace_management.mdx) documentation.
-
-## File Management
-
-SPECTRIFY supports importing and exporting spectral data and associated metadata. It allows you to import data from various file formats, including the native .spsp format and plain text files. You can also export your processed data for further analysis or sharing.
-
-For more information, see the [File Management](pages/file_management.mdx) documentation.
-
-## Preprocessing
-
-SPECTRIFY offers a range of preprocessing techniques to refine raw spectral data and enhance its quality for analysis. These techniques include smoothing, normalization, baseline correction, and more. You can apply these preprocessing steps to minimize noise, remove background signals, and improve the overall signal-to-noise ratio.
-
-For more information, see the [Preprocessing](pages/preprocessing.mdx) documentation.
-
-## Contributing
-
-We welcome contributions to SPECTRIFY! If you'd like to contribute, please follow our [Contributing Guidelines](CONTRIBUTING.md) and submit a pull request.
+If you encounter any issues or have suggestions for improvements, please submit them through the [issue tracker](https://github.com/SFTechnologies/spectrify-docs/issues) on GitHub. When reporting an issue, provide as much detail as possible, including steps to reproduce the problem, expected behavior, and any relevant error messages or screenshots.
 
 ## License
 
-SPECTRIFY is open-source software licensed under the [MIT License](LICENSE).
-
----
-
-This documentation is built with [Nextra](https://nextra.site), a framework for creating beautiful and modern documentation websites. Nextra provides a seamless experience for both developers and users, with features like:
-
-- **Markdown and MDX support**: Write your documentation using familiar Markdown syntax or leverage the power of MDX for more advanced components and interactivity.
-- **Automatic table of contents**: Nextra automatically generates a table of contents based on your document structure, making it easy for users to navigate your documentation.
-- **Customizable themes**: Customize the look and feel of your documentation with Nextra's theme system. Choose from pre-built themes or create your own to match your brand.
-- **Integration with Next.js**: Nextra is built on top of Next.js, allowing you to leverage the full power of the Next.js ecosystem and easily extend your documentation site.
+By contributing to Spectrify documentation, you agree that your contributions will be licensed under the [MIT License](LICENSE).
 
 For more information about using Nextra, visit the [Nextra documentation](https://nextra.site/docs).
