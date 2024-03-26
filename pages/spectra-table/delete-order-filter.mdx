@@ -1,0 +1,19 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+import SpectraTableFooterLinks from '/components/SpectraTableFooterLinks';
+
+export const imagePath = "/images/spectra-table/";
+
+## Delete, Order, Filter
+<hr />
+<br />
+
+This set of tools is exclusive for every metadata columns. They will appear next to header and are useful for different tasks.
+
+- **Delete column**: It will permanently remove the metadata column from workspace.
+- **Order column**: It will order spectra in workspace based on the column. 1-click will ordern from lower to higher, 2-click from higher to lower. The third click will return to original order.
+- **Filter column**: It allows to hide from workspace spectra with unselected values. Applying a filter will activate **clear filter** button.
+<br />
+<hr />
+<br />
+<SpectraTableFooterLinks imagePath={imagePath} />

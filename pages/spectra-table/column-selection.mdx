@@ -1,0 +1,17 @@
+import Image from 'next/image'
+import ImageLink from '/components/ImageLink';
+import SpectraTableFooterLinks from '/components/SpectraTableFooterLinks';
+
+export const imagePath = "/images/spectra-table/";
+
+## Column selection
+<hr />
+<br />
+
+This button will open a pop-up menu where the user can select which columns/metadata will be shown in the Expanded Spectra Table.
+<br />
+<Image src={`${imagePath}colums_selection_popup.png`} alt="column selection pop-up menu" width={500} height={65} style={{ display: 'block', margin: '0 auto' }} />
+<br />
+<hr />
+<br />
+<SpectraTableFooterLinks imagePath={imagePath} />
