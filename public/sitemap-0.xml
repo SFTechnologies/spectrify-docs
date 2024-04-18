@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://spectrify.app</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/about</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/file-management</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/file-management/delete-spectra</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/file-management/export-spectra</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/file-management/import-spectra</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/preprocessing</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/preprocessing/baseline-correction</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/preprocessing/derivative</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/preprocessing/normalize</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/preprocessing/offset</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/preprocessing/peak-detection</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/preprocessing/restore</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/preprocessing/smooth</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/preprocessing/standardize</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/spectra-table</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/spectra-table/clear-filters</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/spectra-table/column-selection</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/spectra-table/create-metadata</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/spectra-table/delete-order-filter</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/spectra-table/import-metadata</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/workspace-management</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/workspace-management/close-workspace</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/workspace-management/new-workspace</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/workspace-management/open-workspace</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://spectrify.app/workspace-management/save-workspace</loc><lastmod>2024-04-18T10:47:26.489Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+</urlset>
