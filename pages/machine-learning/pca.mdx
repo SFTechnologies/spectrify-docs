@@ -1,0 +1,211 @@
+import Image from 'next/image';
+export const imagePath = '/images/machine-learning/';
+
+## PCA (Principal Components Analisys)
+
+https://doi.org/10.1098/rsta.2015.0202
+
+PCA is a powerful technique used to summarize and visualize spectra by reducing its dimensionality (number of points) while
+preserving the most important information. PCA identifies the directions (principal components) along which the data varies
+the most, allowing for a more compact representation of the data without losing much information.
+
+<br />
+<u>Configurable Parameters:</u>
+
+- **Number of components**: Determines un how many dimensions data will be summarized. Dimensionality of the output
+  transformed feature space. The lower, the less percentage of explained variance will be represented
+
+<br />
+
+### Visual Example
+
+_A spectrum is a line drawn over hundreds of points. PCA allows you to summarize
+it in only 2 or 3 coordinates!_
+
+<br />
+<Image
+  src={`${imagePath}1_spectra_pca.png`}
+  alt='normalization icon'
+  width={1080}
+  height={373}
+/>
+<br />
+
+_When applied to multiple spectra, you can effortesly identify groups of interest in your data._
+
+<br />
+<Image
+  src={`${imagePath}multi_spectra_pca.png`}
+  alt='normalization icon'
+  width={1080}
+  height={373}
+/>
+
+### Key Concepts
+
+- **Principal Components**: The new set of variables calculated to summarize the data.
+
+  > Each point in the curve that defines our spectra is a dimension. That means that
+  > each spectrum is composed by hundreds of dimensions! We can decide to compress all
+  > the possible information in only 3 Principal Components (3 new calculated dimensions).
+
+  <br />
+
+- **Scores**: The coordinates in the new principal component space for the original data points. They represent
+  the values for the newly calculated dimensions.
+
+  > If we chose to calculate 3 Principal Components, each spectrum will be represented by 3 scores
+  > (values for PC1, PC2 and PC3). For each column, similar values indicate similar
+  > attributes. Data with similar scores are more alike.
+
+  <br />
+
+- **Loadings**: The contributions of the original variables to each Principal Component. They  
+  represent the correlation between the original variables and the principal components,
+  indicating how much each variable contributes to a particular principal component.
+
+  > For example. water spectra in NIR has two main peaks (1450 and 950 nm). That means that they will have the highest loadings
+  > (positive or negative) for PC1. This explains that these wavelengths are the most important in explaining the spectral
+  > variability.
+
+  {' '}
+
+  <br />
+
+- **Explained variance**: Each principal component captures a certain percentage of the total variance in the data. The first
+  principal component (PC1) explains the largest amount of variance, followed by the second principal component (PC2), and so on.
+  The number of components chosen determines the cumulative explained variance.
+
+  > For example, PC1 explains the 60% of the total variance, PC2 the 25% and PC3 the 15%. We can choose to work only with PC1 and
+  > PC2 knowing that we are keeping the 85% of the variability in only 2 dimensions.
+
+### Data example
+
+Let's break down the key concepts into a simple example dataset. Instead of spectra, we will use a classification of balls with different colors and sizes.
+
+| Ball   | Size | Color |
+| ------ | ---- | ----- |
+| Ball 1 | 1    | 0     |
+| Ball 2 | 3    | 0     |
+| Ball 3 | 1    | 1     |
+| Ball 4 | 3    | 1     |
+
+If we summarize this data using 2 PCs, we obtain the following Scores (or representation coordinates):
+
+| Ball   | PC1   | PC2   |
+| ------ | ----- | ----- |
+| Ball 1 | -1.34 | -0.45 |
+| Ball 2 | 1.79  | -0.45 |
+| Ball 3 | -0.45 | 0.89  |
+| Ball 4 | 2.24  | 0.89  |
+
+Loadings show the contribution of the original variables to each PC. For example, PC1 is a combination of both Size and Color,
+with Size having a larger contribution (loading of 0.894) compared to Color (loading of 0.447).
+
+| Variable | PC1   | PC2    |
+| -------- | ----- | ------ |
+| Size     | 0.894 | -0.447 |
+| Color    | 0.447 | 0.894  |
+
+Finally, the Explained Variance shows that PC1 alone summarizes 80% of the total variance in the data.
+
+| Principal Component | Explained Variance |
+| ------------------- | ------------------ |
+| PC1                 | 80%                |
+| PC2                 | 20%                |
+
+### Mathematical Explanaiton
+
+1. **Standardize the data:**
+
+This step creates a common scale by transforming the original variables to have a mean
+of zero and a standard deviation of one. Standardization ensures that all variables
+contribute equally to the analysis, regardless of their original scales or units.
+This is important because variables with larger values or variances might otherwise
+dominate the principal components.
+
+<br />
+<p style={{textAlign: 'center'}}>$x_{ij}^{std} = \frac{x_{ij} - \mu_j}{\sigma_j}$</p>
+<br />
+Where:<br />
+
+$x_{ij}$ is the value of the $j$-th variable for the $i$-th observation.<br />
+$\mu_j$ is the mean of the $j$-th variable.<br />
+$\sigma_j$ is the standard deviation of the $j$-th variable.<br />
+
+2. **Calculate the covariance matrix**
+
+The covariance matrix is a square matrix that captures the pairwise covariances between all
+variables in the dataset. It provides a measure of how much two variables change together.
+A positive covariance indicates that the variables tend to increase or decrease together,
+while a negative covariance suggests that they move in opposite directions.
+
+<br />
+<p style={{ textAlign: 'center' }}> $\Sigma = \frac{1} {n - 1} \sum_{(i = 1)}^{n} (x_i - \mu)(x_i - \mu){\{T\}}$ </p>
+<br />
+<br />
+Where:<br />
+$x_i$ is the $i$-th observation. <br />
+$\mu$ is the mean vector of the data. <br />
+$n$ is the number of observations.<br />
+
+3. **Compute the eigenvectors and eigenvalues of the covariance matrix**
+
+An eigenvector of a square matrix is a non-zero vector that, when multiplied by the matrix,
+yields a scalar multiple of itself. The scalar multiplier is called the eigenvalue corresponding
+to that eigenvector. In the context of PCA, the eigenvectors of the covariance matrix represent
+the principal components, which are the directions of maximum variance in the data. The
+corresponding eigenvalues indicate the amount of variance explained by each principal component.
+
+<br />
+<p style={{ textAlign: 'center' }}>$\Sigma v_j = \lambda_j v_j$</p>
+<br />
+Where: <br />
+$v_j$ is the $j$-th eigenvector. <br />
+$\lambda_j$ is the corresponding eigenvalue. <br />
+
+4. **Select the top $k$ eigenvectors based on their eigenvalues**
+
+After computing the eigenvectors and eigenvalues of the covariance matrix, the next step is
+to select the top $k$ eigenvectors that capture the most significant amount of variance in
+the data. This step is crucial for dimensionality reduction. igenvectors are typically sorted
+in descending order based on their corresponding eigenvalues. The eigenvector with the largest
+eigenvalue represents the first principal component, which captures the maximum variance in
+the data.
+
+<br />
+<p style={{ textAlign: 'center' }}>$V_k = [v_1, v_2, \ldots, v_k]$</p>
+<br />
+Where: <br />
+$V_k$ is the matrix of the top $k$ eigenvectors. <br />
+
+5. **Project the data onto the new subspace**
+
+The final step is to project the original data onto the new subspace defined by these
+eigenvectors. This projection transforms the data from the original high-dimensional
+space to a lower-dimensional space while preserving the most important information.
+
+<br />
+<p style={{ textAlign: 'center' }}>$Y = X V_k$</p>
+<br />
+Where: <br />
+$X$ is the matrix of the standardized data. <br />
+$Y$ is the matrix of the projected data (scores). <br />
+
+The loadings, denoted as $v_j$, are the eigenvectors that define the principal components.
+They represent the contribution of each original variable to the principal components.
+
+The loadings provide insight into how the original variables are combined to form the new
+dimensions in the reduced space. The explained variance for each principal component quantifies
+the amount of variance in the data that is captured by that component. It is calculated using
+the eigenvalues associated with each eigenvector:
+
+<br />
+<p style={{textAlign: 'center'}}>$\frac{\lambda_j}{\sum_{i=1}^{p} \lambda_i}$</p>
+<br />
+Where: <br />
+$p$ is the total number of variables. <br />
+
+The explained variance represents the proportion of the total variance in the data that is
+accounted for by each principal component. A higher explained variance indicates that a
+principal component captures a larger amount of the data's variability.
