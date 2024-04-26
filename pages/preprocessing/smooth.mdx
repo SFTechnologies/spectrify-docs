@@ -4,11 +4,16 @@ import PreprocessingFooterLinks from '/components/PreprocessingFooterLinks';
 
 export const imagePath = '/images/preprocessing/';
 
-
 ## Smooth
+
 <hr />
 <br />
-<Image src={`${imagePath}smoothing_icon.svg`} alt="smoothing icon" width={65} height={65} />
+<Image
+  src={`${imagePath}smoothing_icon.svg`}
+  alt='smoothing icon'
+  width={65}
+  height={65}
+/>
 
 Spectral smoothing is a technique used in signal processing to reduce noise while preserving important patterns in the data. Most common spectral smoothing method is Savitzky-Golay filter.
 
@@ -25,23 +30,22 @@ Widely used technique for smoothing data, particularly in spectral analysis. It 
 
 - **Polynomial Order**: This parameter specifies the degree of the polynomial used for the local regression. The polynomial order must be less than the window size. A lower polynomial order typically results in more smoothing but may also distort the signal shape.
 
-Let $x_i$ be the original data points, where $i = 1, 2, \ldots, n$, and $y_i$ be the corresponding smoothed values. The Savitzky-Golay filter performs a local polynomial regression of degree $k$ on a window of size $2m+1$ centered at each data point $x_i$. 
+Let $x_i$ be the original data points, where $i = 1, 2, \ldots, n$, and $y_i$ be the corresponding smoothed values. The Savitzky-Golay filter performs a local polynomial regression of degree $k$ on a window of size $2m+1$ centered at each data point $x_i$.
 
-The smoothed value $y_i$ is obtained by fitting a polynomial of degree $k$ to the data points within the window $[x_{i-m}, x_{i-m+1}, \ldots, x_{i+m}]$ using the method of least squares. The polynomial is then evaluated at the central point $x_i$ to obtain $y_i$. 
+The smoothed value $y_i$ is obtained by fitting a polynomial of degree $k$ to the data points within the window $[x_{i-m}, x_{i-m+1}, \ldots, x_{i+m}]$ using the method of least squares. The polynomial is then evaluated at the central point $x_i$ to obtain $y_i$.
 Mathematically, the smoothed value $y_i$ can be expressed as a linear combination of the original data points within the window:
-<br />
-<p style={{textAlign: 'center'}}>$y_i = \sum_{j=-m}^{m} c_j x_{i+j}$</p>
-<br />
+
+<p className='formula'>
+  $y_i = \sum_{(j = -m)}^{m} c_j x_{i + j}$
+</p>
 
 where $c_j$ are the Savitzky-Golay filter coefficients, which depend on the window size $2m+1$ and the polynomial order $k$.
 
 The filter coefficients $c_j$ are calculated using the following formula:
-<br />
-<p style={{textAlign: 'center'}}>$c_j = \sum_{l=0}^{k} \frac{(-1)^{l+k}}{l!(k-l)!} \left(\frac{j^{k-l}}{(2m+1)^{k-l+1}} \sum_{p=-m}^{m} p^{k-l}\right)$</p>
-<br />
 
->Imagine you have a noisy signal representing the concentration of a chemical in a solution over time. You want to smooth out the noise while preserving the overall trend and any important features, such as peaks or valleys. The Savitzky-Golay filter can help you achieve this by fitting a small polynomial curve to a sliding window of data points. For example, if you choose a window size of 9 and a polynomial order of 3, the filter will fit a cubic polynomial to every set of 9 consecutive data points and use the value of that polynomial at the center point as the smoothed value. This process is repeated for each point in the signal, resulting in a smoothed version that retains the overall shape and important features while reducing the noise.
->
+<p className='formula'>$c_j = \sum_{l=0}^{k} \frac{(-1)^{l+k}}{l!(k-l)!} \left(\frac{j^{k-l}}{(2m+1)^{k-l+1}} \sum_{p=-m}^{m} p^{k-l}\right)$</p>
+
+> Imagine you have a noisy signal representing the concentration of a chemical in a solution over time. You want to smooth out the noise while preserving the overall trend and any important features, such as peaks or valleys. The Savitzky-Golay filter can help you achieve this by fitting a small polynomial curve to a sliding window of data points. For example, if you choose a window size of 9 and a polynomial order of 3, the filter will fit a cubic polynomial to every set of 9 consecutive data points and use the value of that polynomial at the center point as the smoothed value. This process is repeated for each point in the signal, resulting in a smoothed version that retains the overall shape and important features while reducing the noise.
 
 <br />
 <hr />

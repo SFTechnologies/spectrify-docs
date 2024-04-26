@@ -11,7 +11,7 @@ const footerLinksList: Pick<ImageLinkProps, 'actionText' | 'hideText' | 'image'>
   { actionText: 'clear filters', ...defaultProps },
   { actionText: 'create metadata', ...defaultProps },
   { actionText: 'import metadata', ...defaultProps },
-  { actionText: 'delete order filter', ...defaultProps, hideText: false }
+  { actionText: 'delete order filter', ...defaultProps }
 ];
 
 const SpectraTableFooterLinks = () => {

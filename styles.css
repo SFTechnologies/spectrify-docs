@@ -1,7 +1,12 @@
-img[src*="#icon"] {
-    width: 50;
+img[src*='#icon'] {
+  width: 50;
 }
 
 .text-underline-animation-class:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+.formula {
+  text-align: center;
+  margin: 3rem 0;
 }
