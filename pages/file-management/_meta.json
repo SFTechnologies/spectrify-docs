@@ -1,5 +1,5 @@
 {
-    "import-spectra": "Import Spectra",
-    "export-spectra": "Export Spectra",
-    "delete-spectra": "Delete Spectra"
+  "import-spectra": "Import Spectra",
+  "export-spectra": "Export Spectra",
+  "delete-spectra": "Delete Spectra"
 }
