@@ -1,0 +1,93 @@
+import Image from 'next/image';
+export const imagePath = '/images/machine-learning/';
+
+## PLSR (Partial Least Squares Regression)
+
+Partial Least Squares Regression (PLSR) is a supervised dimensionality reduction technique used for predicting a response variable (or multiple response variables) from a (typically large) set of predictor variables. Unlike PCR, which considers only the variance in the predictor variables, PLSR identifies latent variables that maximize the covariance between the predictors and responses. This makes PLSR particularly suitable for situations where the number of predictors is high, potentially exceeding the number of observations, and where multicollinearity is present.
+
+<br />
+<u>Configurable Parameters:</u>
+
+- **Targets**: The response variable(s) that the model aims to predict. Similar to PCR, this could involve a single or multiple target variables.
+- **Number of components**: This critical parameter determines the number of latent components to retain in the model, influencing the trade-off between model complexity and predictive performance.
+
+<br />
+
+### Visual Example:
+
+Let's break down the PLSR process visually. Imagine we have a dataset with several predictor variables (X1, X2, X3…) and a response variable (Y) we aim to predict.
+
+1. **Data Transformation:** PLSR starts by mean-centering both the predictor and response variables. This step simplifies subsequent calculations without losing essential information.
+
+2. **Component Extraction:** PLSR iteratively extracts latent components (similar to principal components in PCA) that capture the maximum covariance between linear combinations of predictors and the response variable(s).
+
+<br />
+<Image
+  src={`${imagePath}plsr_components.png`}
+  alt='Extraction of latent components in PLSR'
+  width={1080}
+  height={373}
+/>
+<br />
+
+3. **Regression Modeling:** The extracted latent components are used as new predictor variables to construct a regression model. This model relates the components to the response variable, enabling predictions.
+
+<br />
+<Image
+  src={`${imagePath}plsr_regression.png`}
+  alt='Regression model using latent components as predictors'
+  width={1080}
+  height={373}
+/>
+
+### Step-by-Step Explanation:
+
+1. **Data Preprocessing:** As in PCR, start by mean-centering both the predictor and response variables. Standardization (scaling to unit variance) can also be performed, particularly if the variables have significantly different scales.
+
+2. **First Component Extraction:** The first latent component is determined by finding a direction in the predictor space that maximizes the covariance with the response variable. This involves calculating weights for each predictor variable based on their covariance with the response.
+
+3. **Subsequent Component Extraction:** After extracting the first component, its effect is removed from both the predictors and the response. This process is repeated iteratively to extract subsequent components that capture residual covariance, ensuring each new component is orthogonal to the previous ones.
+
+4. **Component Selection:** The number of components to retain in the model is crucial. Similar to PCR, this can be determined by cross-validation or by examining the explained variance in the response variable as a function of the number of components.
+
+5. **Regression with Latent Components:** Finally, a regression model is built using the selected latent components as predictors and the original response variable as the dependent variable.
+
+### Advantages of PLSR:
+
+- **Handles High Dimensional Data:** PLSR is well-suited for datasets with a large number of predictors, even when the number of predictors exceeds the number of observations.
+
+- **Maximizes Covariance:** Unlike PCR, which focuses solely on the predictor variables' variance, PLSR prioritizes maximizing the covariance between predictors and responses, leading to models that are more directly focused on prediction.
+
+- **Handles Multicollinearity:** PLSR effectively addresses multicollinearity by constructing orthogonal latent components, eliminating the redundancy inherent in correlated predictor variables.
+
+- **Suitable for Noisy Data:** PLSR is known for its robustness to noise in both predictor and response variables, making it a reliable choice for real-world datasets.
+
+### Considerations:
+
+- **Interpretability:** Similar to PCR, interpreting the resulting regression coefficients in terms of the original predictor variables might not be straightforward, particularly as the latent components are linear combinations of the original predictors.
+
+- **Component Selection:** Choosing the optimal number of components significantly impacts model performance. It involves balancing model complexity with predictive accuracy.
+
+- **Nonlinear Relationships:** PLSR, in its standard form, assumes a linear relationship between the latent components and the response variable. If a strong nonlinear relationship exists, alternative techniques or modifications to PLSR might be necessary.
+
+### Mathematical Explanation of PLSR (Simplified):
+
+PLSR involves iterative calculations, and a complete mathematical explanation can be quite involved. Here's a simplified overview focusing on the key steps:
+
+1. **Data Mean-Centering:**
+
+   - Center both the predictor matrix _X_ and the response vector _y_ by subtracting their respective means.
+
+2. **Iterative Component Extraction:**
+
+   - **Outer Relation:** Calculate weights _w_ for the predictor variables that maximize the covariance with the response variable.
+   - **Scores:** Compute component scores _t_ as a linear combination of the predictors using the calculated weights.
+   - **Inner Relation:** Regress the response variable _y_ on the component scores _t_ to obtain regression coefficients.
+   - **Update Predictors and Response:** Deflate the predictor matrix _X_ and response vector _y_ by removing the information captured by the current component.
+
+3. **Repeat** step 2 until the desired number of components is extracted.
+
+4. **Regression on Latent Components:**
+   - Use the extracted latent components as new predictors in a multiple linear regression model to predict the response variable.
+
+PLSR involves various algorithms for component extraction, including NIPALS (Nonlinear Iterative Partial Least Squares) and SIMPLS (Statistically Inspired Modification of PLS). These algorithms differ in their computational approaches but share the fundamental goal of maximizing covariance between predictor and response variables.

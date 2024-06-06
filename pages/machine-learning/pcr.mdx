@@ -1,0 +1,116 @@
+import Image from 'next/image';
+export const imagePath = '/images/machine-learning/';
+
+## PCR (Principal Component Regression)
+
+Principal Component Regression (PCR) is a regression technique that leverages the dimensionality reduction capabilities of Principal Component Analysis (PCA) to address multicollinearity in predictor variables and enhance model performance.
+
+<br />
+<u>Configurable Parameters:</u>
+
+- **Targets**: The response variable(s) that the model aims to predict. This could be a single variable or a multivariate target, depending on the problem at hand.
+- **Number of components**: Determines the number of principal components to retain for regression modeling. This parameter governs the trade-off between dimensionality reduction and preserving variance explained by the original predictors.
+
+<br />
+
+### Visual Example:
+
+Let's visualize the PCR process. Imagine we have multiple predictor variables (X1, X2, X3...), potentially exhibiting collinearity, and a response variable (Y) we aim to predict.
+
+1. **PCA Transformation:** PCR initiates by performing PCA on the predictor variables. As depicted in the PCA section, this generates a set of principal components (PCs) that are linear combinations of the original predictors and capture maximum data variance.
+
+<br />
+<Image
+  src={`${imagePath}multi_spectra_pca.png`}
+  alt='PCA transformation of several spectra to points'
+  width={1080}
+  height={373}
+/>
+<br />
+
+2. **Component Selection:** From the derived PCs, a subset is carefully chosen based on their explained variance or through cross-validation techniques to determine the optimal number of components for regression.
+
+<br />
+<Image
+  src={`${imagePath}pcr_component_selection.png`}
+  alt='Selection of Principal Components based on explained variance'
+  width={1080}
+  height={373}
+/>
+<br />
+
+3. **Regression Modeling:** The selected PCs, now serving as new predictor variables, are employed to construct a regression model. This model relates the chosen PCs to the response variable (Y), enabling predictions.
+
+<br />
+<Image
+  src={`${imagePath}pcr_regression.png`}
+  alt='Regression model using principal components as predictors'
+  width={1080}
+  height={373}
+/>
+
+### Step-by-Step Explanation:
+
+1. **Data Preprocessing:** Begin by standardizing the predictor variables. This ensures they have a mean of zero and a standard deviation of one, preventing variables with larger scales from disproportionately influencing the PCA.
+
+2. **PCA Application:** Perform PCA on the standardized predictor variables. This yields principal components (PCs), which are orthogonal and ordered by the amount of variance they explain in the original data.
+
+3. **Component Selection:** Determine the number of PCs to retain for regression. This can be achieved by examining the cumulative explained variance ratio or employing cross-validation techniques to identify the number of components that yield the best predictive performance.
+
+4. **Regression with PCs:** Construct a multiple linear regression model using the selected PCs as predictor variables and the original response variable as the dependent variable. The regression coefficients now reflect the relationship between the principal components and the response variable.
+
+5. **Prediction:** To make predictions for new observations, project their predictor variable values onto the principal component space defined by the eigenvectors obtained during PCA. Subsequently, input these projected values into the fitted regression model to obtain predictions for the response variable.
+
+### Advantages of PCR:
+
+- **Multicollinearity Mitigation:** PCR effectively handles multicollinearity among predictor variables by constructing orthogonal principal components, eliminating the issue of correlated predictors.
+
+- **Dimensionality Reduction:** By selecting a subset of principal components that capture the most significant variance, PCR reduces the dimensionality of the problem, potentially improving model interpretability and computational efficiency.
+
+- **Noise Reduction:** Discarding less important principal components can lead to noise reduction, as these components might primarily capture random variation in the data.
+
+### Considerations:
+
+- **Interpretability:** While PCR addresses multicollinearity and offers dimensionality reduction, the resulting regression coefficients might not be as directly interpretable in terms of the original predictor variables.
+
+- **Component Selection:** Choosing the optimal number of components is crucial and often involves a trade-off between model complexity and predictive accuracy.
+
+- **Nonlinear Relationships:** PCR assumes a linear relationship between the principal components and the response variable. If a strong nonlinear relationship exists, other regression techniques might be more appropriate.
+
+### Mathematical Explanation of PCR:
+
+Let's break down the mathematical steps involved in PCR:
+
+1. **Standardize the data (same as in PCA):**
+
+<p className='formula'>$x_{ij}^{std} = \frac{x_{ij} - mu_j}{sigma_j}$</p>
+
+2. **Calculate the covariance matrix (same as in PCA):**
+
+<p className='formula'>
+  $\Sigma = \frac{1} {n - 1} \sum_{(i = 1)}^{n} (x_i - \mu)(x_i - \mu){T}$
+</p>
+
+3. **Compute the eigenvectors and eigenvalues of the covariance matrix (same as in PCA):**
+
+<p className='formula'>$\Sigma v_j = \lambda_j v_j$</p>
+
+4. **Select the top $k$ eigenvectors based on their eigenvalues (same as in PCA):**
+
+<p className='formula'>$V_k = [v_1, v_2, \ldots, v_k]$</p>
+
+5. **Project the data onto the new subspace (same as in PCA):**
+
+<p className='formula'>$Y = X V_k$</p>
+
+6. **Perform multiple linear regression:**
+
+Use the projected data ($Y$) as the predictor variables and the original response variable ($y$) to fit a multiple linear regression model:
+
+<p className='formula'>$\hat{y} = Y \beta$</p>
+
+Where:<br />
+$\hat{y}$ is the vector of predicted response values.<br />
+$\beta$ is the vector of regression coefficients.<br />
+
+To make predictions for new data points, project their predictor variables onto the principal component space using the calculated eigenvectors ($V_k$) and then use these projected values in the fitted regression model.
