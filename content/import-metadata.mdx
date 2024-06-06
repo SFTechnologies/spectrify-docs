@@ -1,0 +1,88 @@
+import Image from 'next/image';
+
+import SpectraTableFooterLinks from '/components/SpectraTableFooterLinks';
+
+export const imagePath = '/images/spectra-table/';
+
+The Import Metadata feature allows users to add metadata to their existing spectra by uploading a CSV file containing the metadata information. This provides flexibility in associating relevant data with the spectra, enabling better organization and analysis.
+
+### CSV File Format
+
+The CSV file should adhere to the following format:
+
+- The first row should contain the column headers, which can have any names chosen by the user.
+- Subsequent rows represent individual records or entries.
+- Fields should be separated by one valid delimiter: comma or semicolon.
+- If a field contains commas, semicolon or special characters, it should be enclosed in double quotes.
+
+### Importing Metadata
+
+To import metadata:
+
+1. Prepare your metadata CSV file according to the format described above. For example:
+
+```
+  Index,Compound Name,Lot #,Date Entered,Notes
+  1,"4-Acetoxy-N,N-Dimethyltryptamine Oxalate",H-0705,01/16/2014,note 1
+  2,Acetylfentanyl Hcl,4541-886-149A,01/16/2014,note 2
+  3,"5-APDB, HCl",N16-P60B,01/16/2014,note 3
+  4,5-APB HCl,N17-P64B,01/16/2014,note 4
+  5,Butylone HCl,2011DEA003-25A,01/16/2014,note 5
+```
+
+2. Navigate to the Import Metadata section in the application.
+
+   <br />
+   <Image
+     src={`${imagePath}import_metadata1.png`}
+     alt='import metadata 1'
+     width={500}
+     height={65}
+     style={{ display: 'block', margin: '0 auto' }}
+   />
+
+3. Click on the "Choose your File" button and select your metadata CSV file.
+4. Review the Preview.
+   <br />
+   <Image
+     src={`${imagePath}import_metadata2.png`}
+     alt='import metadata 2'
+     width={800}
+     height={65}
+     style={{ display: 'block', margin: '0 auto' }}
+   />
+
+If needed, ajust the settings as you need:
+
+- Specifying a custom delimiter character (other than comma)
+- Skipping a specific number of rows at the beginning of the file
+
+<br />
+<Image
+  src={`${imagePath}import_metadata3.png`}
+  alt='import metadata 3'
+  width={500}
+  height={65}
+  style={{ display: 'block', margin: '0 auto' }}
+/>
+
+5. Click the OK button to update your spectra with the new metadata. Remember, The metadata order must match the order of your spectra in this workspace.
+   <br />
+   <Image
+     src={`${imagePath}import_metadata4.png`}
+     alt='import metadata 4'
+     width={800}
+     height={65}
+     style={{ display: 'block', margin: '0 auto' }}
+   />
+
+The application will process the CSV file and associate the metadata with the corresponding spectra based on the order in which they appear in the file.
+
+### Handling Import Errors
+
+If an error occurs during the metadata import process, an error message will be displayed, indicating the nature of the problem. Common issues include:
+
+- Invalid CSV file format
+- Mismatch between the number of metadata entries and the number of spectra
+
+To resolve import errors, review your CSV file and ensure that it adheres to the required format. Make any necessary corrections and attempt the import again.
