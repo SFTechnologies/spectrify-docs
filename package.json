@@ -1,27 +1,26 @@
 {
-  "name": "nextra-docs-template",
+  "name": "spectrify-docs",
   "version": "0.0.1",
-  "description": "Nextra docs template",
+  "description": "Docs for the SPECTRIFY web app",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "postbuild": "next-sitemap"
+    "dev:turbo": "next dev --turbo",
+    "dev": "next dev",
+    "postbuild": "next-sitemap",
+    "start": "next start"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shuding/nextra-docs-template.git"
+    "url": "git+https://github.com/SFTechnologies/spectrify-docs.git"
   },
-  "author": "Shu Ding <g@shud.in>",
+  "author": "SFTec <info@sftec.es>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shuding/nextra-docs-template/issues"
+    "url": "https://github.com/SFTechnologies/spectrify-docs/issues"
   },
-  "homepage": "https://github.com/shuding/nextra-docs-template#readme",
+  "homepage": "https://github.com/SFTechnologies/spectrify-docs#readme",
   "dependencies": {
-    "@ant-design/icons": "^5.3.7",
     "clsx": "^2.1.1",
-    "mdx": "^0.3.1",
     "next": "^14.2.3",
     "nextra": "^2.13.4",
     "nextra-theme-docs": "^2.13.4",
@@ -29,7 +28,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@types/node": "^20.12.13",
+    "@types/node": "^20.14.2",
     "next-sitemap": "^4.2.3",
     "typescript": "^5.4.5"
   }
