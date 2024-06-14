@@ -1,5 +1,5 @@
-import FooterLinksContainer from '../FooterLinksContainer';
-import ImageLink, { ImageLinkProps } from '../ImageLink';
+import FooterLinksContainer from './FooterLinksContainer';
+import ImageLink, { ImageLinkProps } from './ImageLink';
 
 const footerLinksList: Pick<ImageLinkProps, 'actionText'>[] = [
   { actionText: 'import spectra' },
@@ -8,7 +8,7 @@ const footerLinksList: Pick<ImageLinkProps, 'actionText'>[] = [
   { actionText: 'import metadata' },
 ];
 
-const SpectraTableFooterLinks = () => {
+const FileManagementFooterLinks = () => {
   return (
     <FooterLinksContainer>
       {footerLinksList.map(({ actionText }) => (
@@ -21,5 +21,5 @@ const SpectraTableFooterLinks = () => {
     </FooterLinksContainer>
   );
 };
-export default SpectraTableFooterLinks;
+export default FileManagementFooterLinks;
 
