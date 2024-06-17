@@ -2,9 +2,10 @@
   "index": "Introduction",
   "workspace-management": "Workspace Management",
   "file-management": "File Management",
-  "spectra-table": "Spectra Table",
   "preprocessing": "Preprocessing",
+  "transformation": "Transformation",
   "machine-learning": "Machine Learning",
+  "spectra-table": "Spectra Table",
   "about": {
     "title": "About",
     "type": "page",
