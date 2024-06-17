@@ -1,0 +1,51 @@
+import Image from 'next/image';
+
+import TransformationFooterLinks from '/components/TransformationFooterLinks';
+
+export const imagePath = '/images/transformation/';
+
+## Intensity Transformation
+
+<hr />
+<br />
+<Image
+  src={`${imagePath}intensity.png`}
+  alt='intensity conversion icon'
+  width={65}
+  height={65}
+/>
+
+Intensity transformations are essential preprocessing steps in spectral analysis that involve converting spectral data from one intensity unit to another. These transformations are crucial for comparing and interpreting spectra acquired using different instruments, experimental conditions, or measurement modes. By applying appropriate transformations, researchers can harmonize spectral data, enhance comparability, and extract meaningful information for diverse applications.
+
+### Available Transformations
+
+This tool offers the following intensity transformations:
+
+- **Absorbance to Transmittance:**
+  Transmittance (T) represents the fraction of light that passes through a sample. This transformation converts absorbance (A) values to transmittance using the formula: `T = 10^(-A)`.
+
+- **Transmittance to Absorbance:**
+  This transformation converts transmittance (T) values to absorbance (A) using the formula: `A = -log10(T)`.
+
+- **Absorbance to Kubelka-Munk:**
+  Kubelka-Munk theory provides a framework to describe the scattering and absorption properties of materials. This transformation converts absorbance (A) to Kubelka-Munk units (K) using the formula: `K = (1 - 10^(-A))^2 / (2 * 10^(-A))`.
+
+- **Kubelka-Munk to Absorbance:**
+  This transformation converts Kubelka-Munk units (K) to absorbance (A) using an approximation: `A = -log10(1 - (2 * K) / (1 + K)^2)`.
+
+- **Absorbance to Pseudoabsorbance (log1/r):**
+  Pseudoabsorbance (log1/r) is a logarithmic transformation of the reciprocal of transmittance. This transformation converts absorbance (A) to pseudoabsorbance using the formula: `log1/r = -log10(1 - 10^(-A))`.
+
+- **Reflectance to Absorbance:**
+  Reflectance (R) measures the proportion of light reflected from a sample's surface. Converting reflectance to absorbance often involves employing the Kubelka-Munk equation or other models that account for scattering and absorption within the material. The specific formula used depends on the chosen model and the characteristics of the sample being analyzed.
+
+### Workflow
+
+1.  **Spectra Selection:** Choose the spectra you want to transform. You can select individual spectra or all spectra within the workspace.
+2.  **Unit Selection:** In the settings floating menu, select the "from" (original unit) and "to" (target unit) for the transformation.
+3.  **Intensity Transform:** Click the "Intensity Transform" button.
+
+<br />
+<hr />
+<br />
+<TransformationFooterLinks imagePath={imagePath} />
