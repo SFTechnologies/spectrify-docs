@@ -1,0 +1,118 @@
+import Image from 'next/image';
+export const imagePath = '/images/machine-learning/';
+
+## PCR (Principal Component Regression)
+
+https://doi.org/10.1098/rsta.2015.0202
+
+Principal Component Regression (PCR) is a technique that combines the features of Principal Components Analysis (PCA) and multiple linear regression. It is used primarily when there are multicollinearity issues within the predictor variables in regression analysis or when the number of predictor variables exceeds the number of observations. PCR first reduces the dimensionality of the predictor variables using PCA and then fits a linear regression model on the transformed predictors.
+
+<br />
+<u>Configurable Parameters:</u>
+
+- **Targets**: The response variable(s) that the model aims to predict. This could be a single variable or a multivariate target, depending on the problem at hand.
+- **Number of components**: Defines the number of principal components to be retained for the regression model. This parameter impacts both the performance and accuracy of the regression model, balancing between underfitting and overfitting.
+
+<br />
+
+### Visual Example
+
+_Imagine trying to predict the quality of wine from various attributes like acidity, sugar level, and alcohol content. PCR can help simplify the problem by reducing these attributes into a few principal components._
+
+<br />
+<Image
+  src={`${imagePath}1_pcr_example.png`}
+  alt='PCR implementation for predicting wine quality'
+  width={1080}
+  height={373}
+/>
+<br />
+
+_This method ensures that only the most significant attributes are used, enhancing model simplicity and interpretability._
+
+<br />
+<Image
+  src={`${imagePath}multi_pcr_example.png`}
+  alt='PCR predicting wine quality from multiple attributes'
+  width={1080}
+  height={373}
+/>
+
+### Key Concepts
+
+- **Principal Components**: Derived from the PCA step, these components are the new variables obtained from an orthogonal transformation, intended to capture the significant variance and patterns in the original variables.
+
+  > Similar to PCA, principal components in PCR serve as inputs in the subsequent regression analysis.
+
+  <br />
+
+- **Regression Coefficients**: These coefficients correspond to each principal component and indicate their contribution to the target variable.
+
+  > The coefficients are calculated during the regression phase where the dependent variable (e.g., wine quality) is predicted using the significant principal components.
+
+  <br />
+
+- **Variance Ratio**: Indicates what proportion of the variance in the original variables is retained in the selected principal components.
+
+  > This metric guides the selection of the number of components to use. It is crucial for ensuring sufficient variability is retained to maintain model accuracy while also promoting simplicity.
+
+  <br />
+
+### Data example
+
+Let's consider an example dataset consisting of different types of vehicles and their attributes measured for predicting fuel efficiency.
+
+| Vehicle | Weight | Engine Size | CO2 Emissions |
+| ------- | ------ | ----------- | ------------- |
+| Car 1   | 1500   | 1.6         | 120           |
+| Car 2   | 2000   | 2.0         | 135           |
+| Car 3   | 1800   | 2.2         | 150           |
+| Car 4   | 1200   | 1.4         | 110           |
+
+After applying PCA and retaining 2 PCs, the transformed data (Scores) might look like this:
+
+| Vehicle | PC1   | PC2   |
+| ------- | ----- | ----- |
+| Car 1   | -2.15 | 0.30  |
+| Car 2   | 1.85  | -0.75 |
+| Car 3   | 0.95  | 1.20  |
+| Car 4   | -0.65 | -0.75 |
+
+PCR then uses these scores to model the CO2 Emissions. Supposing the regression model gives us these coefficients:
+
+| Coefficient | Value |
+| ----------- | ----- |
+| Intercept   | 100   |
+| PC1         | 8.0   |
+| PC2         | 1.5   |
+
+The predicted CO2 emissions are estimated using the formula:
+
+$\text{Predicted CO2} = 100 + 8.0 \times \text{PC1} + 1.5 \times \text{PC2}$
+
+### Mathematical Explanation of PCR
+
+1. **Standardize the data (same as in PCA)**:
+
+$x_{ij}^{\text{std}} = \frac{x_{ij} - \mu_j}{\sigma_j}$
+
+2. **Apply PCA to the standardized data to obtain principal components**.
+
+3. **Select the number of components $\mathbf{K}$ based on the cumulative explained variance**.
+
+4. **Fit a linear regression model using the selected principal components as predictors**.
+
+   The regression equation can be represented as:
+
+   $Y = \beta_0 + \beta_1 \text{PC1} + \beta_2 \text{PC@} + \ldots + \beta_k \text{PCk} + \epsilon$
+
+   Where:
+
+   - $\beta_k$ are the coefficients corresponding to each principal component.
+   - $\epsilon$ is the model's error term.
+
+5. **Use the regression model to predict and interpret results**.
+
+   The calculated regression coefficients indicate the influence of each principal component on the target variable. The intercept is the average predicted value when all principal components are zero.
+
+PCR is especially useful when dealing with high-dimensional data, helping to prevent overfitting by reducing the number of predictors and elucidating the most impactful variables.

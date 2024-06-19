@@ -5,6 +5,7 @@ const footerLinksList: Pick<ImageLinkProps, 'actionText'>[] = [
   { actionText: 'import spectra' },
   { actionText: 'export spectra' },
   { actionText: 'delete spectra' },
+  { actionText: 'import metadata' },
 ];
 
 const SpectraTableFooterLinks = () => {

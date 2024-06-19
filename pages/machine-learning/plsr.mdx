@@ -1,0 +1,109 @@
+import Image from 'next/image';
+export const imagePath = '/images/machine-learning/';
+
+## PLSR (Partial Least Squars Regression)
+
+https://doi.org/10.1098/rsta.2015.0202
+
+Partial Least Squares Regression (PLSR) is a method that combines features of both PCA and multiple regression. It is particularly effective when predicting a response variable from a large set of explanatory variables that are highly collinear or when the number of predictors exceeds the number of observations. Unlike PCR, which deals with dimensionality reduction followed by regression, PLSR constructs new predictors as linear combinations of the original ones while simultaneously considering the response variable.
+
+<br />
+<u>Configurable Parameters:</u>
+
+- **Targets**: Defines the dependent variable or variables PLSR aims to predict.
+- **Number of components**: Specifies the number of latent variables (components) to extract and use in the model.
+
+<br />
+
+### Visual Example
+
+_Consider predicting housing prices based on features like size, age, and location. PLSR can effectively combine these into a set of meaningful components that directly take into account their correlation with the price._
+
+<br />
+<Image
+  src={`${imagePath}1_plsr_example.png`}
+  alt='PLSR implementation for predicting housing prices'
+  width={1080}
+  height={373}
+/>
+<br />
+
+_This approach optimizes the predictors for relevance to the target, enhancing predictive accuracy._
+
+<br />
+<Image
+  src={`${imagePath}multi_plsr_example.png`}
+  alt='PLSR predicting housing prices from multiple features'
+  width={1080}
+  height={373}
+/>
+
+### Key Concepts
+
+- **Latent Variables**: New variables created from linear combinations of the original variables, optimized to explain covariance between predictors and the response.
+
+  > These variables serve as the foundation for the regression model in PLSR.
+
+  <br />
+
+- **Covariance Explained**: Measures the amount of covariance between the predicted values and actual values that each component explains.
+
+  > This metric helps in determining the effectiveness of each component in predicting the response variable.
+
+  <br />
+
+### Data example
+
+Consider an example dataset with attributes of different tech products used for predicting sales performance.
+
+| Product | Feature 1 | Feature 2 | Sales |
+| ------- | --------- | --------- | ----- |
+| A       | 6         | 150       | 200   |
+| B       | 8         | 220       | 300   |
+| C       | 3         | 100       | 150   |
+| D       | 4         | 180       | 250   |
+
+After applying PLSR with 2 components, the transformed data (Scores) and their relationship to sales might look like this:
+
+| Product | LV1  | LV2  |
+| ------- | ---- | ---- |
+| A       | -1.2 | 0.5  |
+| B       | 1.8  | -0.4 |
+| C       | -0.4 | 0.8  |
+| D       | 0.5  | -0.6 |
+
+Here the model might provide coefficients:
+
+| Coefficient | Value |
+| ----------- | ----- |
+| Intercept   | 100   |
+| LV1         | 75    |
+| LV2         | 50    |
+
+The predicted sales are calculated using:
+
+$ \text{Predicted Sales} = 100 + 75 \times \text{LV1} + 50 \times \text{LV2}$
+
+### Mathematical Explanation of PLSR
+
+1. **Standardize the data:**
+
+$ x*{ij}^{\text{std}} = \frac{x*{ij} - \mu_j}{\sigma_j}$
+
+2. **Perform the PLS algorithm to extract the number of components $\mathbf{L}$, which are also known as latent variables**:
+
+   - Optimization occurs such that these variables explain a maximum of the covariance between the predictors and the response.
+
+3. **Model Fitting**:
+
+   - Fit a linear model using these latent variables.
+
+   $ Y = \beta_0 + \beta_1 \text{LV1} + \beta_2 \text{LV2} + \ldots + \beta_l \text{LVl} + \epsilon$
+
+   Where $\beta_l$ are the coefficients and $\epsilon$ is the model's error term.
+
+4. **Prediction and Interpretation**:
+
+   - Predict the response using the regression model and interpret the coefficients to understand the impact of each component on the target.
+
+PLSR is particularly valuable in situations where predictive accuracy is crucial and the relationship between variables and the outcome needs to be clearly understood and described. This method is frequently used in chemometrics, economics, and other fields involving large datasets with many collinear variables.

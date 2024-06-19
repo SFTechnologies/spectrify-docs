@@ -1,3 +1,5 @@
 {
-  "pca": "PCA"
+  "pca": "PCA",
+  "pcr": "PCR",
+  "plsr": "PLSR"
 }

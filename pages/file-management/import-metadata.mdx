@@ -1,0 +1,23 @@
+import Image from 'next/image';
+import ImportMetadataMdx from '/content/import-metadata.mdx';
+import FileManagementFooterLinks from '/components/FileManagementFooterLinks';
+export const imagePath = '/images/file-management/';
+
+## Import Metadata
+
+<hr />
+<br />
+<Image
+  src={`${imagePath}import_metadata.png`}
+  alt='import metadata icon'
+  width={65}
+  height={65}
+/>
+
+<ImportMetadataMdx />
+
+<br />
+<hr />
+<br />
+
+<FileManagementFooterLinks imagePath={imagePath} />
