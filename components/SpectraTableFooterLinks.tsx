@@ -1,5 +1,5 @@
-import FooterLinksContainer from '../FooterLinksContainer';
-import ImageLink, { ImageLinkProps } from '../ImageLink';
+import FooterLinksContainer from './FooterLinksContainer';
+import ImageLink, { ImageLinkProps } from './ImageLink';
 
 const defaultProps = {
   hideText: true,

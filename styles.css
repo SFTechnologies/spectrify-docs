@@ -10,3 +10,8 @@ img[src*='#icon'] {
   text-align: center;
   margin: 3rem 0;
 }
+
+.image-center {
+  display: block;
+  margin: 0 auto;
+}

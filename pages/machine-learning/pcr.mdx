@@ -17,24 +17,25 @@ Principal Component Regression (PCR) is a technique that combines the features o
 
 ### Visual Example
 
-_Imagine trying to predict the quality of wine from various attributes like acidity, sugar level, and alcohol content. PCR can help simplify the problem by reducing these attributes into a few principal components._
+_We train the model using a spectral database with known values. This enables the machine to recognize subtle changes in the spectra related to the contents, thereby allowing it to predict the contents of spectra with unknown values._
 
 <br />
 <Image
-  src={`${imagePath}1_pcr_example.png`}
+  src={`${imagePath}regression_database_example1.png`}
   alt='PCR implementation for predicting wine quality'
   width={1080}
   height={373}
 />
 <br />
 
-_This method ensures that only the most significant attributes are used, enhancing model simplicity and interpretability._
+_Internally, the machine learning algorithm generates a calibration curve, positioning both known and unknown samples along it and quantizing them accordingly._
 
 <br />
 <Image
-  src={`${imagePath}multi_pcr_example.png`}
-  alt='PCR predicting wine quality from multiple attributes'
-  width={1080}
+  class='image-center'
+  src={`${imagePath}regression_database_example2.png`}
+  alt='PLSR predicting housing prices from multiple features'
+  width={512}
   height={373}
 />
 

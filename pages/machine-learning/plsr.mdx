@@ -17,24 +17,25 @@ Partial Least Squares Regression (PLSR) is a method that combines features of bo
 
 ### Visual Example
 
-_Consider predicting housing prices based on features like size, age, and location. PLSR can effectively combine these into a set of meaningful components that directly take into account their correlation with the price._
+_We train the model using a spectral database with known values. This enables the machine to recognize subtle changes in the spectra related to the contents, thereby allowing it to predict the contents of spectra with unknown values._
 
 <br />
 <Image
-  src={`${imagePath}1_plsr_example.png`}
+  src={`${imagePath}regression_database_example1.png`}
   alt='PLSR implementation for predicting housing prices'
   width={1080}
   height={373}
 />
 <br />
 
-_This approach optimizes the predictors for relevance to the target, enhancing predictive accuracy._
+_Internally, the machine learning algorithm generates a calibration curve, positioning both known and unknown samples along it and quantizing them accordingly._
 
 <br />
 <Image
-  src={`${imagePath}multi_plsr_example.png`}
+  class='image-center'
+  src={`${imagePath}regression_database_example2.png`}
   alt='PLSR predicting housing prices from multiple features'
-  width={1080}
+  width={512}
   height={373}
 />
 

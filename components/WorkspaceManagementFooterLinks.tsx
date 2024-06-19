@@ -1,5 +1,5 @@
-import FooterLinksContainer from '../FooterLinksContainer';
-import ImageLink from '../ImageLink';
+import FooterLinksContainer from './FooterLinksContainer';
+import ImageLink from './ImageLink';
 
 interface SpectraTableFooterLinksProps {
   imagePath: string;
@@ -12,7 +12,7 @@ const footerLinksList = [
   { actionText: 'new workspace' },
 ];
 
-const SpectraTableFooterLinks = ({
+const WorkspaceManagementFooterLinks = ({
   imagePath,
 }: SpectraTableFooterLinksProps) => {
   return (
@@ -27,4 +27,4 @@ const SpectraTableFooterLinks = ({
     </FooterLinksContainer>
   );
 };
-export default SpectraTableFooterLinks;
+export default WorkspaceManagementFooterLinks;

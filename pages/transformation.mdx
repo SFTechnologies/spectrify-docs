@@ -1,0 +1,32 @@
+import Image from 'next/image';
+import TransformationFooterLinks from '/components/TransformationFooterLinks';
+
+export const imagePath = '/images/transformation/';
+
+# Transformation
+
+Transformation techniques in spectral analysis are applied to modify or enhance spectral data to improve its suitability for subsequent analysis or visualization. These techniques can involve mathematical operations, spectral manipulations, or combinations of both, aiming to extract meaningful information or facilitate data interpretation.
+
+Transformations can serve various purposes, such as:
+
+- **Energy Units Conversion:** Converting spectral data between different intensity units, such as wavenumbers (cm⁻¹), Raman shift (cm⁻¹), microns (µm), and nanometers (nm). This is essential for comparing spectra acquired using different instruments or experimental setups.
+- **Intensity Units Conversion:** Transforming spectral data between different energy units, such as absorbance (A), transmittance (T), Kubelka-Munk (K), and log1/R (L). These conversions are crucial for analyzing and interpreting spectra in terms of specific material properties or interactions with light.
+- **Cutting and Cropping Spectra:** Selecting specific spectral regions of interest by defining wavelength or wavenumber ranges. This allows for focused analysis on particular spectral features.
+- **Spectra Calculator:** Performing mathematical operations between spectra, such as addition, subtraction, multiplication, and division. This can involve operations between individual spectra or between a group of spectra and a constant value.
+
+## Configurable parameters
+
+Each Transformation icon includes a 'settings gear' button for configuring transformation parameters in a pop-up menu. For detailed instructions on each configurable parameter, consult the corresponding transformation action section.
+
+<br />
+<Image
+  src={`${imagePath}transformation_gear_parameters.png`}
+  alt='transformation parameters customization'
+  width={500}
+  height={300}
+/>
+
+<br />
+<hr />
+<br />
+<TransformationFooterLinks imagePath={imagePath} />

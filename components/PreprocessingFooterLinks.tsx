@@ -1,5 +1,5 @@
-import FooterLinksContainer from '../FooterLinksContainer';
-import ImageLink from '../ImageLink';
+import FooterLinksContainer from './FooterLinksContainer';
+import ImageLink from './ImageLink';
 
 const footerLinksList = [
   { actionText: 'standardize' },
@@ -12,7 +12,7 @@ const footerLinksList = [
   { actionText: 'restore' },
 ];
 
-const SpectraTableFooterLinks = () => {
+const PreprocessingFooterLinks = () => {
   return (
     <FooterLinksContainer>
       {footerLinksList.map(({ actionText }) => (
@@ -25,4 +25,4 @@ const SpectraTableFooterLinks = () => {
     </FooterLinksContainer>
   );
 };
-export default SpectraTableFooterLinks;
+export default PreprocessingFooterLinks;
