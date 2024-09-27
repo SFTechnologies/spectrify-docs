@@ -1,0 +1,121 @@
+import Image from 'next/image';
+export const imagePath = '/images/machine-learning/';
+
+## K-Means Clustering
+
+KMeans is an unsupervised machine learning algorithm used for partitioning a dataset
+into K distinct, non-overlapping clusters. It aims to group similar data points
+together while keeping dissimilar data points in different clusters. The algorithm
+works by iteratively assigning data points to the nearest cluster centroid and then
+updating the centroids based on the mean of all points in each cluster.
+
+<br />
+<br /> <u>Configurable Parameters:</u>
+
+- **Dimensionality reduction**: (COMING SOON) Method for summarizing the number of
+  features in spectra, like PCA or Peaks.
+- **Number of clusters**: Specifies the number of different groups to divide your
+  data into. This is a crucial parameter that determines the granularity of the
+  clustering.
+
+  {' '}
+
+  <br />
+
+  ### Visual Example
+
+  _K-Means clustering can be used to label similar data together, allowing for the identification
+  of distinct patterns or sample types within a dataset._
+
+  <br />
+  <Image
+    class='image-center'
+    src={`${imagePath}kmeans_dots.png`}
+    alt='Data before and after KMeans'
+    width={500}
+    height={373}
+  />
+  <br />
+
+_Spectrify allows users to easily identify similar spectra and create a scatter plot
+of selected peaks. Centroids are also indicated_
+
+{' '}
+
+<br />
+<Image
+  src={`${imagePath}kmeans_spectra.png`}
+  alt='KMeans applied to spectra'
+  width={1080}
+  height={373}
+/>
+<br />
+
+### Key Concepts
+
+- **Centroids**: The mean point of all data points within a cluster. These serve as the
+  representatives of each cluster.
+
+  > Centroids are initially placed randomly and are iteratively updated as the algorithm
+  > progresses.
+
+  <br />
+
+- **Inertia**: The sum of squared distances between each data point and its assigned
+  centroid. It measures how internally coherent clusters are.
+
+  > Lower inertia indicates more compact and well-separated clusters. This metric is often
+  > used to determine the optimal number of clusters.
+
+  <br />
+
+### Data example
+
+Let's consider a simplified dataset of spectral intensities at different wavelengths for various
+samples. Imagine to plot them in a 3D scatter plot.
+
+| Sample | 450 nm | 550 nm | 650 nm |
+| ------ | ------ | ------ | ------ |
+| A      | 0.2    | 0.5    | 0.8    |
+| B      | 0.3    | 0.6    | 0.7    |
+| C      | 0.8    | 0.3    | 0.2    |
+| D      | 0.7    | 0.4    | 0.3    |
+
+After applying KMeans clustering with 2 clusters, we might get two main groups:
+
+| Sample | Cluster |
+| ------ | ------- |
+| A      | 0       |
+| B      | 0       |
+| C      | 1       |
+| D      | 1       |
+
+And thThe centroids for these clusters could be:
+Cluster| 450 nm| 550 nm| 650 nm|
+-------|-------|-------|-------|
+0 |0.25 |0.55 |0.75|
+1 |0.75 |0.35 |0.25|
+
+### Mathematical Explanation
+
+1.  Initialize K centroids randomly.
+
+2.  Assign each data point to the nearest centroid: For each data point $x_i$, assign it to cluster $C_j$ if:
+
+<p className='formula'>$j = \arg\min_j ||x_i - \mu_j||^2$</p>
+
+Where $\mu_j$ is the centroid of cluster $j$.
+
+<br />
+
+3.  Update centroids: For each cluster $j$, update its centroid to be the mean of all points assigned to it:
+
+<p className='formula'>$\mu_j = \frac{1}{|C_j|} \sum_{x_i \in C_j} x_i$</p>
+
+4.  Repeat steps 2 and 3 until convergence or a maximum number of iterations is reached.
+
+5.  Calculate inertia:
+
+<p className='formula'>$\text{Inertia} = \sum_{i=1}^n \min_{\mu_j \in C} (\lVert x_i - \mu_j \rVert^2)$</p>
+
+Where $n$ is the number of data points and $C$ is the set of all centroids.

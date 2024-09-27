@@ -1,5 +1,6 @@
 {
   "pca": "PCA",
   "pcr": "PCR",
-  "plsr": "PLSR"
+  "plsr": "PLSR",
+  "kmeans": "K-Means"
 }
