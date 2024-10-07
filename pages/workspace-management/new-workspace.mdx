@@ -1,19 +1,25 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 import WorkspaceManagementFooterLinks from '/components/WorkspaceManagementFooterLinks';
 
-export const imagePath = "/images/workspace-management/";
+export const imagePath = '/images/workspace-management/';
 
 ## New workspace
+
 <hr></hr>
 <br></br>
-<Image src={`${imagePath}new_workspace_icon.svg`} alt="new workspace icon" width={65} height={65} />
+<Image
+  src={`${imagePath}new_workspace_icon.svg`}
+  alt='new workspace icon'
+  width={65}
+  height={65}
+/>
 
 Allows users to create a new workspace with properties and settings for a specific spectral technique.
 
-This includes defining a name, technique and description, providing a way to organize and categorize workspaces for easy retrieval. 
+This includes defining a name, technique and description, providing a way to organize and categorize workspaces for easy access.
 
-Each workspace operates independently, allowing for multiple instances of the same spectra with different transformations. Once the new workspace is established, users can save it for future use, ensuring that the defined properties and settings are preserved.
+Each workspace operates independently, allowing for multiple instances of the same spectra with different transformations. Once the new workspace is established, users can save it for future use in **.spws** file format, ensuring that the defined properties and settings are preserved.
 
 <br />
 <hr />

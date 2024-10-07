@@ -1,17 +1,23 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 import WorkspaceManagementFooterLinks from '/components/WorkspaceManagementFooterLinks';
 
-export const imagePath = "/images/workspace-management/";
+export const imagePath = '/images/workspace-management/';
 
 ## Open workspace
+
 <hr></hr>
 <br></br>
-<Image src={`${imagePath}open_workspace_icon.svg`} alt="open workspace icon" width={65} height={65} />
+<Image
+  src={`${imagePath}open_workspace_icon.svg`}
+  alt='open workspace icon'
+  width={65}
+  height={65}
+/>
 
-Enables users to load a previously saved workspace file with a **.spws** extension. 
+Enables users to load a previously saved workspace file with a **.spws** extension.
 
-Upon loading, the workspace will restore the exact state that was saved, including all open documents, window layouts, and any other relevant settings.
+Upon loading, the workspace will restore the exact state that was saved, including all spectra, analysis and any other relevant settings and results.
 
 <br />
 <hr />

@@ -1,17 +1,23 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 import WorkspaceManagementFooterLinks from '/components/WorkspaceManagementFooterLinks';
 
-export const imagePath = "/images/workspace-management/";
+export const imagePath = '/images/workspace-management/';
 
 ## Close workspace
+
 <hr></hr>
 <br></br>
-<Image src={`${imagePath}close_workspace_icon.svg`} alt="close workspace icon" width={65} height={65} />
+<Image
+  src={`${imagePath}close_workspace_icon.svg`}
+  alt='close workspace icon'
+  width={65}
+  height={65}
+/>
 
-Close workspace option terminates the current workspace. 
+Close workspace option terminates the current workspace.
 
-Any unsaved data within the workspace will be lost. This action effectively terminates the current workspace session, closing all associated documents and results. Users should ensure that any necessary data is saved before proceeding with the closure of the workspace.
+Any unsaved data within the workspace will be lost. This action effectively terminates the current workspace session, closing all associated spectra and results. Users should ensure that any necessary data is saved before proceeding with the closure of the workspace.
 
 <br />
 <hr />
