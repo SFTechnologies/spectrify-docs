@@ -1,17 +1,23 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 import WorkspaceManagementFooterLinks from '/components/WorkspaceManagementFooterLinks';
 
-export const imagePath = "/images/workspace-management/";
+export const imagePath = '/images/workspace-management/';
 
 ## Save workspace
+
 <hr></hr>
 <br></br>
-<Image src={`${imagePath}save_workspace_icon.svg`} alt="save workspace icon" width={65} height={65} />
+<Image
+  src={`${imagePath}save_workspace_icon.svg`}
+  alt='save workspace icon'
+  width={65}
+  height={65}
+/>
 
 Allows users to save the current state of their workspace for future use in **.spws** extension.
 
-This includes saving the layout of all open and arranged windows, documents, and any other relevant settings into a workspace file. When the workspace is reopened, it will restore the saved layout and settings exactly as they were when the workspace was saved.
+This includes all spectra, analysis, and other relevant settings and results. When the workspace is reopened, all of this data will be restored so you can continue your work from where you left it.
 
 <br />
 <hr />
