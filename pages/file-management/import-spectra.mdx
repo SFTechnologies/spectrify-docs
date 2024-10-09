@@ -26,11 +26,11 @@ Suported files include:
 
 ### Standard Importer
 
-The import pop up allows to directly drag&drop files or navigate through your own Operating System files menu.
+The import pop-up allows you to directly drag and drop files or navigate through your Operating System files menu.
 
-- Use the File Format dropdown menu to select wether your file is row or column wise.
+- Use the File Format dropdown menu to select whether your file is row or column-wise.
 - Headers (first row) or indexes (first column) must be numeric wavelengths.
-- It autodetect is there are a single or multiple spectra.
+- The standard importer autodetects whether your file contains a single spectrum or multiple spectra.
 - Metadata will be automatically imported based in if the field name is string.
 
 <br />
@@ -44,7 +44,7 @@ The import pop up allows to directly drag&drop files or navigate through your ow
 
 ### Advanced Importer
 
-Activate the Advanced Importer button in the Import pop up menu to access Advanced Import options.
+Activate the Advanced Importer button in the Import pop-up menu to access Advanced Import options.
 
 <br />
 <Image
@@ -89,8 +89,8 @@ The interface is divided into four key sections:
   style={{ display: 'block', margin: '0 auto' }}
 />
 
-- **Apply To Current**: Will apply the settings to the current file, opening to the next one in case multiple files are loaded.
-- **Apply to All Files**: Will apply same setting to all uploaded files.
+- **Apply To Current**: If this option is selected, the importer will parse the current file according to the current settings and will upload the spectra it contains. If there are more files to process the importer will load the next one for you to review.
+- **Apply to All Files**: When this option is selected, the importer will parse all the remaining files according to the current settings for it.
 
 ### Import errors
 

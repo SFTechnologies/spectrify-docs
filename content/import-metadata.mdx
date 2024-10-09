@@ -13,8 +13,8 @@ The file should adhere to the following format:
 - The first row should contain the column headers, which can have any names chosen by the user.
 - Subsequent rows represent individual records or entries.
 - Decimal separators should be either point (.) or comma (,)
-- Fields should be separated by one valid delimiter: comma ( , ), semicolon ( ; ), pipe ( | ), space or tab ( ).
-- If the file contains commentaries or textual information, lines can be skipped.
+- Fields should be delimited by one of these characters: comma ( , ), semicolon ( ; ), pipe ( | ), space, or tab.
+- If the file contains lines with comments or other non-relevant data, they can be skipped.
 
 ### Importing Metadata
 
@@ -42,7 +42,7 @@ To import metadata:
      style={{ display: 'block', margin: '0 auto' }}
    />
 
-3. Click on the "Choose your File" button and select your metadata file.
+3. Click the "Choose your File" button and select your metadata file.
 4. Review the Preview.
    <br />
    <Image
@@ -53,11 +53,11 @@ To import metadata:
      style={{ display: 'block', margin: '0 auto' }}
    />
 
-If needed, adjust the settings:
+If needed, you can adjust these settings:
 
-- Specify the decimal separator.
-- Specify a custom delimiter character (other than comma).
-- Skip a specific number of rows at the beginning of the file.
+- The decimal separator.
+- The delimiter character.
+- The number of rows (lines) to be skipped at the beginning of the file.
 
 <br />
 <Image
@@ -88,4 +88,4 @@ If an error occurs during the metadata import process, an error message will be 
 - Invalid file format
 - Mismatch between the number of metadata entries and the number of spectra
 
-To resolve import errors, review your file and ensure that it adheres to the required format. Make any necessary corrections and attempt the import again.
+To deal with import errors, review your file and ensure that it adheres to the required format. Make any necessary corrections and attempt the import again.
