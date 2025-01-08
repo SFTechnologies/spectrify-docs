@@ -1,0 +1,128 @@
+import Image from 'next/image';
+export const imagePath = '/images/machine-learning/';
+
+## Statistical Metrics for Model Evaluation
+
+Statistical metrics for model evaluation are fundamental tools in assessing the performance of predictive models. These metrics provide quantitative measures of how well a model's predictions align with actual values, helping to identify both the accuracy of predictions and the model's explanatory power.
+
+<br />
+<u>Key Components:</u>
+
+- **Actual Values (y)**: The true observed values in your dataset
+- **Predicted Values (ŷ)**: The values predicted by your model
+- **Mean Value (ȳ)**: The average of all actual values
+
+<br />
+
+### Key Metrics
+
+- **SSD (Sum of Squares Difference)**:
+  This measures how much your predictions deviate from the actual values. For each data point, it takes the difference between the predicted and actual value, squares it, and adds all these squared differences together. Think of it as measuring the total "wrongness" of your predictions.
+
+  > Measures the total squared deviation between predicted and actual values, quantifying the absolute prediction error.
+
+  $SSD = \sum(y_i - \hat{y}_i)^2$
+
+  {' '}
+
+  <br />
+
+- **SSR (Sum of Squares Regression)**:
+  This measures how much your predictions vary from the average of all actual values. It takes each predicted value, subtracts the mean of all actual values, squares this difference, and adds them all up. This tells you how much of the variation in your data your model is actually explaining.
+
+  > Quantifies how much variation the model explains by measuring the deviation of predictions from the mean of actual values.
+
+  $SSR = \sum(\hat{y}_i - \bar{y})^2$
+
+  {' '}
+
+  <br />
+
+- **SST (Sum of Squares Total)**:
+  This is similar to SSR, but uses the actual values instead of predictions. It measures the total variation in your actual data by taking each actual value, subtracting their mean, squaring the difference, and adding them all up.
+
+  > Represents the total variation in the actual data by measuring how far each actual value deviates from their mean.
+
+  $SST = \sum(y_i - \bar{y})^2$
+
+  {' '}
+
+  <br />
+
+### Derived Statistics
+
+- **RSE (Residual Square Error)**:
+  This is derived from the SSD and gives you the typical size of your prediction error.
+
+  > A scaled version of SSD that accounts for model complexity and sample size, providing a standardized measure of prediction error.
+
+  $RSE = \sqrt{\frac{SSD}{n-2}}$
+
+  Where n is the number of observations and 2 is subtracted to account for degrees of freedom.
+
+  {' '}
+  <br />
+
+- **Error Ratio**:
+  This makes the RSE more interpretable by expressing it as a percentage of the average actual value.
+
+  > Expresses the RSE as a proportion of the mean value, making it more interpretable across different scales.
+
+  $Error = \frac{RSE}{\bar{y}}$
+
+  {' '}
+  <br />
+
+- **R² (Coefficient of Determination)**:
+  This is calculated as SSR/SST and tells you what percentage of the variation in your data your model successfully explains. An R² of 1 means perfect predictions, while 0 means your predictions are no better than just guessing the mean.
+
+  > Indicates the proportion of variance in the dependent variable that's predictable from the independent variable(s).
+
+  $R^2 = \frac{SSR}{SST}$
+
+### Data Example
+
+Consider a model predicting house prices using various features:
+
+| House | Actual Price ($) | Predicted Price ($) |
+| ----- | ---------------- | ------------------- |
+| 1     | 250,000          | 245,000             |
+| 2     | 300,000          | 310,000             |
+| 3     | 275,000          | 280,000             |
+| 4     | 225,000          | 220,000             |
+
+Mean actual price (ȳ) = $262,500
+
+Calculating our metrics:
+
+```
+SSD = (250,000 - 245,000)² + (300,000 - 310,000)² + ... = 325,000,000
+RSE = √(325,000,000/(4-2)) = 12,747
+Error = 12,747/262,500 = 0.0486 (4.86%)
+```
+
+### Mathematical Implementation
+
+1. **Calculate Deviations**:
+   First, calculate the differences between predicted and actual values:
+
+   ```
+   differences = y - ŷ
+   ```
+
+2. **Calculate Core Metrics**:
+
+   ```
+   SSD = sum(differences²)
+   SSR = sum((ŷ - ȳ)²)
+   SST = sum((y - ȳ)²)
+   ```
+
+3. **Derive Additional Statistics**:
+   ```
+   RSE = √(SSD/(n-2))
+   Error = RSE/ȳ
+   R² = SSR/SST
+   ```
+
+These metrics together provide a comprehensive evaluation of a model's performance, helping to understand both its predictive accuracy and explanatory power. The R² value, in particular, is widely used as it provides an easily interpretable measure of how well the model explains the variability in the data.
