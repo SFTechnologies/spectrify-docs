@@ -2,5 +2,6 @@
   "pca": "PCA",
   "pcr": "PCR",
   "plsr": "PLSR",
-  "kmeans": "K-Means"
+  "kmeans": "K-Means",
+  "metrics": "Score Metrics"
 }
